@@ -78,7 +78,7 @@ jobs:
       - name: LiteLLM on the runner (user proxy in front of the gateway)
         if: startsWith(inputs.arm, 'litellm')
         env:
-          ANTHROPIC_API_KEY: ${{ env.ANTHROPIC_API_KEY || secrets.ANTHROPIC_API_KEY }}
+          LAB_UPSTREAM_KEY: ${{ !endsWith(inputs.arm, '-dry') && secrets.ANTHROPIC_API_KEY || 'sk-ant-lab-dry-not-a-key' }}
         run: |
           pip install -q 'litellm[proxy]'
           nohup litellm --config "$RUNNER_TEMP/litellm.yaml" --port 4000 > "$RUNNER_TEMP/litellm.log" 2>&1 &
@@ -98,7 +98,7 @@ jobs:
         with:
           prompt: ${{ env.PROMPT }}
           anthropic_api_key: ${{ env.ANTHROPIC_API_KEY || secrets.ANTHROPIC_API_KEY }}
-          claude_code_oauth_token: ${{ !endsWith(inputs.arm, '-dry') && secrets.CLAUDE_CODE_OAUTH_TOKEN || '' }}
+          claude_code_oauth_token: ${{ !endsWith(inputs.arm, '-dry') && !startsWith(inputs.arm, 'litellm') && secrets.CLAUDE_CODE_OAUTH_TOKEN || '' }}
           github_token: ${{ github.token }}
           claude_args: --model ${{ inputs.model }} --max-turns 30 --allowedTools "Bash,Read,Edit,Write,Glob,Grep"
 
@@ -113,7 +113,7 @@ jobs:
         if: inputs.client == 'cli'
         continue-on-error: true
         env:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ !endsWith(inputs.arm, '-dry') && secrets.CLAUDE_CODE_OAUTH_TOKEN || '' }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ !endsWith(inputs.arm, '-dry') && !startsWith(inputs.arm, 'litellm') && secrets.CLAUDE_CODE_OAUTH_TOKEN || '' }}
           LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           [ -z "${ANTHROPIC_API_KEY:-}" ] && [ -n "$LIVE_API_KEY" ] && export ANTHROPIC_API_KEY="$LIVE_API_KEY"
@@ -130,7 +130,7 @@ jobs:
           [ "${{ inputs.client }}" = cli ] && f="$RUNNER_TEMP/cli-out.json"
           mkdir -p out
           [ -f "$f" ] && cp "$f" out/claude-output.json
-          [ -f "$RUNNER_TEMP/litellm.log" ] && grep -v -F "$CM_ADMIN_KEY" "$RUNNER_TEMP/litellm.log" | tail -200 > out/litellm-tail.log || true
+          [ -f "$RUNNER_TEMP/litellm.log" ] && grep -v -F -e "$CM_ADMIN_KEY" -e "${ANTHROPIC_API_KEY:-none}" "$RUNNER_TEMP/litellm.log" | tail -200 > out/litellm-tail.log || true
           python -m pytest -q > out/pytest-after.txt 2>&1 && echo pass > out/tests-after || echo fail > out/tests-after
           git diff > out/fix.diff || true
           [ -f out/claude-output.json ] && python3 lab/metrics.py out/claude-output.json "${{ inputs.arm }}" "${{ inputs.client }}" && mv lab-metrics.json out/ || echo '{"no_output":true}' > out/lab-metrics.json
