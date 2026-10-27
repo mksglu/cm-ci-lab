@@ -1,0 +1,158 @@
+name: lab
+run-name: lab ${{ inputs.client }} ${{ inputs.arm }} ${{ inputs.tag }}
+
+# One lab run: one client (claude-code-action or `claude -p`), one arm. workflow_dispatch only: no fork code ever
+# runs next to a secret. Arms:
+#   direct       no base URL, straight to Anthropic                         (needs a model secret)
+#   gateway      ANTHROPIC_BASE_URL = context-mode gateway                   (needs a model secret)
+#   gateway-dry  same, plus x-cm-dry-run: 1, the gateway calls no model     (no model secret)
+#   litellm      claude -> LiteLLM on the runner -> gateway -> Anthropic     (needs ANTHROPIC_API_KEY)
+#   litellm-dry  same chain, dry                                            (no model secret)
+# Gateway arms act as the DISPOSABLE tenant t_ci_lab_1 (admin key + x-cm-tenant). Never an owner tenant.
+
+on:
+  workflow_dispatch:
+    inputs:
+      client:
+        type: choice
+        options: [action, cli]
+        default: action
+      arm:
+        type: choice
+        options: [direct, gateway, gateway-dry, litellm, litellm-dry]
+        default: gateway-dry
+      model:
+        type: string
+        default: haiku
+      tag:
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CM_ADMIN_KEY: ${{ secrets.CM_ADMIN_KEY }}
+      LAB_TENANT: t_ci_lab_1
+      PROMPT: >-
+        The test suite of this Python project fails. Run `python -m pytest -q`, find the cause in the source code
+        (not in the tests), fix it with the smallest change, and run the tests again until they pass. Do not edit
+        any test file. End with one line: FIXED: <file>:<line> <what changed>.
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Required secrets (names only, never values)
+        env:
+          HAS_OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+          HAS_API: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+        run: |
+          arm="${{ inputs.arm }}"; missing=""
+          case "$arm" in direct|gateway|gateway-dry|litellm|litellm-dry) ;; *) echo "bad arm"; exit 2 ;; esac
+          case "$arm" in gateway*|litellm*) [ -n "$CM_ADMIN_KEY" ] || missing="$missing CM_ADMIN_KEY" ;; esac
+          case "$arm" in
+            direct|gateway) [ "$HAS_OAUTH" = true ] || [ "$HAS_API" = true ] || missing="$missing CLAUDE_CODE_OAUTH_TOKEN(or ANTHROPIC_API_KEY)" ;;
+            litellm) [ "$HAS_API" = true ] || missing="$missing ANTHROPIC_API_KEY" ;;
+          esac
+          if [ -n "$missing" ]; then echo "::error::arm $arm needs repository secrets:$missing"; exit 2; fi
+          echo "secrets ok for arm $arm"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the project
+        run: pip install -q -e . pytest
+
+      - name: Baseline test run (must fail)
+        run: python -m pytest -q 2>&1 | tail -3 || true
+
+      - name: Arm env
+        env:
+          LAB_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: bash lab/arm-env.sh "${{ inputs.arm }}"
+
+      - name: LiteLLM on the runner (user proxy in front of the gateway)
+        if: startsWith(inputs.arm, 'litellm')
+        env:
+          ANTHROPIC_API_KEY: ${{ env.ANTHROPIC_API_KEY || secrets.ANTHROPIC_API_KEY }}
+        run: |
+          pip install -q 'litellm[proxy]'
+          nohup litellm --config "$RUNNER_TEMP/litellm.yaml" --port 4000 > "$RUNNER_TEMP/litellm.log" 2>&1 &
+          for i in $(seq 1 90); do
+            python3 -c "import urllib.request;urllib.request.urlopen('http://127.0.0.1:4000/health/liveliness',timeout=2)" 2>/dev/null && { echo "litellm up after ${i}x2s"; break; }
+            sleep 2
+          done
+
+      - name: Start clock
+        run: echo "LAB_T0=$(date +%s%3N)" >> "$GITHUB_ENV"
+
+      # ---- client: anthropics/claude-code-action@v1 ----
+      - id: action
+        if: inputs.client == 'action'
+        continue-on-error: true
+        uses: anthropics/claude-code-action@v1
+        with:
+          prompt: ${{ env.PROMPT }}
+          anthropic_api_key: ${{ env.ANTHROPIC_API_KEY || secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ !endsWith(inputs.arm, '-dry') && secrets.CLAUDE_CODE_OAUTH_TOKEN || '' }}
+          github_token: ${{ github.token }}
+          claude_args: --model ${{ inputs.model }} --max-turns 30 --allowedTools "Bash,Read,Edit,Write,Glob,Grep"
+
+      # ---- client: claude -p, Claude Code's own native installer ----
+      - name: Install Claude Code (native installer)
+        if: inputs.client == 'cli'
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - id: cli
+        if: inputs.client == 'cli'
+        continue-on-error: true
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ !endsWith(inputs.arm, '-dry') && secrets.CLAUDE_CODE_OAUTH_TOKEN || '' }}
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          [ -z "${ANTHROPIC_API_KEY:-}" ] && [ -n "$LIVE_API_KEY" ] && export ANTHROPIC_API_KEY="$LIVE_API_KEY"
+          [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ] && unset CLAUDE_CODE_OAUTH_TOKEN
+          claude --version
+          claude -p "$PROMPT" --output-format json --model "${{ inputs.model }}" --max-turns 30 \
+            --allowedTools "Bash,Read,Edit,Write,Glob,Grep" > "$RUNNER_TEMP/cli-out.json"
+
+      - name: Metrics
+        if: always()
+        run: |
+          echo "LAB_T1=$(date +%s%3N)" >> "$GITHUB_ENV"
+          f="${{ steps.action.outputs.execution_file }}"
+          [ "${{ inputs.client }}" = cli ] && f="$RUNNER_TEMP/cli-out.json"
+          mkdir -p out
+          [ -f "$f" ] && cp "$f" out/claude-output.json
+          [ -f "$RUNNER_TEMP/litellm.log" ] && grep -v -F "$CM_ADMIN_KEY" "$RUNNER_TEMP/litellm.log" | tail -200 > out/litellm-tail.log || true
+          python -m pytest -q > out/pytest-after.txt 2>&1 && echo pass > out/tests-after || echo fail > out/tests-after
+          git diff > out/fix.diff || true
+          [ -f out/claude-output.json ] && python3 lab/metrics.py out/claude-output.json "${{ inputs.arm }}" "${{ inputs.client }}" && mv lab-metrics.json out/ || echo '{"no_output":true}' > out/lab-metrics.json
+          python3 - <<'PY'
+          import json, os
+          m = json.load(open("out/lab-metrics.json"))
+          m.update(wall_ms=int(os.popen("date +%s%3N").read()) - int(os.environ["LAB_T0"]),
+                   tests_after=open("out/tests-after").read().strip(), fix_diff_bytes=os.path.getsize("out/fix.diff"),
+                   tag="${{ inputs.tag }}", model_input="${{ inputs.model }}")
+          json.dump(m, open("out/lab-metrics.json", "w"), indent=1)
+          print(json.dumps({k: m.get(k) for k in ("wall_ms", "tests_after", "fix_diff_bytes")}))
+          PY
+
+      - name: Secret check before upload (fails if the admin key is in any file)
+        if: always()
+        run: |
+          if [ -n "$CM_ADMIN_KEY" ] && grep -rlF "$CM_ADMIN_KEY" out/ ; then echo "::error::admin key found in out/, not uploading"; rm -rf out; exit 1; fi
+          ls -la out/
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lab-${{ inputs.client }}-${{ inputs.arm }}-${{ github.run_id }}
+          path: out/
+          if-no-files-found: ignore
