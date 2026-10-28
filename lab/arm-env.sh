@@ -21,7 +21,7 @@ case "$arm" in
     chmod 600 "$RUNNER_TEMP/litellm.yaml"
     put ANTHROPIC_BASE_URL "http://127.0.0.1:4000"; put ANTHROPIC_API_KEY "$lk"; put ENABLE_TOOL_SEARCH true
     dry_client_key_set=1 ;;
-  capture)
+  capture|replay)
     put ANTHROPIC_BASE_URL "http://127.0.0.1:8765"; put ANTHROPIC_API_KEY "sk-ant-lab-capture-not-a-key" ;;
   *) echo "unknown arm $arm"; exit 2 ;;
 esac

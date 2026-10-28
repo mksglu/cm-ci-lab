@@ -10,6 +10,8 @@ run-name: lab ${{ inputs.client }} ${{ inputs.arm }} ${{ inputs.tag }}
 #   litellm-dry  same chain, dry                                            (no model secret)
 #   capture      ANTHROPIC_BASE_URL = a local recorder on the runner; records each request's headers (auth
 #                header NAMES only) and body, answers 400. No model call, no secret leaves the runner.
+#   replay       capture, then replay the captured requests to Anthropic with the real key, one variant per
+#                difference (user-agent, cc_entrypoint), max_tokens 64: finds what Anthropic refuses.
 # Gateway arms act as the DISPOSABLE tenant t_ci_lab_1 (admin key + x-cm-tenant). Never an owner tenant.
 
 on:
@@ -21,7 +23,7 @@ on:
         default: action
       arm:
         type: choice
-        options: [direct, gateway, gateway-dry, litellm, litellm-dry, capture]
+        options: [direct, gateway, gateway-dry, litellm, litellm-dry, capture, replay]
         default: gateway-dry
       model:
         type: string
@@ -53,7 +55,7 @@ jobs:
           HAS_API: ${{ secrets.ANTHROPIC_API_KEY != '' }}
         run: |
           arm="${{ inputs.arm }}"; missing=""
-          case "$arm" in direct|gateway|gateway-dry|litellm|litellm-dry|capture) ;; *) echo "bad arm"; exit 2 ;; esac
+          case "$arm" in direct|gateway|gateway-dry|litellm|litellm-dry|capture|replay) ;; *) echo "bad arm"; exit 2 ;; esac
           case "$arm" in gateway*|litellm*) [ -n "$CM_ADMIN_KEY" ] || missing="$missing CM_ADMIN_KEY" ;; esac
           case "$arm" in
             direct|gateway) [ "$HAS_OAUTH" = true ] || [ "$HAS_API" = true ] || missing="$missing CLAUDE_CODE_OAUTH_TOKEN(or ANTHROPIC_API_KEY)" ;;
@@ -90,7 +92,7 @@ jobs:
           done
 
       - name: Request recorder on the runner (capture arm)
-        if: inputs.arm == 'capture'
+        if: inputs.arm == 'capture' || inputs.arm == 'replay'
         run: |
           mkdir -p out/capture
           nohup python3 lab/capture.py 8765 out/capture > "$RUNNER_TEMP/capture.log" 2>&1 &
@@ -130,6 +132,12 @@ jobs:
           claude --version
           claude -p "$PROMPT" --output-format json --model "${{ inputs.model }}" --max-turns 30 \
             --allowedTools "Bash,Read,Edit,Write,Glob,Grep" > "$RUNNER_TEMP/cli-out.json"
+
+      - name: Replay captured requests with the real key (replay arm)
+        if: always() && inputs.arm == 'replay'
+        env:
+          LAB_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 lab/replay.py out/capture out/replay.json
 
       - name: Metrics
         if: always()
