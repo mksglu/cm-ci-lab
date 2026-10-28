@@ -1,0 +1,65 @@
+# Context Mode + Claude Code (headless `claude -p`): Claude reviews every pull request.
+# Written by `npx @context-mode/cli ci init`. The only Context Mode lines are in the job "env" block below.
+# Secrets: ANTHROPIC_API_KEY (your Anthropic API key) and CONTEXT_MODE_KEY (a CI key from
+# `npx @context-mode/cli ci key create --gh`). This file holds no key.
+name: context-mode-review
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  # One review per PR at a time; a new push cancels the old review.
+  group: context-mode-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    # Fork PRs get no secrets (GitHub rule), so skip them instead of failing.
+    if: github.event.pull_request.head.repo.full_name == github.repository && !github.event.pull_request.draft
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      # --- Context Mode: start ---------------------------------------------
+      # 1. Send Claude Code's model requests through the gateway.
+      # 2. One header per line. The gateway strips every x-cm-* header before it
+      #    forwards, so CONTEXT_MODE_KEY never reaches Anthropic.
+      #    x-context-mode-banner: off keeps the savings line out of the review text.
+      #    x-cm-ci-* mark the run as CI: no personal memory, and its cost is shown per run.
+      # 3. Claude Code turns tool search off for a non-first-party base URL; turn it back on.
+      ANTHROPIC_BASE_URL: https://gateway.context-mode.com
+      ANTHROPIC_CUSTOM_HEADERS: |
+        x-cm-device-key: ${{ secrets.CONTEXT_MODE_KEY }}
+        x-context-mode-banner: off
+        x-cm-ci-repo: ${{ github.repository }}
+        x-cm-ci-ref: pr-${{ github.event.pull_request.number }}
+        x-cm-ci-run: ${{ github.run_id }}
+      ENABLE_TOOL_SEARCH: "true"
+      # --- Context Mode: end -----------------------------------------------
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Claude Code (native installer)
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Claude reviews the pull request
+        env:
+          PR: ${{ github.event.pull_request.number }}
+          BASE: ${{ github.event.pull_request.base.ref }}
+        run: |
+          claude -p "Review pull request #$PR in $GITHUB_REPOSITORY. Compare the PR head with origin/$BASE.
+          Report only real problems: bugs, missing tests, security issues, breaking changes.
+          For each one give the file, the line and a one-line fix.
+          Post the result as one PR comment with gh pr comment $PR. If you find nothing, say so in one line." \
+            --max-turns 20 \
+            --allowedTools "Bash(git diff:*),Bash(git log:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Read,Grep,Glob"
