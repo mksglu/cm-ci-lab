@@ -1,0 +1,135 @@
+name: paths
+run-name: paths ${{ inputs.client }} ${{ inputs.arm }} ${{ inputs.tag }}
+
+# Honest headless paths, each client as it ships, no entrypoint change (docs/bench/ci-actions-1028.md in the gateway):
+#   cli     Claude Code native installer + `claude -p`           (bills as sdk-cli)
+#   action  anthropics/claude-code-action@v1, unchanged           (bills as claude-code-github-action)
+#   sdk-ts  @anthropic-ai/claude-agent-sdk (npm)                  (bills as sdk-ts)
+#   sdk-py  claude-agent-sdk (pip)                                (bills as sdk-py)
+# Arms: direct (no base URL), gateway (the `ci init` env: CI key + x-cm-ci-* + banner off), gateway-dry (same plus
+# x-cm-dry-run: 1: the gateway answers with the body it would forward and calls no model).
+on:
+  workflow_dispatch:
+    inputs:
+      client: { type: choice, options: [cli, action, sdk-ts, sdk-py], default: cli }
+      arm: { type: choice, options: [direct, gateway, gateway-dry], default: gateway-dry }
+      model: { type: string, default: haiku }
+      tag: { type: string, default: "" }
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      LAB_MODEL: ${{ inputs.model }}
+      PROMPT: >-
+        The test suite of this Python project fails. Run `python -m pytest -q`, find the cause in the source code
+        (not in the tests), fix it with the smallest change, and run the tests again until they pass. Do not edit
+        any test file. End with one line: FIXED: <file>:<line> <what changed>.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Install the project
+        run: pip install -q -e . pytest
+      - name: Baseline test run (must fail)
+        run: python -m pytest -q 2>&1 | tail -3 || true
+      - name: Arm env (the lines ci init writes)
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: bash lab/path-env.sh "${{ inputs.arm }}"
+      - name: Dry arm needs no model key
+        if: inputs.arm == 'gateway-dry'
+        run: echo "ANTHROPIC_API_KEY=sk-ant-lab-dry-not-a-key" >> "$GITHUB_ENV"
+      - name: Start clock
+        run: echo "LAB_T0=$(date +%s%3N)" >> "$GITHUB_ENV"
+
+      # ---- cli: Claude Code's native installer, then claude -p ----
+      - name: Install Claude Code (native installer)
+        if: inputs.client == 'cli'
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - id: cli
+        if: inputs.client == 'cli'
+        continue-on-error: true
+        env:
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          [ -z "${ANTHROPIC_API_KEY:-}" ] && export ANTHROPIC_API_KEY="$LIVE_API_KEY"
+          claude --version
+          claude -p "$PROMPT" --output-format json --model "$LAB_MODEL" --max-turns 30 \
+            --allowedTools "Bash,Read,Edit,Write,Glob,Grep" > "$RUNNER_TEMP/out.json"
+
+      # ---- action: unchanged ----
+      - id: action
+        if: inputs.client == 'action'
+        continue-on-error: true
+        uses: anthropics/claude-code-action@v1
+        with:
+          prompt: ${{ env.PROMPT }}
+          anthropic_api_key: ${{ env.ANTHROPIC_API_KEY || secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ github.token }}
+          claude_args: --model ${{ inputs.model }} --max-turns 30 --allowedTools "Bash,Read,Edit,Write,Glob,Grep"
+
+      # ---- sdk-ts: npm install the Agent SDK ----
+      - uses: actions/setup-node@v4
+        if: inputs.client == 'sdk-ts'
+        with: { node-version: "22" }
+      - id: sdkts
+        if: inputs.client == 'sdk-ts'
+        continue-on-error: true
+        env:
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          [ -z "${ANTHROPIC_API_KEY:-}" ] && export ANTHROPIC_API_KEY="$LIVE_API_KEY"
+          mkdir -p "$RUNNER_TEMP/sdk" && cp lab/sdk-run.mjs "$RUNNER_TEMP/sdk/"
+          (cd "$RUNNER_TEMP/sdk" && npm init -y >/dev/null && npm install --no-audit --no-fund @anthropic-ai/claude-agent-sdk >/dev/null && npm ls @anthropic-ai/claude-agent-sdk)
+          node "$RUNNER_TEMP/sdk/sdk-run.mjs" "$RUNNER_TEMP/out.json"
+
+      # ---- sdk-py: pip install the Agent SDK ----
+      - id: sdkpy
+        if: inputs.client == 'sdk-py'
+        continue-on-error: true
+        env:
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          [ -z "${ANTHROPIC_API_KEY:-}" ] && export ANTHROPIC_API_KEY="$LIVE_API_KEY"
+          pip install -q claude-agent-sdk && pip show claude-agent-sdk | head -2
+          python lab/sdk_run.py "$RUNNER_TEMP/out.json"
+
+      - name: Metrics
+        if: always()
+        run: |
+          f="$RUNNER_TEMP/out.json"
+          [ "${{ inputs.client }}" = action ] && f="${{ steps.action.outputs.execution_file }}"
+          mkdir -p out
+          [ -n "$f" ] && [ -f "$f" ] && cp "$f" out/claude-output.json
+          python -m pytest -q > out/pytest-after.txt 2>&1 && echo pass > out/tests-after || echo fail > out/tests-after
+          git diff > out/fix.diff || true
+          [ -f out/claude-output.json ] && python3 lab/metrics.py out/claude-output.json "${{ inputs.arm }}" "${{ inputs.client }}" && mv lab-metrics.json out/ || echo '{"no_output":true}' > out/lab-metrics.json
+          python3 - <<'PY'
+          import json, os
+          m = json.load(open("out/lab-metrics.json"))
+          m.update(wall_ms=int(os.popen("date +%s%3N").read()) - int(os.environ["LAB_T0"]),
+                   tests_after=open("out/tests-after").read().strip(), fix_diff_bytes=os.path.getsize("out/fix.diff"),
+                   tag="${{ inputs.tag }}", model_input="${{ inputs.model }}")
+          json.dump(m, open("out/lab-metrics.json", "w"), indent=1)
+          print(json.dumps({k: m.get(k) for k in ("wall_ms", "tests_after", "fix_diff_bytes", "is_error", "total_cost_usd", "result_markers")}))
+          PY
+      - name: Secret check before upload
+        if: always()
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: |
+          if [ -n "$CONTEXT_MODE_KEY" ] && grep -rlF "$CONTEXT_MODE_KEY" out/ ; then echo "::error::CI key found in out/"; rm -rf out; exit 1; fi
+          ls -la out/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: paths-${{ inputs.client }}-${{ inputs.arm }}-${{ github.run_id }}
+          path: out/
+          if-no-files-found: ignore
