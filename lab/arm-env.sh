@@ -4,7 +4,10 @@ set -euo pipefail
 arm="$1"; tenant="${LAB_TENANT:-t_ci_lab_1}"; gw="https://gateway.context-mode.com"
 dry=""; case "$arm" in *-dry) dry=1 ;; esac
 hdr="x-context-mode-key: ${CM_ADMIN_KEY}
-x-cm-tenant: ${tenant}"
+x-cm-tenant: ${tenant}
+x-cm-ci-repo: ${GITHUB_REPOSITORY:-}
+x-cm-ci-run: ${GITHUB_RUN_ID:-}
+x-context-mode-banner: off"
 [ -n "$dry" ] && hdr="$hdr
 x-cm-dry-run: 1"
 put() { local d="EOF_$RANDOM$RANDOM"; { echo "$1<<$d"; echo "$2"; echo "$d"; } >> "$GITHUB_ENV"; }
