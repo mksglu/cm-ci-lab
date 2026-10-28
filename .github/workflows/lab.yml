@@ -102,8 +102,8 @@ jobs:
         run: echo "LAB_T0=$(date +%s%3N)" >> "$GITHUB_ENV"
 
       # ---- client: anthropics/claude-code-action@v1 ----
-      # Claude Code's own native installer; the action then runs it through lab/claude-entry.sh (see that file:
-      # this key is refused for the github-action entrypoint and accepted for sdk-cli).
+      # Claude Code's own native installer. The action runs it with its own entrypoint (claude-code-github-action),
+      # unchanged: no wrapper resets CLAUDE_CODE_ENTRYPOINT.
       - name: Install Claude Code for the action (native installer)
         if: inputs.client == 'action'
         run: curl -fsSL https://claude.ai/install.sh | bash
@@ -117,7 +117,6 @@ jobs:
           anthropic_api_key: ${{ env.ANTHROPIC_API_KEY || secrets.ANTHROPIC_API_KEY }}
           claude_code_oauth_token: ${{ !endsWith(inputs.arm, '-dry') && !startsWith(inputs.arm, 'litellm') && secrets.CLAUDE_CODE_OAUTH_TOKEN || '' }}
           github_token: ${{ github.token }}
-          path_to_claude_code_executable: ${{ github.workspace }}/lab/claude-entry.sh
           claude_args: --model ${{ inputs.model }} --max-turns 30 --allowedTools "Bash,Read,Edit,Write,Glob,Grep"
 
       # ---- client: claude -p, Claude Code's own native installer ----
