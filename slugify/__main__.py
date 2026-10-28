@@ -8,7 +8,7 @@ from .slugify import slugify, DEFAULT_SEPARATOR
 
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Slug string")
+    parser = argparse.ArgumentParser(description="Slug string", prog="slugify")
 
     input_group = parser.add_argument_group(description="Input")
     input_group.add_argument("input_string", nargs='*',
