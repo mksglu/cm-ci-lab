@@ -1,0 +1,75 @@
+name: review
+run-name: review ${{ inputs.arm }} pr${{ inputs.pr }} ${{ inputs.tag }}
+
+# PR review, the job the top public repos run with a base URL (pydantic-ai, bluesky, dyad, ideavim):
+# Claude Code reviews one merged pydantic/pydantic-ai PR at its own head. Arms: direct vs gateway (path-env.sh).
+on:
+  workflow_dispatch:
+    inputs:
+      pr: { type: string, required: true }
+      arm: { type: choice, options: [direct, gateway], default: gateway }
+      model: { type: string, default: haiku }
+      tag: { type: string, default: "" }
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check out the PR
+        run: |
+          git clone -q --filter=blob:none https://github.com/pydantic/pydantic-ai "$RUNNER_TEMP/repo"
+          cd "$RUNNER_TEMP/repo"
+          git fetch -q origin "pull/${{ inputs.pr }}/head:pr" && git checkout -q pr
+          echo "BASE=$(git merge-base pr origin/main)" >> "$GITHUB_ENV"
+          git diff --stat "$(git merge-base pr origin/main)" pr | tail -1
+      - name: Arm env
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: bash lab/path-env.sh "${{ inputs.arm }}"
+      - name: Install Claude Code (native installer)
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Review
+        continue-on-error: true
+        env:
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          [ -z "${ANTHROPIC_API_KEY:-}" ] && export ANTHROPIC_API_KEY="$LIVE_API_KEY"
+          echo "LAB_T0=$(date +%s%3N)" >> "$GITHUB_ENV"
+          cd "$RUNNER_TEMP/repo"
+          claude -p "You are reviewing a pull request. The PR branch is checked out. Run \`git diff $BASE...HEAD\` to see the change, read the changed files and any code they call as needed, and review the change for bugs, missing tests, API or behaviour regressions, and risky edge cases. Do not edit files. End with a numbered list of findings, each with file:line and one sentence." \
+            --output-format json --model "${{ inputs.model }}" --max-turns 30 \
+            --allowedTools "Bash(git *),Read,Glob,Grep" > "$RUNNER_TEMP/out.json"
+      - name: Metrics
+        if: always()
+        run: |
+          mkdir -p out
+          [ -f "$RUNNER_TEMP/out.json" ] && cp "$RUNNER_TEMP/out.json" out/claude-output.json
+          [ -f out/claude-output.json ] && python3 lab/metrics.py out/claude-output.json "${{ inputs.arm }}" cli && mv lab-metrics.json out/ || echo '{"no_output":true}' > out/lab-metrics.json
+          python3 - <<'PY'
+          import json
+          m = json.load(open("out/lab-metrics.json"))
+          m.update(pr="${{ inputs.pr }}", tag="${{ inputs.tag }}", model_input="${{ inputs.model }}")
+          try: m["review"] = json.load(open("out/claude-output.json")).get("result", "")
+          except Exception: pass
+          json.dump(m, open("out/lab-metrics.json", "w"), indent=1)
+          print(json.dumps({k: m.get(k) for k in ("arm", "pr", "is_error", "num_turns", "total_cost_usd")}))
+          PY
+      - name: Secret check before upload
+        if: always()
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: |
+          if [ -n "$CONTEXT_MODE_KEY" ] && grep -rlF "$CONTEXT_MODE_KEY" out/ ; then echo "::error::CI key found"; rm -rf out; exit 1; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: review-${{ inputs.arm }}-pr${{ inputs.pr }}-${{ github.run_id }}
+          path: out/
+          if-no-files-found: ignore
