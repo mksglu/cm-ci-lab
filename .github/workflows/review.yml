@@ -1,11 +1,12 @@
 name: review
-run-name: review ${{ inputs.arm }} pr${{ inputs.pr }} ${{ inputs.tag }}
+run-name: review ${{ inputs.arm }} ${{ inputs.repo }}#${{ inputs.pr }} ${{ inputs.tag }}
 
 # PR review, the job the top public repos run with a base URL (pydantic-ai, bluesky, dyad, ideavim):
 # Claude Code reviews one merged pydantic/pydantic-ai PR at its own head. Arms: direct vs gateway (path-env.sh).
 on:
   workflow_dispatch:
     inputs:
+      repo: { type: string, default: pydantic/pydantic-ai }
       pr: { type: string, required: true }
       arm: { type: choice, options: [direct, direct-ts, gateway], default: gateway }
       model: { type: string, default: haiku }
@@ -22,11 +23,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check out the PR
         run: |
-          git clone -q --filter=blob:none https://github.com/pydantic/pydantic-ai "$RUNNER_TEMP/repo"
+          git clone -q --filter=blob:none "https://github.com/${{ inputs.repo }}" "$RUNNER_TEMP/repo"
           cd "$RUNNER_TEMP/repo"
+          def=$(git symbolic-ref --short refs/remotes/origin/HEAD)
           git fetch -q origin "pull/${{ inputs.pr }}/head:pr" && git checkout -q pr
-          echo "BASE=$(git merge-base pr origin/main)" >> "$GITHUB_ENV"
-          git diff --stat "$(git merge-base pr origin/main)" pr | tail -1
+          echo "BASE=$(git merge-base pr $def)" >> "$GITHUB_ENV"
+          git diff --stat "$(git merge-base pr $def)" pr | tail -1
       - name: Arm env
         env:
           CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
@@ -55,7 +57,7 @@ jobs:
           python3 - <<'PY'
           import json
           m = json.load(open("out/lab-metrics.json"))
-          m.update(pr="${{ inputs.pr }}", tag="${{ inputs.tag }}", model_input="${{ inputs.model }}")
+          m.update(repo="${{ inputs.repo }}", pr="${{ inputs.pr }}", tag="${{ inputs.tag }}", model_input="${{ inputs.model }}")
           try: m["review"] = json.load(open("out/claude-output.json")).get("result", "")
           except Exception: pass
           json.dump(m, open("out/lab-metrics.json", "w"), indent=1)
@@ -70,6 +72,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: review-${{ inputs.arm }}-pr${{ inputs.pr }}-${{ github.run_id }}
+          name: review-${{ inputs.arm }}-${{ github.run_id }}
           path: out/
           if-no-files-found: ignore
