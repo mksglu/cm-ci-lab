@@ -1,0 +1,84 @@
+name: review-action
+run-name: review-action ${{ inputs.arm }} ${{ inputs.repo }}#${{ inputs.pr }} ${{ inputs.tag }}
+
+# PR review with the official anthropics/claude-code-action@v1, unchanged: the setup the top public repos run
+# (bluesky, pydantic-ai, dyad, ideavim). One merged PR of a high-star repo, checked out at its head.
+# Arms: direct | direct-ts (direct + ENABLE_TOOL_SEARCH, the same env flag the gateway arm sets) | gateway.
+on:
+  workflow_dispatch:
+    inputs:
+      repo: { type: string, required: true }
+      pr: { type: string, required: true }
+      arm: { type: choice, options: [direct, direct-ts, gateway], default: gateway }
+      model: { type: string, default: haiku }
+      tag: { type: string, default: "" }
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Keep lab scripts, then check out the target PR in the workspace
+        run: |
+          cp -r lab "$RUNNER_TEMP/lab"
+          find . -mindepth 1 -maxdepth 1 -exec rm -rf {} +
+          git init -q . && git remote add origin "https://github.com/${{ inputs.repo }}"
+          def=$(git ls-remote --symref origin HEAD | awk '/^ref:/{sub("refs/heads/","",$2);print $2}')
+          git fetch -q --filter=blob:none origin "$def" "pull/${{ inputs.pr }}/head:pr"
+          git checkout -q pr
+          echo "BASE=$(git merge-base pr FETCH_HEAD 2>/dev/null || git merge-base pr origin/$def)" >> "$GITHUB_ENV"
+      - name: Base fallback
+        run: |
+          [ -n "$BASE" ] || echo "BASE=$(git rev-list --max-parents=0 HEAD | tail -1)" >> "$GITHUB_ENV"
+          git diff --stat "${BASE:-HEAD~1}" HEAD | tail -1 || true
+      - name: Arm env
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: bash "$RUNNER_TEMP/lab/path-env.sh" "${{ inputs.arm }}"
+      - id: action
+        continue-on-error: true
+        uses: anthropics/claude-code-action@v1
+        with:
+          prompt: >-
+            You are reviewing a pull request. The PR branch is checked out. Run `git diff ${{ env.BASE }}...HEAD` to
+            see the change, read the changed files and any code they call as needed, and review the change for bugs,
+            missing tests, API or behaviour regressions, and risky edge cases. Do not edit files. End with a numbered
+            list of findings, each with file:line and one sentence.
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ github.token }}
+          claude_args: --model ${{ inputs.model }} --max-turns 30 --allowedTools "Bash(git:*),Read,Glob,Grep"
+      - name: Metrics
+        if: always()
+        run: |
+          mkdir -p "$RUNNER_TEMP/out"; o="$RUNNER_TEMP/out"
+          f="${{ steps.action.outputs.execution_file }}"
+          [ -n "$f" ] && [ -f "$f" ] && cp "$f" "$o/claude-output.json"
+          cd "$o"
+          [ -f claude-output.json ] && python3 "$RUNNER_TEMP/lab/metrics.py" claude-output.json "${{ inputs.arm }}" action || echo '{"no_output":true}' > lab-metrics.json
+          python3 - <<'PY'
+          import json
+          m = json.load(open("lab-metrics.json"))
+          m.update(repo="${{ inputs.repo }}", pr="${{ inputs.pr }}", tag="${{ inputs.tag }}", model_input="${{ inputs.model }}")
+          try:
+              d = json.load(open("claude-output.json")); d = d if isinstance(d, list) else [d]
+              m["review"] = next((x.get("result", "") for x in reversed(d) if isinstance(x, dict) and x.get("type") == "result"), "")
+          except Exception: pass
+          json.dump(m, open("lab-metrics.json", "w"), indent=1)
+          print(json.dumps({k: m.get(k) for k in ("arm", "repo", "pr", "is_error", "num_turns", "total_cost_usd")}))
+          PY
+      - name: Secret check before upload
+        if: always()
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: |
+          if [ -n "$CONTEXT_MODE_KEY" ] && grep -rlF "$CONTEXT_MODE_KEY" "$RUNNER_TEMP/out" ; then echo "::error::CI key found"; rm -rf "$RUNNER_TEMP/out"; exit 1; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: review-action-${{ inputs.arm }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/out/
+          if-no-files-found: ignore
