@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       pr: { type: string, required: true }
-      arm: { type: choice, options: [direct, gateway], default: gateway }
+      arm: { type: choice, options: [direct, direct-ts, gateway], default: gateway }
       model: { type: string, default: haiku }
       tag: { type: string, default: "" }
 

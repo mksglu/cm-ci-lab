@@ -12,6 +12,7 @@ x-cm-ci-ref: ${GITHUB_REF_NAME}
 x-cm-ci-run: ${GITHUB_RUN_ID}"
 case "$arm" in
   direct) ;;
+  direct-ts) put ENABLE_TOOL_SEARCH true ;;
   gateway) put ANTHROPIC_BASE_URL "$gw"; put ANTHROPIC_CUSTOM_HEADERS "$hdr"; put ENABLE_TOOL_SEARCH true ;;
   gateway-dry)
     put ANTHROPIC_BASE_URL "$gw"; put ANTHROPIC_CUSTOM_HEADERS "$hdr
