@@ -38,7 +38,7 @@ jobs:
       - name: Review
         continue-on-error: true
         env:
-          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY_B }}
         run: |
           [ -z "${ANTHROPIC_API_KEY:-}" ] && export ANTHROPIC_API_KEY="$LIVE_API_KEY"
           echo "LAB_T0=$(date +%s%3N)" >> "$GITHUB_ENV"

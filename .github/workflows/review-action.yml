@@ -48,7 +48,7 @@ jobs:
             see the change, read the changed files and any code they call as needed, and review the change for bugs,
             missing tests, API or behaviour regressions, and risky edge cases. Do not edit files. End with a numbered
             list of findings, each with file:line and one sentence.
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY_B }}
           github_token: ${{ github.token }}
           claude_args: --model ${{ inputs.model }} --max-turns 30 --allowedTools "Bash(git:*),Read,Glob,Grep"
       - name: Metrics
