@@ -1,3 +1,5 @@
+> **INVALID: do not use the numbers below.** The lab tenant `t_ci_lab_1` used up its 1,000 free requests and was paused at 2026-10-31 10:29:57 UTC. A paused tenant gets plain pass-through: the gateway forwards the request unchanged, with no savings. 32 of the 37 gateway-arm runs behind this doc started after that time and 1 were running across it, so this doc compares direct with a paused pass-through, not with the gateway. The tenant is back in full mode and a clean re-run is in progress. Note added 2026-10-31.
+
 # PR review benchmark (2026-10-31)
 
 Area: pr-review, the `claude-code-review.yml` template (5,352 workflow files; 69 popular repos in the census). Headless `claude -p` (native installer), arms `direct-ts` (direct API + ENABLE_TOOL_SEARCH, the fair baseline) and `gateway`. Workflows `.github/workflows/pr-review.yml` and `pr-review-judge.yml`. Nothing here is published.

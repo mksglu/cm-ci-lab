@@ -1,3 +1,5 @@
+> **INVALID: do not use the numbers below.** The lab tenant `t_ci_lab_1` used up its 1,000 free requests and was paused at 2026-10-31 10:29:57 UTC. A paused tenant gets plain pass-through: the gateway forwards the request unchanged, with no savings. 7 of the 12 gateway-arm runs behind this doc started after that time and 4 were running across it, so this doc compares direct with a paused pass-through, not with the gateway. The tenant is back in full mode and a clean re-run is in progress. Note added 2026-10-31.
+
 # Opus triage benchmark (2026-10-31)
 
 CI failure fix on Opus (`claude-opus-5-5`), the 12 tasks of `triage.yml`, 1 round x 2 arms = 24 runs. Headless `claude -p` (native installer, `stream-json`), arms `direct-ts` (direct API + ENABLE_TOOL_SEARCH) and `gateway`. Workflow `.github/workflows/opus-triage.yml` (a copy of `triage.yml` with stream-json and a model default of Opus). Tag `a1031-opus-opus-r1`. Nothing here is published.
