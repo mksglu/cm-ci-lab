@@ -16,7 +16,7 @@ Bar, fixed in advance: task-resampled CI upper bound < 0, quality not lower than
 | 0 errors | yes, 0 errors, no "Credit balance is too low". |
 | net per run > 0 | point estimate yes, not proven. Net = 0.2443 - 0.1975 - 0.0009 x 28.0 requests = +$0.0215 per run (+$0.0428 if the fee is counted per Claude turn, 4.5, instead of per request). The CI for the cost change includes zero, so this net is not shown to be real. |
 
-Honest reading: the point estimate is a saving, and the first request is clearly smaller. But the CI crosses zero, so by the fixed bar issue dedupe is not proven. The headline is helped by one task: on bun-36967 both gateway runs (r1 and r2) skipped the subagent fan-out (6 requests, no subagent, $0.03 each), while direct-ts used 19 to 23 requests and $0.19 to $0.24. Without that task (22 pairs) the change is -11.6%, 95% CI -26.9% to +10.2%. Both numbers are in the data; neither passes the bar. Per-pair results range from -86% to +123%, and the CI is about 25 points wide each side, so a true saving of 10 to 25% cannot be separated from zero with 12 tasks.
+Honest reading: the point estimate is a saving, and the first request is clearly smaller. But the CI crosses zero, so by the fixed bar issue dedupe is not proven. The headline is helped by one task: on bun-36967 both gateway runs (r1 and r2) skipped the subagent fan-out (6 requests, no subagent, $0.03 each), while direct-ts used 19 to 23 requests and $0.19 to $0.24. Without that task (22 pairs) the change is -11.6%, 95% CI -26.9% to +10.2%. Both numbers are in the data; neither passes the bar. Per-pair results range from -86% to +118%, and the CI is about 25 points wide each side, so a true saving of 10 to 25% cannot be separated from zero with 12 tasks.
 
 ## Numbers
 
@@ -107,7 +107,7 @@ What the data shows:
 - The dedupe command fans out. The main agent starts parallel subagents, and about 60% of requests are subagent requests (about 16.5 of 26 on direct-ts, 16.8 of 28 on gateway). Subagents ran on Sonnet 5.5 and Haiku 5.5.
 - Where the gateway saves: the fixed prefix. Request 1 is 37% smaller (10.6k vs 16.7k), and cache write falls from 61.8k to 37.6k tokens per run, cache read from 372k to 303k. The gateway arm sends more uncached input (3.2k vs 55 tokens per run), which costs little.
 - Where it does not: new tool results (search output, issue bodies) are the same bytes in both arms. The gateway arm made 2 more requests per run, so the fee is larger there.
-- Cost varies more between runs of one arm than between arms (direct-ts $0.11 to $0.50, gateway $0.03 to $0.38). That variance is why the CI is wide.
+- Cost varies more between runs of one arm than between arms (direct-ts $0.11 to $0.50, gateway $0.03 to $0.29). That variance is why the CI is wide.
 
 ## What this means for selling
 
