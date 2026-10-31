@@ -26,7 +26,7 @@ case "$task" in
             test="cargo test --color never"; install="true" ;;
   rich)     repo=Textualize/rich;        sha=59b1aca63bf9ec69ada93af960d8b2a7bd920477; lang=python
             src=(rich/_wrap.py rich/cells.py); tests=(tests/test_cells.py tests/test_text.py)
-            test="python -m pytest tests -v -p no:cacheprovider"; install="pip install -q -e . pytest attrs 'setuptools<81'" ;;
+            test="python -m pytest tests -v -p no:cacheprovider"; install="pip install -q -e . pytest attrs 'setuptools<81' 'pygments==2.17.2'" ;;
   black)    repo=psf/black;              sha=77c0cae18bcc82257882afc7bbb9a5cd95cba16c; lang=python
             src=(src/black/__init__.py src/black/ranges.py); tests=(tests/test_black.py tests/test_ranges.py)
             test="python -m pytest tests -v -p no:cacheprovider -n 0"; install="pip install -q -e '.[d,jupyter]' 'pytest<9' pytest-xdist" ;;
