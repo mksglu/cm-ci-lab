@@ -1,8 +1,8 @@
 name: review-action
 run-name: review-action ${{ inputs.arm }} ${{ inputs.repo }}#${{ inputs.pr }} ${{ inputs.tag }}
 
-# PR review with the official anthropics/claude-code-action@v1, unchanged: the setup the top public repos run
-# (bluesky, pydantic-ai, dyad, ideavim). One merged PR of a high-star repo, checked out at its head.
+# PR review with the official anthropics/claude-code-action@v1, community claude-code-review.yml prompt and read-only tools
+# (same prompt as pr-review.yml). One merged PR of a high-star repo, checked out at its head.
 # Arms: direct | direct-ts (direct + ENABLE_TOOL_SEARCH, the same env flag the gateway arm sets) | gateway.
 on:
   workflow_dispatch:
@@ -41,16 +41,27 @@ jobs:
         run: bash "$RUNNER_TEMP/lab/path-env.sh" "${{ inputs.arm }}"
       - id: action
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
         uses: anthropics/claude-code-action@v1
         with:
-          prompt: >-
-            You are reviewing a pull request. The PR branch is checked out. Run `git diff ${{ env.BASE }}...HEAD` to
-            see the change, read the changed files and any code they call as needed, and review the change for bugs,
-            missing tests, API or behaviour regressions, and risky edge cases. Do not edit files. End with a numbered
-            list of findings, each with file:line and one sentence.
+          prompt: |
+            REPO: ${{ inputs.repo }}
+            PR NUMBER: ${{ inputs.pr }}
+
+            Please review this pull request and provide feedback on:
+            - Code quality and best practices
+            - Potential bugs or issues
+            - Performance considerations
+            - Security concerns
+            - Test coverage
+
+            Use the repository's CLAUDE.md for guidance on style and conventions. Be constructive and helpful in your feedback.
+
+            Use `gh pr diff` and `gh pr view` (with -R ${{ inputs.repo }}) to read the pull request. Print your review as your final answer. Do not post it: gh pr comment is not available.
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY_C }}
           github_token: ${{ github.token }}
-          claude_args: --model ${{ inputs.model }} --max-turns 30 --allowedTools "Bash(git:*),Read,Glob,Grep"
+          claude_args: --model ${{ inputs.model }} --max-turns 30 --allowedTools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*),Read,Glob,Grep"
       - name: Metrics
         if: always()
         run: |
@@ -65,10 +76,18 @@ jobs:
           m.update(repo="${{ inputs.repo }}", pr="${{ inputs.pr }}", tag="${{ inputs.tag }}", model_input="${{ inputs.model }}")
           try:
               d = json.load(open("claude-output.json")); d = d if isinstance(d, list) else [d]
+              seen = {}; per = []
+              for x in d:
+                  if isinstance(x, dict) and x.get("type") == "assistant":
+                      mm = x.get("message") or {}; u = mm.get("usage") or {}; mid = mm.get("id")
+                      if mid in seen: per[seen[mid]].update(u=u); continue
+                      seen[mid] = len(per); per.append({"u": u, "tools": [c.get("name") for c in (mm.get("content") or []) if c.get("type") == "tool_use"]})
+              m["per_message_usage"] = [{"i": i, "in": p["u"].get("input_tokens", 0), "cw": p["u"].get("cache_creation_input_tokens", 0), "cr": p["u"].get("cache_read_input_tokens", 0), "out": p["u"].get("output_tokens", 0), "tools": p["tools"]} for i, p in enumerate(per)]
+              m["api_requests"] = len(per)
               m["review"] = next((x.get("result", "") for x in reversed(d) if isinstance(x, dict) and x.get("type") == "result"), "")
           except Exception: pass
           json.dump(m, open("lab-metrics.json", "w"), indent=1)
-          print(json.dumps({k: m.get(k) for k in ("arm", "repo", "pr", "is_error", "num_turns", "total_cost_usd")}))
+          print(json.dumps({k: m.get(k) for k in ("arm", "repo", "pr", "is_error", "num_turns", "total_cost_usd", "api_requests")}))
           PY
       - name: Secret check before upload
         if: always()
