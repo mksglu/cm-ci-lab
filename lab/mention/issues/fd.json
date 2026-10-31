@@ -1,0 +1,9 @@
+{
+ "repo": "sharkdp/fd",
+ "number": 2192,
+ "title": "[BUG] -u is not equivalent to -H -I when combined with --ignore or --no-hidden",
+ "body": "### Checks\n\n- [x] I have read the troubleshooting section and still think this is a bug.\n\n### Describe the bug you encountered:\n\nAccording to documents, `-u`/`--unrestricted` should be an alias for `--no-ignore --hidden`.\n\nSo `fd -u --ignore` should be identical to `fd -H -I --ignore`: `--ignore` turns the \"no-ignore\" off, while hidden files stay visible. Also `fd -u --no-hidden` should be identical to `fd --no-ignore`.\n\nBut actually:\n```sh\ntouch a.txt .hidden.txt ignored.txt\necho ignored.txt > .ignore\nfd -u --ignore\nfd -u --no-hidden\n```\n\nBoth 2 outputs are `a.txt`\n\n### Describe what you expected to happen:\n\nThere are 4 files. `.hidden.txt` and `.ignore` are hidden files. `ignored.txt` is the ignored file.\n\n`fd -u --ignore` is expected to be the same as `fd -H -I --ignore` or `fd -H`: \n```\n.hidden.txt  # visible hidden file\n.ignore # visible hidden file\na.txt \n```\n\n`fd -u --no-hidden` is expected to be the same as `fd -H -I --no-hidden` or `fd -I`: \n```\na.txt\nignored.txt  # visible ignored file\n```\n\n### What version of `fd` are you using?\n\nfd 10.5.0\n\n### Which operating system / distribution are you on?\n\n```shell\nDarwin 27.0.0 arm64\n```",
+ "author": "Barvemali",
+ "created": "2026-10-25T15:21:44Z",
+ "state": "OPEN"
+}

@@ -1,0 +1,9 @@
+{
+ "repo": "go-chi/chi",
+ "number": 996,
+ "title": "Duplicate HTTP methods in 405 Allow header",
+ "body": "It seems like when routes are registered which 'overlap' due to their wildcards, their methods are repeated in the Allow header in 405 responses.\n\nMinimal runnable example: https://go.dev/play/p/wm5Roz8MSRJ\n\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\t\"log\"\n\t\"net/http\"\n\t\"net/http/httptest\"\n\n\t\"github.com/go-chi/chi/v5\"\n)\n\nfunc main() {\n\tr := chi.NewRouter()\n\n\tr.Post(\"/article/1-2-3\", func(w http.ResponseWriter, r *http.Request) {\n\t\tw.WriteHeader(http.StatusOK)\n\n\t})\n\n\tr.Post(\"/article/{a}\", func(w http.ResponseWriter, r *http.Request) {\n\t\tw.WriteHeader(http.StatusOK)\n\n\t})\n\n\tr.Post(\"/article/{b}-{c}\", func(w http.ResponseWriter, r *http.Request) {\n\t\tw.WriteHeader(http.StatusOK)\n\t})\n\n\tr.Post(\"/article/{b}-{c}-{d}\", func(w http.ResponseWriter, r *http.Request) {\n\t\tw.WriteHeader(http.StatusOK)\n\t})\n\n\tserver := httptest.NewServer(r)\n\tdefer server.Close()\n\n\t// Send a request with an unsupported method\n\tres, err := http.Get(server.URL + \"/article/1-2-3\")\n\tif err != nil {\n\t\tlog.Fatal(err)\n\t}\n\n\tfmt.Println(\"Status:\", res.Status)\n\tfmt.Println(\"Header:\", res.Header)\n}\n```\n\nOutputs:\n\n```\nStatus: 405 Method Not Allowed\nHeader: map[Allow:[POST POST POST POST] Content-Length:[0] Date:[Tue, 10 Nov 2009 23:00:00 GMT]]\n```\n\nThe `POST` value in the `Allow` header is duplicated four times, which seems strange, and I think ideally it would only appear once.",
+ "author": "alexedwards",
+ "created": "2025-05-07T17:03:29Z",
+ "state": "OPEN"
+}

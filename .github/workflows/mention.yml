@@ -1,0 +1,110 @@
+name: mention
+run-name: mention ${{ inputs.arm }} ${{ inputs.task }} ${{ inputs.tag }}
+
+# Mention assistant / issue-to-PR. A real merged bug-fix PR of a popular repo closes a linked issue. The repo is the parent
+# of the merge commit (bug present, no fix, no PR tests, no history). Claude Code (headless, native installer) gets the
+# @claude claude.yml prompt with the issue as the request, and the action's tool list. Pass = the PR's own tests (held back,
+# copied in at check time) pass. Writes never leave the runner: the commit stays local, the diff is an artifact.
+# Arms (lab/path-env.sh): direct-ts (fair baseline), gateway. baseline = no model, hidden tests must fail. control = upstream fix, tests must pass.
+on:
+  workflow_dispatch:
+    inputs:
+      task: { type: choice, options: [flask, cobra, ripgrep, rich, chalk, gin, fd, dayjs, tqdm, testify, loguru, chi], default: gin }
+      arm: { type: choice, options: [baseline, control, direct-ts, gateway], default: baseline }
+      model: { type: string, default: claude-sonnet-5-5 }
+      tag: { type: string, default: "" }
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare the repo (parent of the fix)
+        run: bash lab/mention/task.sh "${{ inputs.task }}"
+      - uses: actions/setup-python@v5
+        if: env.TASK_LANG == 'python'
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v4
+        if: env.TASK_LANG == 'node'
+        with: { node-version: "22" }
+      - uses: actions/setup-go@v5
+        if: env.TASK_LANG == 'go'
+        with: { go-version: "stable", cache: false }
+      - name: Install the project
+        run: cd "$RUNNER_TEMP/repo" && bash -c "$TASK_INSTALL" 2>&1 | tail -3
+      - name: Check run with the hidden tests (baseline must fail, control must pass)
+        if: inputs.arm == 'baseline' || inputs.arm == 'control'
+        run: |
+          mkdir -p out; cd "$RUNNER_TEMP/repo"
+          cp -R "$RUNNER_TEMP/hidden/." .
+          [ "${{ inputs.arm }}" = control ] && cp -R "$RUNNER_TEMP/fix/." .
+          set +e; bash -c "$TASK_TEST" > "$GITHUB_WORKSPACE/out/check.log" 2>&1; rc=$?; set -e
+          echo "CHECK_RC=$rc" >> "$GITHUB_ENV"; echo "rc=$rc"; tail -8 "$GITHUB_WORKSPACE/out/check.log"
+      - name: Arm env
+        if: inputs.arm == 'direct-ts' || inputs.arm == 'gateway'
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: bash lab/path-env.sh "${{ inputs.arm }}"
+      - name: Install Claude Code (native installer)
+        if: inputs.arm == 'direct-ts' || inputs.arm == 'gateway'
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Mention (claude -p, the action's prompt and tools)
+        if: inputs.arm == 'direct-ts' || inputs.arm == 'gateway'
+        continue-on-error: true
+        env:
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY_B }}
+        run: |
+          [ -z "${ANTHROPIC_API_KEY:-}" ] && export ANTHROPIC_API_KEY="$LIVE_API_KEY"
+          python3 lab/mention/prompt.py "${{ inputs.task }}" > "$RUNNER_TEMP/prompt.txt"
+          cd "$RUNNER_TEMP/repo"
+          claude -p "$(cat "$RUNNER_TEMP/prompt.txt")" \
+            --output-format stream-json --verbose --model "${{ inputs.model }}" --max-turns 40 --max-budget-usd 3 \
+            --permission-mode acceptEdits --allowedTools "Read,Write,Edit,Bash,Glob,Grep,LS" > "$RUNNER_TEMP/out.json"
+      - name: Verify (the PR's tests copied in; the push is printed, not run)
+        if: inputs.arm == 'direct-ts' || inputs.arm == 'gateway'
+        run: |
+          mkdir -p out; cd "$RUNNER_TEMP/repo"
+          git add -A -- . ':!node_modules' ':!package-lock.json' ':!*.pyc' ':!*.egg-info' ':!target' >/dev/null 2>&1 || true
+          git diff --cached --stat "$SNAP" > "$GITHUB_WORKSPACE/out/fix.diffstat" || true
+          git diff --cached "$SNAP" -- . > "$GITHUB_WORKSPACE/out/fix.diff" || true
+          echo "would run: git push origin claude/issue-${{ inputs.task }}  (not run: the lab never writes to another repo)" | tee "$GITHUB_WORKSPACE/out/push.txt"
+          cp -R "$RUNNER_TEMP/hidden/." .
+          set +e; bash -c "$TASK_TEST" > "$GITHUB_WORKSPACE/out/after.log" 2>&1; rc=$?; set -e
+          echo "AFTER_RC=$rc" >> "$GITHUB_ENV"; tail -4 "$GITHUB_WORKSPACE/out/after.log"
+      - name: Metrics
+        if: always()
+        run: |
+          mkdir -p out
+          if [ "${{ inputs.arm }}" = direct-ts ] || [ "${{ inputs.arm }}" = gateway ]; then
+            [ -f "$RUNNER_TEMP/out.json" ] && cp "$RUNNER_TEMP/out.json" out/claude-output.json
+            [ -f out/claude-output.json ] && python3 lab/mention/usage.py out/claude-output.json out/per-message-usage.json || true
+            [ -f out/claude-output.json ] && python3 lab/metrics.py out/claude-output.json "${{ inputs.arm }}" cli && mv lab-metrics.json out/ || echo '{"no_output":true}' > out/lab-metrics.json
+          else echo '{"arm":"${{ inputs.arm }}"}' > out/lab-metrics.json; fi
+          python3 - <<'PY'
+          import json, os
+          m = json.load(open("out/lab-metrics.json"))
+          arm = "${{ inputs.arm }}"
+          m.update(task="${{ inputs.task }}", tag="${{ inputs.tag }}", model_input="${{ inputs.model }}", repo=os.environ.get("TASK_REPO"),
+                   check_rc=os.environ.get("CHECK_RC"), after_rc=os.environ.get("AFTER_RC"),
+                   passed=(os.environ.get("AFTER_RC") == "0") if arm in ("direct-ts", "gateway") else (os.environ.get("CHECK_RC") == ("0" if arm == "control" else None)))
+          json.dump(m, open("out/lab-metrics.json", "w"), indent=1)
+          print(json.dumps({k: m.get(k) for k in ("arm","task","is_error","num_turns","total_cost_usd","check_rc","after_rc","passed")}))
+          PY
+      - name: Secret check before upload
+        if: always()
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: |
+          if [ -n "$CONTEXT_MODE_KEY" ] && grep -rlF "$CONTEXT_MODE_KEY" out/ ; then echo "::error::CI key found"; rm -rf out; exit 1; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mention-${{ inputs.arm }}-${{ inputs.task }}-${{ github.run_id }}
+          path: out/
+          if-no-files-found: ignore

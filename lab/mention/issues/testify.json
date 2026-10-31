@@ -1,0 +1,9 @@
+{
+ "repo": "stretchr/testify",
+ "number": 1800,
+ "title": "assert.NotSubset incorrecly formats with %q",
+ "body": "## Description\nNotSubset (but not Subset) seems to be using %q to format error output, that doesn't work for many collection element types.\n\n## Step To Reproduce\n```go\npackage kata_test\n\nimport (\n\t\"testing\"\n\n\t\"github.com/stretchr/testify/assert\"\n)\n\ntype User struct {\n\tID, Name string\n\tAge      int\n}\n\nfunc TestIfy(t *testing.T) {\n\tassert.NotSubset(t, []bool{true}, []bool{true})\n}\n```\n\n## Expected behavior\nValues of arguments to be formatted well.\n\n## Actual behavior\n```\n--- FAIL: TestIfy (0.00s)\n    /Users/brackendawson/src/github.com/brackendawson/kata/kata_test.go:15: \n        \tError Trace:\t/Users/brackendawson/src/github.com/brackendawson/kata/kata_test.go:15\n        \tError:      \t[%!q(bool=true)] is a subset of [%!q(bool=true)]\n        \tTest:       \tTestIfy\nFAIL\ncoverage: 0.0% of statements\nFAIL\tgithub.com/brackendawson/kata\t0.202s\nFAIL\n```",
+ "author": "brackendawson",
+ "created": "2025-09-18T15:53:52Z",
+ "state": "OPEN"
+}
