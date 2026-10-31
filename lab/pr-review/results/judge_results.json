@@ -1,1 +1,364 @@
-{"res": {"j00": {"score_a": 7, "score_b": 7, "false_a": 0, "false_b": 1, "findings_a": 5, "findings_b": 4, "winner": "tie", "why": "Both reviews flag the same minor issues (env var mismatch, shared fixtures, placeholder backend) and no real bugs; A also suggests dropping FindLinksServer, while B cites a 3.5.0 snapshot value and PR-description claims that the diff does not show."}, "j01": {"score_a": 7, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 7, "findings_b": 7, "winner": "tie", "why": "Both reviews are accurate against the diff and flag the same main limitations: inserting a group still drops comments, the snapshot's indentation is awkward, and the insert logic is duplicated. A adds the optional-dependencies inconsistency, which the diff doesn't show. B adds the dropped explanatory comments, which the diff does show, and a missing single-line-table test, so the two come out about equal."}, "j02": {"score_a": 8, "score_b": 5, "false_a": 0, "false_b": 0, "findings_a": 7, "findings_b": 8, "winner": "A", "why": "Review A finds the real regression, where an explicit undefined or null message now falls into the ERR_INVALID_ARG_TYPE branch (this also affects compareExceptionKey's [message]), and it describes the internalMatch generatedMessage problems accurately. Review B says it found no bugs, so it misses that regression, and its other points are mostly cleanup and documentation notes."}, "j03": {"score_a": 7, "score_b": 6, "false_a": 1, "false_b": 2, "findings_a": 4, "findings_b": 3, "winner": "A", "why": "Both correctly flag the duplicate aws-lc-sys versions, the leftover unstable feature and the missing PKCS#8 known-answer test; B adds a useful Windows NASM point but also includes unsupported claims (deno_crypto calling aws-lc-sys directly, separate commits on main, an uncheckable upstream reference), while A's only weak spots are the speculative deno_graph rationale and the low-value pkg-config item."}, "j04": {"score_a": 7, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 4, "findings_b": 4, "winner": "tie", "why": "Both reviews correctly confirm the fix and correctly flag that the Rust code only checks the first character, so names like `a\ud55c\uae00Ref` still differ from the TS regex. Both give the same working code fix and the same test suggestions, and the only claims I couldn't check against the diff are A's `disjoint_set.rs:39` and `InferTypes.ts:785` references and B's PR number."}, "j05": {"score_a": 7, "score_b": 7, "false_a": 1, "false_b": 0, "findings_a": 9, "findings_b": 8, "winner": "tie", "why": "Both reviews make the same accurate points: the comment above the case group is misleading, the tests should cover every suppressed string and the 'Animation start failed' case, and exact-string matching is brittle. A adds an unsupported reference to #37669 and a merged-PR claim that the diff doesn't show, while B is slightly cleaner and its advice to check the strings against the browser sources is concrete."}, "j06": {"score_a": 7, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 9, "findings_b": 11, "winner": "tie", "why": "Both reviews correctly flag that None, non-scalar values and frozenset are now silently dropped, that node names are still unescaped, and that tests are missing for tuples, None and keys; B adds a few speculative escape-list and snapshot points, which cancel out A's slightly tighter focus."}, "j07": {"score_a": 7, "score_b": 7, "false_a": 0, "false_b": 1, "findings_a": 6, "findings_b": 4, "winner": "tie", "why": "Both reviews correctly spot the 0.9\u00d7context fallback pattern and the flipping max_output_tokens values that the diff shows. A adds the MiniMax missing-key point and the model removals. B's table of earlier PRs (#41469, #41494) can't be checked against the diff, so I counted it as one unsupported claim, but it offers a more actionable pinning list. Their scores are within 1 point, so I called it a tie."}, "j08": {"score_a": 6, "score_b": 7, "false_a": 1, "false_b": 0, "findings_a": 7, "findings_b": 6, "winner": "B", "why": "B's unique finding, that the FILES_PER_WORKER doc comment is misleading and the README omits the 225\u2013299 band, is correct and checks out against the diff, and B has no unsupported claims; A asserts that the PR is already merged and approved by a named reviewer, which the diff doesn't show, and otherwise overlaps B with similar suggestions."}, "j09": {"score_a": 7, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 7, "findings_b": 6, "winner": "tie", "why": "Both reviews are accurate and approve the PR with similar minor points (serial reads, stale selection, error-path nits), and neither makes a claim the diff contradicts, so their scores are equal."}, "j10": {"score_a": 7, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 6, "findings_b": 8, "winner": "tie", "why": "Both reviews correctly explain the IndexSet-vs-Vec equality bug, the `chunk_group_keys` `unsafe_ignore` dependency and the test gaps (`page2`/`lazy2` unchecked, the `_ => \"other\"` arm); I could not check their out-of-diff claims against the repo, and B adds a few more follow-ups (cache versioning, `StyleGroups`) while A adds a few more notes, so the scores are equal."}, "j11": {"score_a": 7, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 8, "findings_b": 9, "winner": "tie", "why": "Both reviews correctly describe the two-map split and raise the same valid points (positional `undefined` argument, missing `has` guard on the new map, stale `@TODO`, missing logging and uncaught-error tests), and I found no claim in either that the diff contradicts, though the line numbers outside the diff can't be checked."}, "j12": {"score_a": 6, "score_b": 5, "false_a": 0, "false_b": 0, "findings_a": 5, "findings_b": 6, "winner": "tie", "why": "Both reviews are accurate LGTMs with similar fixture-documentation suggestions and no clearly false claims, but A includes some speculation and B includes some hedged or noise items (the unverifiable 3.5.0 point and the naming nit), so the scores are within 1."}, "j13": {"score_a": 6, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 5, "findings_b": 6, "winner": "tie", "why": "Both reviews are accurate and mostly approving with no false claims. B is slightly more actionable: it flags the UV_INDEX_URL vs UV_DEFAULT_INDEX inconsistency and suggests grepping for leftover references to the old fixture names. A includes a few speculative or noisy points, such as the 'diff is truncated' remark, so the gap is within one point."}, "j14": {"score_a": 7, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 7, "findings_b": 7, "winner": "tie", "why": "Both reviews correctly describe the fix, the leftover comment loss when a new group is inserted, the ugly snapshot indentation, and the missing test for the second function's early return. Both have the same weak spots: A cites a PR description the diff doesn't show, and B's let-chain suggestion is questionable. Neither makes a claim the diff contradicts."}, "j15": {"score_a": 7, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 7, "findings_b": 6, "winner": "tie", "why": "Both reviews read the diff accurately and make the same main points (duplicated sort-and-format block, insert path still loses comments, ugly snapshot indentation, missing test for the second function). I found no false claims in either, and they score about the same."}, "j16": {"score_a": 7, "score_b": 6, "false_a": 0, "false_b": 2, "findings_a": 7, "findings_b": 10, "winner": "A", "why": "Both reviews flag the same real issues (commented-out code, the `generatedMessage` mismatch for an empty-string message, and `[message]` possibly being undefined in `compareExceptionKey`). B also makes claims the diff doesn't support (approval by bartlomieju, the PR description disclosing AI use) and adds low-value or self-resolved noise, while A is tighter and has no unsupported claims."}, "j17": {"score_a": 6, "score_b": 5, "false_a": 0, "false_b": 1, "findings_a": 12, "findings_b": 8, "winner": "A", "why": "Both reviews correctly flag the commented-out code, the possibly unused imports, and the `internalMatch` `generatedMessage` regression with `message[0] ||=`, but B's headline finding that `compareExceptionKey` passes `[undefined]` and throws `ERR_INVALID_ARG_TYPE` is likely wrong (in Node's `compareExceptionKey` the `innerFail` call is only reached with a truthy message, and the diff doesn't show the guard). A has no clear false claims, though it is hedgier."}, "j18": {"score_a": 6, "score_b": 7, "false_a": 2, "false_b": 1, "findings_a": 5, "findings_b": 5, "winner": "B", "why": "Both reviews flag the duplicate aws-lc-sys versions and the missing regression test, but A adds speculative or unsupported claims (deno_crypto being pinned to 0.40.0, 1.x type changes, an odd note about the PR description) while B is more careful and hedged, so B has fewer false claims."}, "j19": {"score_a": 7, "score_b": 7, "false_a": 0, "false_b": 1, "findings_a": 4, "findings_b": 6, "winner": "tie", "why": "Both reviews correctly flag the duplicate aws-lc-sys versions, the to_pkcs8v1 change and the missing distrust test; B adds a few more points but names the wrong crate (deno_crypto) as pinning aws-lc-sys 0.40.0, while A has no clear errors."}, "j20": {"score_a": 6, "score_b": 5, "false_a": 0, "false_b": 0, "findings_a": 3, "findings_b": 5, "winner": "tie", "why": "Both confirm the correct one-line fix and offer the same speculative suggestions (audit other byte slicing, add a unit test), and neither makes a clearly false claim. A is slightly cleaner. B adds a garbled `foo\u00e9`Ref`` example and a muddled point about the callback mutating a non-ref-typed object, but the scores differ by only 1."}, "j21": {"score_a": 6, "score_b": 7, "false_a": 1, "false_b": 1, "findings_a": 5, "findings_b": 5, "winner": "tie", "why": "Both reviews correctly confirm the fix and suggest the same byte-slicing audit and unit test; A wrongly says `a\ud55cRef` should match the TS regex, and B cites a commit hash (266c7d55d) and a regex form that the diff doesn't support."}, "j22": {"score_a": 7, "score_b": 6, "false_a": 0, "false_b": 1, "findings_a": 4, "findings_b": 5, "winner": "tie", "why": "Both reviews are accurate and make the same main suggestion, a table-driven test over all suppressed strings; A adds a correct point about the break and fall-through, while B includes an unverifiable issue number (#37669) and some filler items, and the scores differ by only 1."}, "j23": {"score_a": 6, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 5, "findings_b": 8, "winner": "tie", "why": "Both reviews are accurate against the diff and mostly make the same points (brittle exact-match strings, only one suppressed message tested, check `cause` support). B adds a few more specific observations, such as the misleading first-case comment and the untested Viewport and Animation cases, but its trailing-period comment is slightly off, so the scores are within one point."}, "j24": {"score_a": 6, "score_b": 7, "false_a": 1, "false_b": 0, "findings_a": 9, "findings_b": 10, "winner": "tie", "why": "Both reviews give mostly correct, similar non-blocking suggestions, but A makes an unsupported claim about a HEAD commit that the diff doesn't show, while B adds accurate points such as frozenset and the empty collection case. The scores differ by only 1, but the false claims are not equal, so the tie rule doesn't strictly apply. Since B has no false claims and is slightly more useful, B is the marginally better review."}, "j25": {"score_a": 7, "score_b": 5, "false_a": 0, "false_b": 1, "findings_a": 12, "findings_b": 10, "winner": "A", "why": "Review A's claims all hold up against the diff. Review B wrongly says unescaped braces in metadata could raise KeyError or IndexError in `.format`, but the label is passed as an argument to `.format`, not used as the format string."}, "j26": {"score_a": 7, "score_b": 6, "false_a": 0, "false_b": 0, "findings_a": 7, "findings_b": 6, "winner": "tie", "why": "Both reviews correctly flag the DeepSeek max_output_tokens swaps, the MiMo and Gemma changes, the MiniMax open_weights oddity and the removed models, and neither makes a claim the diff contradicts; A covers a little more (the glm-latest change, the 10/3/2 counts) while B's suggested workflow guard is slightly more useful, so the scores differ by only 1."}, "j27": {"score_a": 6, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 4, "findings_b": 4, "winner": "tie", "why": "Both reviews are accurate and flag the same swapped DeepSeek and Xiaomi max_output_tokens values and the removed profiles, but B is slightly more actionable (a verification count, an rg command, a profile_augmentations override), and the scores differ by only 1 with no false claims on either side."}, "j28": {"score_a": 4, "score_b": 7, "false_a": 2, "false_b": 1, "findings_a": 8, "findings_b": 7, "winner": "B", "why": "Review B's points are mostly accurate and specific, such as the `run: files` single-worker path, the empty list, and the duplicated runList parsing in the node and browser runners. Review A wrongly reports a missing semicolon in `testFiles.ts` (the line ends with `;`) and wrongly says the renderer still duplicates the file-finding logic (it now calls `findTestFiles`). A also admits it did not see parts of the diff."}, "j29": {"score_a": 6, "score_b": 7, "false_a": 1, "false_b": 1, "findings_a": 6, "findings_b": 6, "winner": "tie", "why": "B found two real issues that A missed (Electron logs and runs an empty window for 0 files, and the browser `--runList` run now goes sequential even with a single worker), but A's findings were mostly speculative questions. Both cite PR-description timing data that the diff doesn't support. The scores differ by 1 and false claims are equal."}, "j30": {"score_a": 6, "score_b": 7, "false_a": 2, "false_b": 1, "findings_a": 6, "findings_b": 6, "winner": "B", "why": "Both reviews are accurate and approve the PR, but A makes two claims the diff doesn't support: that selecting a hidden agent led to an HTTP 400, and that one bad file previously aborted discovery. B has only one unsupported claim, that its verdict matches the existing review, and its suggestions (create the parser once, a doc comment, log level) are more actionable."}, "j31": {"score_a": 6, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 6, "findings_b": 6, "winner": "tie", "why": "Both reviews are accurate against the diff and raise similar minor points. B adds a concrete hoisting suggestion and keeps its out-of-scope 400 note short. A's item 6 on stale stored selections is unverified speculation, which it admits, so the scores differ by only 1 and neither has false claims."}, "j32": {"score_a": 7, "score_b": 6, "false_a": 0, "false_b": 1, "findings_a": 9, "findings_b": 8, "winner": "A", "why": "Both reviews diagnose the IndexSet-vs-Vec equality bug correctly, but B includes a false statement (it says the test never builds a page2 handle, when `page2` is built) and cites construction-site details (line 968, the `collect()` inference) that the diff doesn't show, while A hedges on what it couldn't see and gives concrete test suggestions."}, "j33": {"score_a": 7, "score_b": 7, "false_a": 0, "false_b": 0, "findings_a": 6, "findings_b": 6, "winner": "tie", "why": "Both reviews correctly explain the IndexSet-vs-Vec equality fix and the test, and both raise mostly hedged follow-ups (chunk_group_keys, other order-sensitive containers); B adds a few details I couldn't verify from the diff (line 968, the line 66 comment), while A adds a speculative cache-versioning point, so I found no clear false claims and no clear difference in usefulness."}, "j34": {"score_a": 6, "score_b": 7, "false_a": 2, "false_b": 0, "findings_a": 6, "findings_b": 6, "winner": "B", "why": "Review A says seven `digestErrorsMap` sites were switched when the diff shows six, and says the PR is already merged and approved, which the diff doesn't support, while Review B's claims are consistent with the diff and it adds a more specific, actionable check of the remaining shared-map reads."}, "j35": {"score_a": 6, "score_b": 5, "false_a": 0, "false_b": 1, "findings_a": 7, "findings_b": 7, "winner": "tie", "why": "Both reviews are accurate and similar in scope, with no blocking issues and mostly speculative or optional suggestions; B wrongly says 7 return sites were switched when the diff shows 6, and A has no false claims, but the score gap is only 1 and false claims are not equal so by rule it's a tie only if equal\u2014here A is slightly better."}}}
+{
+ "res": {
+  "j00": {
+   "score_a": 6,
+   "score_b": 7,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 6,
+   "findings_b": 5,
+   "winner": "tie",
+   "why": "Neither review makes claims the diff contradicts, and B's notes on the env-var and flag override and the fake build backend are slightly more specific, but the scores differ by only one point."
+  },
+  "j01": {
+   "score_a": 5,
+   "score_b": 6,
+   "false_a": 2,
+   "false_b": 2,
+   "findings_a": 5,
+   "findings_b": 5,
+   "winner": "tie",
+   "why": "Both reviews are hedged and mostly speculative, and both cite PR-description claims that the diff doesn't show, such as 'six resolver tests pass'. A also asserts a '3.5.0' version that isn't in the diff. B has a more actionable grep for stale `pip-compile-*` names and correctly notes that the `list_outdated_index` context line is formatted differently. B also guesses that `hatchling` was fetched, and socket tracing and the CI link aren't in the diff either. The scores differ by one and the false-claim counts are equal, so it's a tie."
+  },
+  "j02": {
+   "score_a": 7,
+   "score_b": 7,
+   "false_a": 1,
+   "false_b": 1,
+   "findings_a": 7,
+   "findings_b": 6,
+   "winner": "tie",
+   "why": "Both reviews correctly describe the change and note the leftover `fmt()` limitation on insert, the ugly snapshot formatting and the untested ensure-group path. Each also misdescribes the snapshot indentation: A says the array has no indentation, and B says the closing bracket sits at the key's level when it is actually at column 0. B's let-chain nitpick is muddled, and A's claim about which commands use the ensure-group path is speculative."
+  },
+  "j03": {
+   "score_a": 7,
+   "score_b": 7,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 9,
+   "findings_b": 9,
+   "winner": "tie",
+   "why": "Both reviews correctly describe the change and its test, and they raise the same remaining gaps (fmt() still drops comments for new groups, the odd snapshot layout, and no test for the early-return path). Neither has a claim the diff contradicts, though A's AGENTS.md remarks and B's group-name normalization point can't be checked from the diff."
+  },
+  "j04": {
+   "score_a": 6,
+   "score_b": 7,
+   "false_a": 1,
+   "false_b": 0,
+   "findings_a": 6,
+   "findings_b": 9,
+   "winner": "tie",
+   "why": "Both reviews correctly flag the leftover commented-out code, the `[undefined]` risk in `compareExceptionKey` and the quirks of `message[0] ||=`; B adds the valid `strictEqual(a,b,undefined)` regression risk, the `\"\"` message case and the drive-by reformat, while A has a muddled point 6 about `innerFail`'s `never` type and a speculative point 5. The scores differ by only 1 and the false-claim counts are close, so this is a tie."
+  },
+  "j05": {
+   "score_a": 8,
+   "score_b": 6,
+   "false_a": 0,
+   "false_b": 1,
+   "findings_a": 9,
+   "findings_b": 8,
+   "winner": "A",
+   "why": "Both reviews catch the commented-out code and the `generatedMessage` bug in `internalMatch`. Only A flags that `compareExceptionKey` can pass `[undefined]` into `innerFail` and hit `ERR_INVALID_ARG_TYPE`, though it hedges on whether that is a real bug. B instead says behavior there is unchanged, which the diff does not support."
+  },
+  "j06": {
+   "score_a": 6,
+   "score_b": 7,
+   "false_a": 1,
+   "false_b": 2,
+   "findings_a": 4,
+   "findings_b": 5,
+   "winner": "tie",
+   "why": "Both reviews raise the same valid points: the duplicate aws-lc-sys versions, the webpki-roots major bump, no tests, and mixed scope. Each also makes small claims the diff doesn't support. A guesses that the TLS_SERVER_ROOT_CERTS type changed and claims the PR description was 'pasted on'. B claims the aws-lc-sys `links` key should block two versions in one graph, and that `ext/crypto` mixes both libraries. Their scores differ by 1 and their false-claim counts are close."
+  },
+  "j07": {
+   "score_a": 7,
+   "score_b": 6,
+   "false_a": 1,
+   "false_b": 2,
+   "findings_a": 4,
+   "findings_b": 5,
+   "winner": "A",
+   "why": "Both reviews correctly flag the duplicate aws-lc-sys 0.40.0 and 0.46.0 entries and the missing regression test. B adds a misleading prebuilt-nasm concern (Cargo.lock never lists features) and an unverifiable CLAUDE.md claim, while A's only unsupported claim is that cargo check passed."
+  },
+  "j08": {
+   "score_a": 6,
+   "score_b": 6,
+   "false_a": 1,
+   "false_b": 1,
+   "findings_a": 4,
+   "findings_b": 4,
+   "winner": "tie",
+   "why": "Both reviews approve a correct fix and make the same optional suggestions (grep for other byte slicing, add a unit test), and each states PR details the diff doesn't show (the `yarn snap` and `cargo fmt` results in A; the `[rust-compiler]` title and `cargo fmt --check` result in B), so they come out equal."
+  },
+  "j09": {
+   "score_a": 6,
+   "score_b": 7,
+   "false_a": 2,
+   "false_b": 1,
+   "findings_a": 6,
+   "findings_b": 5,
+   "winner": "tie",
+   "why": "Both reviews correctly find the fix sound and suggest a unit test and an audit of other byte slicing, but A adds unsupported claims about the PR title prefix and description link, while B has only the odd `foo\u00e9 Ref` example and speculative helper names, so the scores are within one point."
+  },
+  "j10": {
+   "score_a": 7,
+   "score_b": 7,
+   "false_a": 1,
+   "false_b": 2,
+   "findings_a": 6,
+   "findings_b": 7,
+   "winner": "tie",
+   "why": "Both reviews are accurate on the diff and reach the same main suggestion, a table-driven test over the suppressed messages, but each leans on PR-description claims the diff doesn't show; A adds a valid comment-placement nit, while B gives a more complete list of test gaps."
+  },
+  "j11": {
+   "score_a": 7,
+   "score_b": 6,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 8,
+   "findings_b": 9,
+   "winner": "tie",
+   "why": "Both reviews are accurate and identify the same test-coverage gaps, but A also catches the misplaced 'Chrome 152 and earlier' comment, while B adds weaker style points, so the scores differ by only 1 and neither has false claims."
+  },
+  "j12": {
+   "score_a": 7,
+   "score_b": 7,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 7,
+   "findings_b": 7,
+   "winner": "tie",
+   "why": "Both reviews make the same accurate points (lexicographic set sort, empty collections, silent dict drop, newlines, missing tests) and I found no false claims in either, though A's lone-`#` test gap is slightly weak and B's `;`/`&` escaping concern is speculative."
+  },
+  "j13": {
+   "score_a": 6,
+   "score_b": 7,
+   "false_a": 1,
+   "false_b": 1,
+   "findings_a": 6,
+   "findings_b": 8,
+   "winner": "tie",
+   "why": "B finds a real behaviour regression that A misses (None values and lists containing None are now dropped), but it wrongly says escaping protects the later .format() call, and A has one unsupported claim (the release note), so the scores are within one point with equal false claims."
+  },
+  "j14": {
+   "score_a": 6,
+   "score_b": 6,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 4,
+   "findings_b": 4,
+   "winner": "tie",
+   "why": "Both reviews make the same accurate observations about the flip-flopping max_output_tokens values, the two removed models, and the HF and GPT entries, and I found no false claims in either, so B's extra specifics (the xiaomi change and the correct 3/2/10 counts) don't put it a full point ahead."
+  },
+  "j15": {
+   "score_a": 7,
+   "score_b": 7,
+   "false_a": 0,
+   "false_b": 1,
+   "findings_a": 4,
+   "findings_b": 3,
+   "winner": "tie",
+   "why": "Both reviews correctly spot the noisy max_output_tokens flips, the removed entries and the HuggingFace oddities, but B wrongly calls mimo-v2.5-pro's 235,929 a 0.9\u00d7 context value (its context is 1,050,000, not 262,144) and pads with generic boilerplate, so the scores differ by less than the tie margin."
+  },
+  "j16": {
+   "score_a": 5,
+   "score_b": 7,
+   "false_a": 1,
+   "false_b": 0,
+   "findings_a": 10,
+   "findings_b": 7,
+   "winner": "B",
+   "why": "Review B's claims all hold up against the diff and it correctly explains the worker re-invocation and the Electron single-worker path, while Review A wrongly says the log message fires for `--workers 2` with 100 files (the count is 2, so nothing is logged) and pads its list with speculative, hedged checks."
+  },
+  "j17": {
+   "score_a": 6,
+   "score_b": 6,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 9,
+   "findings_b": 9,
+   "winner": "tie",
+   "why": "Both reviews are accurate and hedged, and each suggests a unit test for `getWorkerCountForFiles`. A also catches that 225\u2013299 files give 3 workers, which the docs don't mention, and the duplicated runList parsing. B adds the `workersApply` definition mismatch and a combined-log-line point. Neither finds a real bug, and their scores are within 1."
+  },
+  "j18": {
+   "score_a": 6,
+   "score_b": 6,
+   "false_a": 1,
+   "false_b": 1,
+   "findings_a": 5,
+   "findings_b": 4,
+   "winner": "tie",
+   "why": "Both reviews describe the diff accurately and give similar non-blocking suggestions, and each refers to an HTTP 400 bug that the diff doesn't show. A adds a speculative restore-path concern and B adds a couple of valid test-gap notes."
+  },
+  "j19": {
+   "score_a": 6,
+   "score_b": 6,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 5,
+   "findings_b": 5,
+   "winner": "tie",
+   "why": "Both reviews approve, say much the same thing, and make no claims the diff contradicts. Each raises hoisting allocations, sequential reads, parse-failure handling and stale selections. They differ only in small extras: A notes the missing parse-error test, and B suggests moving the mocks to shared utilities."
+  },
+  "j20": {
+   "score_a": 6,
+   "score_b": 6,
+   "false_a": 1,
+   "false_b": 1,
+   "findings_a": 4,
+   "findings_b": 5,
+   "winner": "tie",
+   "why": "Both reviews correctly explain the IndexSet-to-Vec equality fix and the regression test, and both add hedged speculation. A claims 'compiled in CI', which the diff doesn't show. B claims the test follows 'repo guidance', which the diff doesn't show. B does add a useful note about the persistent-cache format change, but it also speculates about chunk_group_keys ordering."
+  },
+  "j21": {
+   "score_a": 7,
+   "score_b": 6,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 4,
+   "findings_b": 3,
+   "winner": "tie",
+   "why": "Both reviews correctly explain the IndexSet-to-Vec equality fix and the regression test, with no claims the diff contradicts. B adds a few claims the diff can't verify (the grep results and keys being derived in group order), and A's extra test nits are slightly more actionable, so the scores differ by only 1."
+  },
+  "j22": {
+   "score_a": 6,
+   "score_b": 6,
+   "false_a": 1,
+   "false_b": 1,
+   "findings_a": 6,
+   "findings_b": 6,
+   "winner": "tie",
+   "why": "Both reviews correctly explain the fix and the e2e test, and both wrongly say the diff has 7 `digestErrorsMap` return sites when it has 6; both also offer only speculative or optional suggestions, mainly an uncaught-error negative test, with B adding a few more hedged concerns."
+  },
+  "j23": {
+   "score_a": 6,
+   "score_b": 6,
+   "false_a": 1,
+   "false_b": 0,
+   "findings_a": 6,
+   "findings_b": 5,
+   "winner": "tie",
+   "why": "Review A claims 7 `digestErrorsMap` returns were swapped when the diff shows 6, but it gives more actionable suggestions, such as a test for an uncaught error. Review B counts the six returns correctly but is vaguer and has a garbled 'Potential issues' bullet."
+  },
+  "j24": {
+   "score_a": 7,
+   "score_b": 7,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 4,
+   "findings_b": 5,
+   "winner": "tie",
+   "why": "Both reviews correctly describe the diff, check the shared-fixture and cycle-test reasoning, and raise near-identical non-blocking suggestions, with no claims in either that the diff contradicts."
+  },
+  "j25": {
+   "score_a": 6,
+   "score_b": 7,
+   "false_a": 1,
+   "false_b": 0,
+   "findings_a": 8,
+   "findings_b": 9,
+   "winner": "B",
+   "why": "Both reviews find the same real gaps (comments still lost when adding a new group, the same bug in optional-dependencies, the badly indented snapshot, the removed rationale comments), but A wrongly says ensure_dependency_group's behaviour is unchanged when it now skips fmt() for existing groups, while B correctly notes that change and adds a useful test-gap suggestion."
+  },
+  "j26": {
+   "score_a": 8,
+   "score_b": 7,
+   "false_a": 0,
+   "false_b": 1,
+   "findings_a": 9,
+   "findings_b": 9,
+   "winner": "tie",
+   "why": "Both reviews correctly find the explicit-undefined ERR_INVALID_ARG_TYPE regression, the wrong generatedMessage in internalMatch, the ||= looseness, the fallback problems and the leftover commented-out code. B adds a valid compareExceptionKey point but wrongly says expectsError and expectsNoError do their own Error handling, which the diff contradicts. That puts the scores within 1 point, so it is a tie."
+  },
+  "j27": {
+   "score_a": 7,
+   "score_b": 7,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 4,
+   "findings_b": 4,
+   "winner": "tie",
+   "why": "Both reviews correctly flag the duplicate aws-lc-sys (0.40 and 0.46), the prebuilt-nasm gap and the missing tests, and I found no claim the diff contradicts; A adds the leftover `unstable` feature and B adds the public `webpki_roots` re-export, so they come out about equal."
+  },
+  "j28": {
+   "score_a": 8,
+   "score_b": 8,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 4,
+   "findings_b": 4,
+   "winner": "tie",
+   "why": "Both reviews correctly confirm the fix, flag the same TS/Rust parity gap with accurate example tables and an equivalent strip_suffix fix, and note the fixture doesn't exercise the name check, with no false claims found in either. I couldn't check the file-specific citations against the repo, such as InferTypes.ts:785, constant_propagation.rs and disjoint_set.rs."
+  },
+  "j29": {
+   "score_a": 7,
+   "score_b": 7,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 8,
+   "findings_b": 8,
+   "winner": "tie",
+   "why": "Both reviews are accurate with no claims the diff contradicts, and both give similar test-coverage and comment-wording suggestions; B adds a correct line-referenced comment-placement point and a gesture-path note, which roughly balances A's Firefox-string check."
+  },
+  "j30": {
+   "score_a": 7,
+   "score_b": 7,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 9,
+   "findings_b": 9,
+   "winner": "tie",
+   "why": "Both reviews correctly describe the escape ordering, the silent dropping of None, frozenset and dict metadata, and the missing tests, and neither makes a claim the diff contradicts, so their scores and false-claim counts are equal."
+  },
+  "j31": {
+   "score_a": 7,
+   "score_b": 7,
+   "false_a": 0,
+   "false_b": 1,
+   "findings_a": 3,
+   "findings_b": 4,
+   "winner": "tie",
+   "why": "Both reviews correctly spot the flip-flopping 90%-of-context placeholder values (deepseek-v4-flash-0731, mimo-v2.5-pro) and the missing structured_output on the new MiniMax entry; B also flags open_weights=False and covers more of the changed values, but its claim that mimo-v2.5-pro's 235,929 'doesn't fit its own context' is wrong, since 235,929 is below its 1,050,000 input limit."
+  },
+  "j32": {
+   "score_a": 7,
+   "score_b": 8,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 8,
+   "findings_b": 7,
+   "winner": "tie",
+   "why": "Both reviews are accurate against the diff and raise similar points (the misleading FILES_PER_WORKER comment, missing tests for getWorkerCountForFiles, the 2-worker floor on short lists, the browser `workersApply` difference); B adds a real observation that the helper logs noisily on empty lists, while A adds the README gap for 225\u2013299 files, so the scores differ by 1 with equal false claims."
+  },
+  "j33": {
+   "score_a": 7,
+   "score_b": 6,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 4,
+   "findings_b": 3,
+   "winner": "tie",
+   "why": "Both reviews are accurate against the diff and each makes a similar point that dropping unreadable files is a behaviour change. A adds a concrete bypass route to the HTTP 400, plus a warning-noise issue on the delete race. B's extra claims (`_optionsCache`, `IPromptsService.parseFile`) can't be checked from the diff, and its saved-selection point is more speculative. The scores differ by only 1, so it is a tie."
+  },
+  "j34": {
+   "score_a": 7,
+   "score_b": 7,
+   "false_a": 0,
+   "false_b": 0,
+   "findings_a": 7,
+   "findings_b": 7,
+   "winner": "tie",
+   "why": "Both reviews correctly explain the order-insensitive IndexSet equality bug and correctly judge the regression test, and neither makes a claim the diff contradicts. Both rest partly on references to code outside the diff that I couldn't check, and both add similar low-value nits and follow-up suggestions."
+  },
+  "j35": {
+   "score_a": 7,
+   "score_b": 7,
+   "false_a": 1,
+   "false_b": 1,
+   "findings_a": 7,
+   "findings_b": 8,
+   "winner": "tie",
+   "why": "The two reviews reach the same correct verdict and make near-identical points (repeated-digest overwrite, positional `undefined` argument, missing doc comment, missing negative test). Each also miscounts the changed return sites: A says eight and B says seven, but the diff changes six."
+  }
+ }
+}

@@ -1,254 +1,326 @@
 {
  "j00": {
-  "model": "opus",
+  "model": "sonnet",
   "pr": "astral-sh/uv#23009",
   "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41201600858",
+  "gateway_run": "41201595048"
  },
  "j01": {
-  "model": "opus",
+  "model": "sonnet",
+  "pr": "astral-sh/uv#23009",
+  "round": "r2",
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41202790258",
+  "gateway_run": "41202795318"
+ },
+ "j02": {
+  "model": "sonnet",
   "pr": "astral-sh/uv#23017",
   "round": "r1",
   "A": "gateway",
-  "B": "direct-ts"
- },
- "j02": {
-  "model": "opus",
-  "pr": "denoland/deno#36944",
-  "round": "r1",
-  "A": "direct-ts",
-  "B": "gateway"
+  "B": "direct-ts",
+  "direct_run": "41201584500",
+  "gateway_run": "41201589957"
  },
  "j03": {
-  "model": "opus",
-  "pr": "denoland/deno#37046",
-  "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
+  "model": "sonnet",
+  "pr": "astral-sh/uv#23017",
+  "round": "r2",
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41202785260",
+  "gateway_run": "41202780433"
  },
  "j04": {
-  "model": "opus",
+  "model": "sonnet",
+  "pr": "denoland/deno#36944",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts",
+  "direct_run": "41201622939",
+  "gateway_run": "41201617617"
+ },
+ "j05": {
+  "model": "sonnet",
+  "pr": "denoland/deno#36944",
+  "round": "r2",
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41202810363",
+  "gateway_run": "41202815525"
+ },
+ "j06": {
+  "model": "sonnet",
+  "pr": "denoland/deno#37046",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41201606674",
+  "gateway_run": "41201612168"
+ },
+ "j07": {
+  "model": "sonnet",
+  "pr": "denoland/deno#37046",
+  "round": "r2",
+  "A": "gateway",
+  "B": "direct-ts",
+  "direct_run": "41202805295",
+  "gateway_run": "41202800136"
+ },
+ "j08": {
+  "model": "sonnet",
   "pr": "facebook/react#38025",
   "round": "r1",
   "A": "direct-ts",
-  "B": "gateway"
- },
- "j05": {
-  "model": "opus",
-  "pr": "facebook/react#38034",
-  "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
- },
- "j06": {
-  "model": "opus",
-  "pr": "langchain-ai/langchain#41512",
-  "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
- },
- "j07": {
-  "model": "opus",
-  "pr": "langchain-ai/langchain#41520",
-  "round": "r1",
-  "A": "direct-ts",
-  "B": "gateway"
- },
- "j08": {
-  "model": "opus",
-  "pr": "microsoft/vscode#345283",
-  "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
+  "B": "gateway",
+  "direct_run": "41200842001",
+  "gateway_run": "41200847209"
  },
  "j09": {
-  "model": "opus",
-  "pr": "microsoft/vscode#345293",
-  "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
+  "model": "sonnet",
+  "pr": "facebook/react#38025",
+  "round": "r2",
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41201870924",
+  "gateway_run": "41201876296"
  },
  "j10": {
-  "model": "opus",
-  "pr": "vercel/next.js#100935",
+  "model": "sonnet",
+  "pr": "facebook/react#38034",
   "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41200836881",
+  "gateway_run": "41200831651"
  },
  "j11": {
-  "model": "opus",
-  "pr": "vercel/next.js#100956",
-  "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
+  "model": "sonnet",
+  "pr": "facebook/react#38034",
+  "round": "r2",
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41201861285",
+  "gateway_run": "41201866417"
  },
  "j12": {
   "model": "sonnet",
-  "pr": "astral-sh/uv#23009",
+  "pr": "langchain-ai/langchain#41512",
   "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41201268902",
+  "gateway_run": "41201264130"
  },
  "j13": {
   "model": "sonnet",
-  "pr": "astral-sh/uv#23009",
+  "pr": "langchain-ai/langchain#41512",
   "round": "r2",
-  "A": "direct-ts",
-  "B": "gateway"
+  "A": "gateway",
+  "B": "direct-ts",
+  "direct_run": "41202387154",
+  "gateway_run": "41202392709"
  },
  "j14": {
   "model": "sonnet",
-  "pr": "astral-sh/uv#23017",
+  "pr": "langchain-ai/langchain#41520",
   "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41201251513",
+  "gateway_run": "41201258009"
  },
  "j15": {
   "model": "sonnet",
-  "pr": "astral-sh/uv#23017",
+  "pr": "langchain-ai/langchain#41520",
   "round": "r2",
-  "A": "gateway",
-  "B": "direct-ts"
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41202376439",
+  "gateway_run": "41202381384"
  },
  "j16": {
   "model": "sonnet",
-  "pr": "denoland/deno#36944",
+  "pr": "microsoft/vscode#345283",
   "round": "r1",
-  "A": "direct-ts",
-  "B": "gateway"
+  "A": "gateway",
+  "B": "direct-ts",
+  "direct_run": "41200867952",
+  "gateway_run": "41200862840"
  },
  "j17": {
   "model": "sonnet",
-  "pr": "denoland/deno#36944",
+  "pr": "microsoft/vscode#345283",
   "round": "r2",
-  "A": "direct-ts",
-  "B": "gateway"
+  "A": "gateway",
+  "B": "direct-ts",
+  "direct_run": "41201896374",
+  "gateway_run": "41201891221"
  },
  "j18": {
   "model": "sonnet",
-  "pr": "denoland/deno#37046",
+  "pr": "microsoft/vscode#345293",
   "round": "r1",
-  "A": "direct-ts",
-  "B": "gateway"
+  "A": "gateway",
+  "B": "direct-ts",
+  "direct_run": "41200857226",
+  "gateway_run": "41200852003"
  },
  "j19": {
   "model": "sonnet",
-  "pr": "denoland/deno#37046",
+  "pr": "microsoft/vscode#345293",
   "round": "r2",
-  "A": "gateway",
-  "B": "direct-ts"
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41201886681",
+  "gateway_run": "41201881462"
  },
  "j20": {
   "model": "sonnet",
-  "pr": "facebook/react#38025",
+  "pr": "vercel/next.js#100935",
   "round": "r1",
-  "A": "direct-ts",
-  "B": "gateway"
+  "A": "gateway",
+  "B": "direct-ts",
+  "direct_run": "41201246355",
+  "gateway_run": "41201240498"
  },
  "j21": {
   "model": "sonnet",
-  "pr": "facebook/react#38025",
+  "pr": "vercel/next.js#100935",
   "round": "r2",
-  "A": "gateway",
-  "B": "direct-ts"
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41202370847",
+  "gateway_run": "41202366106"
  },
  "j22": {
   "model": "sonnet",
-  "pr": "facebook/react#38034",
+  "pr": "vercel/next.js#100956",
   "round": "r1",
-  "A": "direct-ts",
-  "B": "gateway"
+  "A": "gateway",
+  "B": "direct-ts",
+  "direct_run": "41201229411",
+  "gateway_run": "41201234743"
  },
  "j23": {
   "model": "sonnet",
-  "pr": "facebook/react#38034",
+  "pr": "vercel/next.js#100956",
   "round": "r2",
-  "A": "gateway",
-  "B": "direct-ts"
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41202355984",
+  "gateway_run": "41202361018"
  },
  "j24": {
-  "model": "sonnet",
-  "pr": "langchain-ai/langchain#41512",
+  "model": "opus",
+  "pr": "astral-sh/uv#23009",
   "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41203451252",
+  "gateway_run": "41203446489"
  },
  "j25": {
-  "model": "sonnet",
-  "pr": "langchain-ai/langchain#41512",
-  "round": "r2",
-  "A": "gateway",
-  "B": "direct-ts"
+  "model": "opus",
+  "pr": "astral-sh/uv#23017",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41203441094",
+  "gateway_run": "41203436017"
  },
  "j26": {
-  "model": "sonnet",
-  "pr": "langchain-ai/langchain#41520",
+  "model": "opus",
+  "pr": "denoland/deno#36944",
   "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41203465367",
+  "gateway_run": "41203470180"
  },
  "j27": {
-  "model": "sonnet",
-  "pr": "langchain-ai/langchain#41520",
-  "round": "r2",
-  "A": "direct-ts",
-  "B": "gateway"
+  "model": "opus",
+  "pr": "denoland/deno#37046",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts",
+  "direct_run": "41203460522",
+  "gateway_run": "41203455886"
  },
  "j28": {
-  "model": "sonnet",
-  "pr": "microsoft/vscode#345283",
+  "model": "opus",
+  "pr": "facebook/react#38025",
   "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41202972102",
+  "gateway_run": "41202967327"
  },
  "j29": {
-  "model": "sonnet",
-  "pr": "microsoft/vscode#345283",
-  "round": "r2",
-  "A": "direct-ts",
-  "B": "gateway"
+  "model": "opus",
+  "pr": "facebook/react#38034",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts",
+  "direct_run": "41202957656",
+  "gateway_run": "41202962300"
  },
  "j30": {
-  "model": "sonnet",
-  "pr": "microsoft/vscode#345293",
+  "model": "opus",
+  "pr": "langchain-ai/langchain#41512",
   "round": "r1",
-  "A": "direct-ts",
-  "B": "gateway"
+  "A": "gateway",
+  "B": "direct-ts",
+  "direct_run": "41203289924",
+  "gateway_run": "41203294896"
  },
  "j31": {
-  "model": "sonnet",
-  "pr": "microsoft/vscode#345293",
-  "round": "r2",
-  "A": "gateway",
-  "B": "direct-ts"
+  "model": "opus",
+  "pr": "langchain-ai/langchain#41520",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41203285044",
+  "gateway_run": "41203280108"
  },
  "j32": {
-  "model": "sonnet",
+  "model": "opus",
+  "pr": "microsoft/vscode#345283",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts",
+  "direct_run": "41202988283",
+  "gateway_run": "41202993883"
+ },
+ "j33": {
+  "model": "opus",
+  "pr": "microsoft/vscode#345293",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41202977286",
+  "gateway_run": "41202982605"
+ },
+ "j34": {
+  "model": "opus",
   "pr": "vercel/next.js#100935",
   "round": "r1",
   "A": "direct-ts",
-  "B": "gateway"
- },
- "j33": {
-  "model": "sonnet",
-  "pr": "vercel/next.js#100935",
-  "round": "r2",
-  "A": "gateway",
-  "B": "direct-ts"
- },
- "j34": {
-  "model": "sonnet",
-  "pr": "vercel/next.js#100956",
-  "round": "r1",
-  "A": "gateway",
-  "B": "direct-ts"
+  "B": "gateway",
+  "direct_run": "41203269327",
+  "gateway_run": "41203274857"
  },
  "j35": {
-  "model": "sonnet",
+  "model": "opus",
   "pr": "vercel/next.js#100956",
-  "round": "r2",
-  "A": "gateway",
-  "B": "direct-ts"
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway",
+  "direct_run": "41203264329",
+  "gateway_run": "41203259357"
  }
 }
