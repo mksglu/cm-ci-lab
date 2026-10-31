@@ -8,10 +8,11 @@ run-name: triage ${{ inputs.arm }} ${{ inputs.task }} ${{ inputs.tag }}
 on:
   workflow_dispatch:
     inputs:
-      task: { type: choice, options: [requests, flask, express, koa, cobra, ripgrep], default: requests }
+      task: { type: choice, options: [requests, flask, express, koa, cobra, ripgrep, rich, black, axios, chalk, gin, fd], default: requests }
       arm: { type: choice, options: [baseline, direct-ts, gateway, gateway-dry], default: baseline }
       model: { type: string, default: claude-sonnet-5-5 }
       tag: { type: string, default: "" }
+      control: { type: boolean, default: false, description: "keep the fix in place; the suite must pass (task validity check, baseline arm only)" }
 
 permissions:
   contents: read
@@ -23,6 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Prepare the failing repo
+        env:
+          CONTROL: ${{ inputs.control && '1' || '0' }}
         run: bash lab/triage-task.sh "${{ inputs.task }}"
       - uses: actions/setup-python@v5
         if: env.TASK_LANG == 'python'

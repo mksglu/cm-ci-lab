@@ -24,13 +24,31 @@ case "$task" in
   ripgrep)  repo=BurntSushi/ripgrep;     sha=de2567a4c76fa671005538d6cd841abc44932b9a; lang=rust
             src=(crates/printer/src/util.rs); tests=(tests/regression.rs)
             test="cargo test --color never"; install="true" ;;
+  rich)     repo=Textualize/rich;        sha=59b1aca63bf9ec69ada93af960d8b2a7bd920477; lang=python
+            src=(rich/_wrap.py rich/cells.py); tests=(tests/test_cells.py tests/test_text.py)
+            test="python -m pytest tests -v -p no:cacheprovider"; install="pip install -q -e . pytest attrs" ;;
+  black)    repo=psf/black;              sha=77c0cae18bcc82257882afc7bbb9a5cd95cba16c; lang=python
+            src=(src/black/__init__.py src/black/ranges.py); tests=(tests/test_black.py tests/test_ranges.py)
+            test="python -m pytest tests -v -p no:cacheprovider -n 0"; install="pip install -q -e '.[d,jupyter]' pytest pytest-xdist" ;;
+  axios)    repo=axios/axios;            sha=02c2c4f891d76b15712a9edd149a2d9f7978774f; lang=node
+            src=(lib/helpers/combineURLs.js); tests=(tests/unit/core/buildFullPath.test.js tests/unit/helpers/combineURLs.test.js)
+            test="npx vitest run --project unit"; install="npm install --no-audit --no-fund --loglevel=error" ;;
+  chalk)    repo=chalk/chalk;            sha=e91293130c7d642c7b91152c3c942743a3b910a7; lang=node
+            src=(source/vendor/supports-color/index.js); tests=(test/_force-color-fixture.js test/force-color.js)
+            test="npm test"; install="npm install --no-audit --no-fund --loglevel=error" ;;
+  gin)      repo=gin-gonic/gin;          sha=ea9fab99e01d55a5e4f8daacc0d11ccffaee0a15; lang=go
+            src=(tree.go);                tests=(routes_test.go)
+            test="go test -v ./..."; install="go mod download" ;;
+  fd)       repo=sharkdp/fd;             sha=3c784f63b8e7976650682d550926bb79e9e1f640; lang=rust
+            src=(src/cli.rs src/main.rs); tests=(tests/tests.rs)
+            test="cargo test --color never"; install="true" ;;
   *) echo "unknown task $task"; exit 2 ;;
 esac
 d="$RUNNER_TEMP/repo"; rm -rf "$d"
 git clone -q --filter=blob:none "https://github.com/$repo" "$d"
 cd "$d"
 git checkout -q "$sha"
-git checkout -q "$sha^" -- "${src[@]}"          # revert the fix, keep the new tests
+if [ "${CONTROL:-0}" != 1 ]; then git checkout -q "$sha^" -- "${src[@]}"; fi   # revert the fix, keep the new tests (CONTROL=1 keeps the fix: the suite must pass)
 rm -rf .git; git init -q; git add -A
 git -c user.name=lab -c user.email=lab@example.com commit -q -m "snapshot: CI failing"
 git diff --stat HEAD | tail -1 || true
