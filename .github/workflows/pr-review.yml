@@ -1,0 +1,93 @@
+name: pr-review
+run-name: pr-review ${{ inputs.arm }} ${{ inputs.repo }}#${{ inputs.pr }} ${{ inputs.tag }}
+
+# Auto PR review, the claude-code-review.yml template (5,352 workflow files). Prompt and allowed tools mirror the most
+# common template (colinhacks/zod, 8 more in the census with the same text); "gh pr comment" is replaced by printing
+# the review. Headless `claude -p` (native installer) because claude-code-action cannot use this key.
+# Arms (lab/path-env.sh): direct-ts (fair baseline), gateway. The lab never writes to the reviewed repo.
+on:
+  workflow_dispatch:
+    inputs:
+      repo: { type: string, required: true }
+      pr: { type: string, required: true }
+      arm: { type: choice, options: [direct-ts, gateway], default: gateway }
+      model: { type: string, default: claude-sonnet-5-5 }
+      tag: { type: string, default: "" }
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check out the PR head (as the action does)
+        run: |
+          git clone -q --filter=blob:none "https://github.com/${{ inputs.repo }}" "$RUNNER_TEMP/repo"
+          cd "$RUNNER_TEMP/repo"
+          git fetch -q origin "pull/${{ inputs.pr }}/head:pr" && git checkout -q pr
+          git diff --stat "$(git merge-base pr origin/HEAD)" pr | tail -1
+      - name: Arm env
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: bash lab/path-env.sh "${{ inputs.arm }}"
+      - name: Install Claude Code (native installer)
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Review
+        continue-on-error: true
+        env:
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY_B }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -z "${ANTHROPIC_API_KEY:-}" ] && export ANTHROPIC_API_KEY="$LIVE_API_KEY"
+          cd "$RUNNER_TEMP/repo"
+          PROMPT="REPO: ${{ inputs.repo }}
+          PR NUMBER: ${{ inputs.pr }}
+
+          Please review this pull request and provide feedback on:
+          - Code quality and best practices
+          - Potential bugs or issues
+          - Performance considerations
+          - Security concerns
+          - Test coverage
+
+          Use the repository's CLAUDE.md for guidance on style and conventions. Be constructive and helpful in your feedback.
+
+          Use \`gh pr diff\` and \`gh pr view\` (with -R ${{ inputs.repo }}) to read the pull request. Print your review as your final answer. Do not post it: gh pr comment is not available."
+          claude -p "$PROMPT" --output-format stream-json --verbose --model "${{ inputs.model }}" --max-turns 30 \
+            --allowedTools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*),Read,Glob,Grep" > "$RUNNER_TEMP/out.json"
+      - name: Metrics
+        if: always()
+        run: |
+          mkdir -p out
+          [ -f "$RUNNER_TEMP/out.json" ] && cp "$RUNNER_TEMP/out.json" out/claude-output.json
+          if [ -f out/claude-output.json ]; then
+            python3 lab/metrics.py out/claude-output.json "${{ inputs.arm }}" cli && mv lab-metrics.json out/
+            python3 lab/pr-review/usage.py out/claude-output.json out/lab-metrics.json
+          else echo '{"no_output":true}' > out/lab-metrics.json; fi
+          python3 - <<'PY'
+          import json
+          m = json.load(open("out/lab-metrics.json"))
+          m.update(repo="${{ inputs.repo }}", pr="${{ inputs.pr }}", tag="${{ inputs.tag }}", model_input="${{ inputs.model }}")
+          json.dump(m, open("out/lab-metrics.json", "w"), indent=1)
+          print(json.dumps({k: m.get(k) for k in ("arm", "pr", "is_error", "num_turns", "total_cost_usd", "api_requests")}))
+          PY
+      - name: Secret check before upload
+        if: always()
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY_B }}
+        run: |
+          for k in "$CONTEXT_MODE_KEY" "$LIVE_API_KEY"; do
+            if [ -n "$k" ] && grep -rlF "$k" out/ ; then echo "::error::key found"; rm -rf out; exit 1; fi
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: prreview-${{ inputs.arm }}-${{ github.run_id }}
+          path: out/
+          if-no-files-found: ignore
