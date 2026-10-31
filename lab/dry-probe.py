@@ -45,3 +45,12 @@ for name, msgs in (("A_last_message", base), ("B_older_turn", base + more)):
         print(f"   tail={t[-300:]!r}")
     if not kept: print("   no oversized tool_result left; first msgs:", json.dumps(fb[:4])[:400])
     json.dump(p["body"]["messages"], open(f"out/dry-forwarded-{name}.json", "w"))
+    tl = [t.get("name") for t in p["body"].get("tools", [])]
+    print(f"   forwarded tools={tl}")
+    sysv = p["body"].get("system"); sysv = sysv if isinstance(sysv, str) else json.dumps(sysv)
+    print(f"   system mentions context-mode-search={'context-mode-search' in (sysv or '')} bytes={len(sysv or '')}")
+    for i, t in kept:
+        for key in ("docid", "toolcap", "context-mode-search", "NOT shown", "omitted", "archived"):
+            j = t.find(key)
+            if j >= 0: print(f"   msg[{i}] has {key!r} at {j}: {t[max(0,j-160):j+260]!r}")
+        print(f"   msg[{i}] MIDDLE SAMPLE={t[len(t)//2-150:len(t)//2+150]!r}")
