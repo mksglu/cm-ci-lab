@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       task: { type: choice, options: [requests, flask, express, koa, cobra, ripgrep], default: requests }
-      arm: { type: choice, options: [baseline, direct-ts, gateway], default: baseline }
+      arm: { type: choice, options: [baseline, direct-ts, gateway, gateway-dry], default: baseline }
       model: { type: string, default: claude-sonnet-5-5 }
       tag: { type: string, default: "" }
 
@@ -48,12 +48,15 @@ jobs:
           CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
         run: bash lab/path-env.sh "${{ inputs.arm }}"
       - name: Install Claude Code (native installer)
-        if: inputs.arm != 'baseline'
+        if: (inputs.arm == 'direct-ts' || inputs.arm == 'gateway')
         run: |
           curl -fsSL https://claude.ai/install.sh | bash
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Dry probe (no model call)
+        if: inputs.arm == 'gateway-dry'
+        run: python3 lab/dry-probe.py out/baseline.log | tee out/dry-probe.txt
       - name: Triage
-        if: inputs.arm != 'baseline'
+        if: (inputs.arm == 'direct-ts' || inputs.arm == 'gateway')
         continue-on-error: true
         env:
           LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY_B }}
@@ -64,7 +67,7 @@ jobs:
             --output-format json --model "${{ inputs.model }}" --max-turns 30 --max-budget-usd 1.5 \
             --allowedTools "Bash,Read,Edit,Write,Glob,Grep" > "$RUNNER_TEMP/out.json"
       - name: Verify (test files restored to the snapshot)
-        if: inputs.arm != 'baseline'
+        if: (inputs.arm == 'direct-ts' || inputs.arm == 'gateway')
         run: |
           cd "$RUNNER_TEMP/repo"
           git diff --stat HEAD > "$GITHUB_WORKSPACE/out/fix.diffstat" || true
@@ -76,10 +79,10 @@ jobs:
         if: always()
         run: |
           mkdir -p out
-          if [ "${{ inputs.arm }}" != baseline ]; then
+          if [ "${{ inputs.arm }}" = direct-ts ] || [ "${{ inputs.arm }}" = gateway ]; then
             [ -f "$RUNNER_TEMP/out.json" ] && cp "$RUNNER_TEMP/out.json" out/claude-output.json
             [ -f out/claude-output.json ] && python3 lab/metrics.py out/claude-output.json "${{ inputs.arm }}" cli && mv lab-metrics.json out/ || echo '{"no_output":true}' > out/lab-metrics.json
-          else echo '{"arm":"baseline"}' > out/lab-metrics.json; fi
+          else echo '{"arm":"${{ inputs.arm }}"}' > out/lab-metrics.json; fi
           python3 - <<'PY'
           import json, os
           m = json.load(open("out/lab-metrics.json"))
