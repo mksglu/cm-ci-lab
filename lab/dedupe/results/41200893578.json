@@ -1,0 +1,322 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41200893578",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 7,
+ "duration_ms": 16903,
+ "duration_api_ms": 80168,
+ "total_cost_usd": 0.17906160000000002,
+ "input_tokens": 20,
+ "output_tokens": 976,
+ "cache_read_input_tokens": 107993,
+ "cache_creation_input_tokens": 7157,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 3133,
+   "outputTokens": 6911,
+   "cacheReadInputTokens": 272206,
+   "cacheCreationInputTokens": 30586,
+   "webSearchRequests": 0,
+   "costUSD": 0.17906160000000002,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 458,
+   "cacheCreationEphemeral5mInputTokens": 30586,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found one likely duplicate of #25559, but the comment script ran in dry-run mode, so nothing was posted. The script printed `DRY RUN: would post on #25559: Found 1 possible duplicate issues: 21622`.\n\n**#21622**, \"CLI hangs silently on Linux when keytar.setPassword() blocks on GNOME Keyring\", is closed. It reports the same silent startup hang on Linux, and the keychain/keyring call is the cause.\n",
+ "task": "gemini-cli-25559",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "google-gemini/gemini-cli",
+ "target": 25559,
+ "original": 21622,
+ "picked": [
+  21622
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 25,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKXJJTuFfeK53rcNkA2",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1134,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKXe1ccDqZP5GbtevZi",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1825,
+   "cr": 10064,
+   "out": 0,
+   "tools": [
+    "TaskCreate"
+   ]
+  },
+  {
+   "id": "msg_011CgaKXyBY26PH4vag84cuN",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 955,
+   "cr": 11889,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKXxcp89HGCJFcVyjij",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 725,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKY8uSFTpFxuXVX2g6t",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1156,
+   "cr": 6493,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKYFqQAYDycTsBq9J8K",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 340,
+   "cr": 7649,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKYRezhscA8him3Rkb2",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 733,
+   "cr": 7989,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKYn8Yv7AUYGS4Pjndb",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1184,
+   "cr": 12844,
+   "out": 0,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKZUGHtMSzNb9XnFnE8",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3469,
+   "cr": 14028,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKZTzB5RB6dZnKpZwuL",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 677,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKZTuiGvk9JJftK6eKW",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 688,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKZU1fgFG56s8WzjraH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 669,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKZVCbanA8VUwnTquH7",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 669,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKZWUFGmi3DBtJWzDQM",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 679,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKZfGq3ZUNyYPGgrWou",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1401,
+   "cr": 6437,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKZeM2THkWyGpUQh95G",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1415,
+   "cr": 6437,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKZh3VhVYzBbFgSWYaB",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1398,
+   "cr": 6447,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKZsXXWKKfNvbqWT6Tq",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 744,
+   "cr": 17497,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKZikw6WMymMQDL822N",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1651,
+   "cr": 6445,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKa1Kaffzennk88yD8w",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1641,
+   "cr": 18241,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKZmEkUcMc6qF3LkLYV",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1917,
+   "cr": 6456,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKaCa1VCPan6kyZ1SWt",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 2352,
+   "cr": 19882,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKaPzMG65G9ZHLZVWpX",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 232,
+   "cr": 22234,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKamknnyQdPFmcHYqKV",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 2704,
+   "cr": 22466,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKaxZQzhxUBAZbeP5P7",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 228,
+   "cr": 25170,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found one likely duplicate of #25559, but the comment script ran in dry-run mode, so nothing was posted. The script printed `DRY RUN: would post on #25559: Found 1 possible duplicate issues: 21622`.\n\n**#21622**, \"CLI hangs silently on Linux when keytar.setPassword() blocks on GNOME Keyring\", is cl"
+}

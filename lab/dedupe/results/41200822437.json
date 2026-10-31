@@ -1,0 +1,418 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41200822437",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 9,
+ "duration_ms": 189338,
+ "duration_api_ms": 111425,
+ "total_cost_usd": 0.28608939999999994,
+ "input_tokens": 24,
+ "output_tokens": 1429,
+ "cache_read_input_tokens": 144502,
+ "cache_creation_input_tokens": 6889,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 4015,
+   "outputTokens": 10092,
+   "cacheReadInputTokens": 365594,
+   "cacheCreationInputTokens": 56232,
+   "webSearchRequests": 0,
+   "costUSD": 0.28608939999999994,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 755,
+   "cacheCreationEphemeral5mInputTokens": 56232,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I ran the comment script for #37251, but it only did a dry run, so no comment was posted. It printed: \"DRY RUN: would post on #37251: Found 3 possible duplicate issues: 16834 12822 15731\".\n\nThe three issues I picked, strongest match first:\n- **#16834** (open): `node:https` request socket is not a TLSSocket. This is the same root problem as #37251.\n- **#12822** (closed): HTTPS socket is missing `ge",
+ "task": "bun-37251",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 37251,
+ "original": 16834,
+ "picked": [
+  16834,
+  12822,
+  15731
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 34,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaJoEyckm4jc15Dq6oF6",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 10056,
+   "cr": 0,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJoZycZSDDNu42EvhEC",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1317,
+   "cr": 10056,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJobCmsybsuY9H7cCf2",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 6469,
+   "cr": 0,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJon8cTgx6GoDyt8Be9",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1149,
+   "cr": 6469,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJoxpnyFzFAig23c8BW",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1582,
+   "cr": 7618,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJpSoYT19oyoP4hwxEg",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1560,
+   "cr": 11373,
+   "out": 0,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaJqB23a5eDxPPAYgKzi",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3666,
+   "cr": 12933,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqAwa6ewVKZVSYhJZB",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 712,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJqB6WaYpRtN8c4VNZw",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 697,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJqAvahFMPjxtWtoCAb",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 688,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJqAyZtwLcKHvbkWC68",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 700,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJqB5G7s6hV87pzvKr8",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 672,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJqNrgVBc1mMD76EW3L",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1357,
+   "cr": 6480,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqNqhRJWUMKRNegBA2",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1427,
+   "cr": 6440,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqNrSADNKVnaFCgsaC",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1424,
+   "cr": 6456,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqNrgbTSyyDVK4Wx5K",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1450,
+   "cr": 6468,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqNbpAAWpu9fXwuq8j",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1411,
+   "cr": 6465,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqXSsbqiVLHiT6fGxz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 433,
+   "cr": 7837,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqdv3p6F1jBZRhiRNE",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1529,
+   "cr": 16599,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqqKtmxbDnHbF8pr2Y",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1706,
+   "cr": 18128,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJrFgrZYY8sETnSxXzj",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1777,
+   "cr": 19834,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJrFRUxShX6DyGRUUPM",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 737,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJrF8crBAdnptBg7wX6",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 711,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJrRsXsXVpXsuWzhxo5",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1430,
+   "cr": 6505,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJrSwXiEmhE5KiH5PUD",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1364,
+   "cr": 6479,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJrgMg2cmkvnL7joJMB",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 780,
+   "cr": 21611,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJrwxmw8AbEkqTTfq6H",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 349,
+   "cr": 22391,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJs8SKYAg2HArVCjktu",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 227,
+   "cr": 22740,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJuV28bYkFrfSsokei2",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1754,
+   "cr": 8270,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJvHjFEniowNsyQqBsh",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 620,
+   "cr": 7843,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJzAQLTjMzwo5jBsDQq",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 945,
+   "cr": 8463,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK5r1Djc4dWsHdtRhfo",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3557,
+   "cr": 22967,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK68Jz6dFRFXKCCz4B4",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1745,
+   "cr": 26524,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK6JSgubghMGvqZc6zW",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 231,
+   "cr": 28269,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I ran the comment script for #37251, but it only did a dry run, so no comment was posted. It printed: \"DRY RUN: would post on #37251: Found 3 possible duplicate issues: 16834 12822 15731\".\n\nThe three issues I picked, strongest match first:\n- **#16834** (open): `node:https` request socket is not a TL"
+}

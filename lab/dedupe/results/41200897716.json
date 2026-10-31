@@ -1,0 +1,320 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41200897716",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 1,
+ "duration_ms": 5430,
+ "duration_api_ms": 76326,
+ "total_cost_usd": 0.2467205,
+ "input_tokens": 2,
+ "output_tokens": 600,
+ "cache_read_input_tokens": 29834,
+ "cache_creation_input_tokens": 831,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 50,
+   "outputTokens": 8260,
+   "cacheReadInputTokens": 344380,
+   "cacheCreationInputTokens": 51833,
+   "webSearchRequests": 0,
+   "costUSD": 0.2467205,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 684,
+   "cacheCreationEphemeral5mInputTokens": 51833,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I haven't posted a duplicates comment on #25618, because I couldn't verify any candidates.\n\n- **Eligibility:** #25618 is open and reports a specific crash, and it has no earlier duplicates comment. So it does need deduping.\n- **Searches:** Four of the five search agents were denied Bash permission, so they returned nothing. The fifth returned candidates matched on titles only.\n- **Verification:** ",
+ "task": "gemini-cli-25618",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "google-gemini/gemini-cli",
+ "target": 25618,
+ "original": 22029,
+ "picked": [],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 25,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKZU7rqwEp1Kpcvmu7H",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4395,
+   "cr": 12265,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKZmYra5cbKe1jj1kZz",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1403,
+   "cr": 16660,
+   "out": 24,
+   "tools": [
+    "TaskCreate"
+   ]
+  },
+  {
+   "id": "msg_011CgaKa3ez5EeaH9hBkvmnc",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3387,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKa3sNi7iWHwmoERnXG",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 978,
+   "cr": 18063,
+   "out": 32,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKaAjdJRjykNux79BpL",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 714,
+   "cr": 9464,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKaHfbB7SgPbprK9m83",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2842,
+   "cr": 10178,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKagpcwFYqcbCuR7DXy",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1363,
+   "cr": 19041,
+   "out": 17,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKayMY7ZhXCpJhvSQ4D",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3393,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKb6QCv92wWnJCDtRmH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3347,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKb7BqSyAHk4Hnks81f",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 957,
+   "cr": 9470,
+   "out": 303,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKbEvupJXPRQApvfYg8",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3365,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKbE462GoyEAbHKz6Dp",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 960,
+   "cr": 9424,
+   "out": 255,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKbPMS5yKPZxQJ9fnWX",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3367,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKbPPuAqa8s2cBrs3Xg",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 969,
+   "cr": 9442,
+   "out": 269,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKbXnSBqDuXo3wSZLYU",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 5478,
+   "cr": 20404,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKbXgUn4s62UjiKZhju",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3407,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKbfaji9EBYnsWvifix",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 857,
+   "cr": 25882,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKbh5XPP14oTAfF18Nx",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1042,
+   "cr": 9484,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKbi3KMHeFEEVuv59WF",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1231,
+   "cr": 9444,
+   "out": 487,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKbvbP5J8Uk27EMxveu",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 861,
+   "cr": 26739,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKc5TBEUFw9tYKt8dsd",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1250,
+   "cr": 27600,
+   "out": 9,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKcS6euAqHXK4i7fF25",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 984,
+   "cr": 28850,
+   "out": 55,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKcS88k36A6DUzUtHfe",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3520,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKcaNyhNubJPD9Hz4b3",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 932,
+   "cr": 9597,
+   "out": 268,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKcpo9VdTWgA1pwg1Bj",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 831,
+   "cr": 29834,
+   "out": 3,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I haven't posted a duplicates comment on #25618, because I couldn't verify any candidates.\n\n- **Eligibility:** #25618 is open and reports a specific crash, and it has no earlier duplicates comment. So it does need deduping.\n- **Searches:** Four of the five search agents were denied Bash permission, "
+}

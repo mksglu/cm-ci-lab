@@ -1,0 +1,296 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41200841721",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 1,
+ "duration_ms": 3726,
+ "duration_api_ms": 66871,
+ "total_cost_usd": 0.22859580000000002,
+ "input_tokens": 2,
+ "output_tokens": 378,
+ "cache_read_input_tokens": 28283,
+ "cache_creation_input_tokens": 796,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 46,
+   "outputTokens": 7477,
+   "cacheReadInputTokens": 304388,
+   "cacheCreationInputTokens": 49318,
+   "webSearchRequests": 0,
+   "costUSD": 0.22859580000000002,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 318,
+   "cacheCreationEphemeral5mInputTokens": 49318,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I haven't posted a duplicates comment on #104074. Only the first and fifth agents ran; the filter agent and the other four were denied Bash access to `./scripts/gh.sh`.\n\n- **Eligibility check:** It passed. The issue is open, it reports a specific bug, and it has no comments yet.\n- **Candidate search:** Four of the five agents searched nothing. The fifth returned candidates without opening any of t",
+ "task": "claude-code-104074",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "anthropics/claude-code",
+ "target": 104074,
+ "original": 93201,
+ "picked": [],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 23,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaJx4Ndmiyh4xQHVNVFp",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4389,
+   "cr": 12265,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJxKqZU8BUwpJjGqxiG",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 812,
+   "cr": 16654,
+   "out": 26,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJxKXiGkd6CSe8L3cx4",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3281,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJxWQZ8TcrBPDLYnsEZ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1361,
+   "cr": 9358,
+   "out": 647,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJxqiQoZxh3FTnKEZ6W",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1224,
+   "cr": 17466,
+   "out": 17,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaJy6ZdFPsTzKq7s5R9G",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3359,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJyDv8sJqb3WGZrtJdB",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3374,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJyG8LbekRwdgT3rDNn",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 989,
+   "cr": 9436,
+   "out": 247,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJyMfUd3gGECj9aAEc5",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3373,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJyPsgJjPbrFVNrCCfB",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1002,
+   "cr": 9451,
+   "out": 236,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJyUxmknvbXsvbZgG5i",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3374,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJyXHfZZcuESiZKpeJQ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1023,
+   "cr": 9450,
+   "out": 264,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJydCcigJexLCEPAVkA",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 5412,
+   "cr": 18690,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJyd6Aev6aZpe6xtytK",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3392,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJykfaT2YCXhG9TXXGj",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 890,
+   "cr": 24102,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJynkbF8fmgrtNVmQju",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1013,
+   "cr": 9469,
+   "out": 274,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJyyqq3Rcyr275k9dYr",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 979,
+   "cr": 24992,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJzSQ1oPoC5wCBucTrb",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2540,
+   "cr": 9451,
+   "out": 550,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJzjTvfrCS8sfq49Tge",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1278,
+   "cr": 25971,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK16KJ7ioVgZ1Jm5Cyh",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1034,
+   "cr": 27249,
+   "out": 28,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK16VTwByZEUW4iycJo",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3485,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaK1EzBizCZuVVxwDDDn",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 938,
+   "cr": 9562,
+   "out": 9,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK1Vzb9NVxhvWSSRXVL",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 796,
+   "cr": 28283,
+   "out": 1,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I haven't posted a duplicates comment on #104074. Only the first and fifth agents ran; the filter agent and the other four were denied Bash access to `./scripts/gh.sh`.\n\n- **Eligibility check:** It passed. The issue is open, it reports a specific bug, and it has no comments yet.\n- **Candidate search"
+}

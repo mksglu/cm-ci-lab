@@ -1,0 +1,348 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41200905167",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 9,
+ "duration_ms": 62210,
+ "duration_api_ms": 105367,
+ "total_cost_usd": 0.3240302,
+ "input_tokens": 10,
+ "output_tokens": 3099,
+ "cache_read_input_tokens": 96372,
+ "cache_creation_input_tokens": 13182,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 64,
+   "outputTokens": 12346,
+   "cacheReadInputTokens": 386522,
+   "cacheCreationInputTokens": 64716,
+   "webSearchRequests": 0,
+   "costUSD": 0.3240302,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 397,
+   "cacheCreationEphemeral5mInputTokens": 64716,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found three likely duplicates of #6474, but the comment was not posted. The script ran in dry-run mode and printed what it would have posted: \"Found 3 possible duplicate issues: 2556 1888 3397\". I didn't re-run it or look for a way to switch dry-run off.\n\n- **#2556** (closed): asks for settings for the time range of the heartbeat bar, so each beat can cover a whole day. This matches the downsamp",
+ "task": "uptime-kuma-6474",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "louislam/uptime-kuma",
+ "target": 6474,
+ "original": 1888,
+ "picked": [
+  2556,
+  1888,
+  3397
+ ],
+ "hit_top3": true,
+ "rank": 2,
+ "api_calls": 25,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKatutjXufbsg2W9XKe",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4393,
+   "cr": 12265,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKbGRTG7GNKR5wHPmqz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3396,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKbown6rVHbTZVEwHNo",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1414,
+   "cr": 16658,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKc55NH8NQKZiXNcsVq",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3370,
+   "cr": 7303,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKcA9i34WrFRb45TFe6",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3369,
+   "cr": 7303,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKcGibPBo2Dkdm5Fb9k",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3376,
+   "cr": 7303,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKcGoJm3EQ6TbKbtuUV",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1021,
+   "cr": 10673,
+   "out": 5,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKcLW3zUPaQTukHt6XV",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1020,
+   "cr": 10672,
+   "out": 5,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKcPPgQt4NfRXnnU1ew",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3371,
+   "cr": 7303,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKcXVqgvvaC44C8dzYg",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1858,
+   "cr": 10679,
+   "out": 9,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKcVmuwPrUBJUFKzzSf",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3393,
+   "cr": 7303,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKcayD2orMVtQ5AECi3",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1152,
+   "cr": 10674,
+   "out": 5,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKch35hU3PChwEYFGdz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 798,
+   "cr": 10696,
+   "out": 35,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKcvLH5jeGezw9Juxri",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 747,
+   "cr": 11494,
+   "out": 9,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKd8HNq5Muy8khCVPf9",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1238,
+   "cr": 11694,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKdC2bbFVnpDR4Kx8pa",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1157,
+   "cr": 11692,
+   "out": 32,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKdH7ggxhaeQmD2duLH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2494,
+   "cr": 12241,
+   "out": 32,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKdLrv5MN5WTn4penof",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 913,
+   "cr": 12932,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKdQSyFzBWVtAQJUVvo",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1327,
+   "cr": 12537,
+   "out": 37,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKdW44EbJdB9caXLCYJ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1295,
+   "cr": 11826,
+   "out": 29,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKe4g77fcb4jM3tTb7J",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 6040,
+   "cr": 18072,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKeN2t9RPnAdGpGE66r",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3387,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKeVZ4pZAWpaUPCB2Ur",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 726,
+   "cr": 10690,
+   "out": 36,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKf6qrSwi5RdtQPGLAb",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1153,
+   "cr": 24112,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKfEiszcivM86shZHQZ",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 182,
+   "cr": 25265,
+   "out": 338,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found three likely duplicates of #6474, but the comment was not posted. The script ran in dry-run mode and printed what it would have posted: \"Found 3 possible duplicate issues: 2556 1888 3397\". I didn't re-run it or look for a way to switch dry-run off.\n\n- **#2556** (closed): asks for settings fo"
+}

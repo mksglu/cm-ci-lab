@@ -1,0 +1,404 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41200829939",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 2,
+ "duration_ms": 10356,
+ "duration_api_ms": 108405,
+ "total_cost_usd": 0.2302527,
+ "input_tokens": 8,
+ "output_tokens": 876,
+ "cache_read_input_tokens": 49424,
+ "cache_creation_input_tokens": 1254,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 3588,
+   "outputTokens": 9093,
+   "cacheReadInputTokens": 349192,
+   "cacheCreationInputTokens": 38891,
+   "webSearchRequests": 0,
+   "costUSD": 0.2302527,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 680,
+   "cacheCreationEphemeral5mInputTokens": 38891,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I didn't post a comment on oven-sh/bun#37028. The comment script ran in dry-run mode and printed `DRY RUN: would post on #37028: Found 1 possible duplicate issues: 19059`. It didn't say how to turn dry-run off, and I didn't try to force a real post.\n\n**Likely duplicate: #19059**, \"overrides / resolutions don't respect version numbers\". The reporter sets a resolution for express `4.21.0` and expect",
+ "task": "bun-37028",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 37028,
+ "original": 19059,
+ "picked": [
+  19059
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 33,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaJpPsfjRM8WGNYnyL4k",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1126,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJpbMzKqngCFR55P61M",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1757,
+   "cr": 10056,
+   "out": 0,
+   "tools": [
+    "TaskCreate"
+   ]
+  },
+  {
+   "id": "msg_011CgaJptMBTzznFRrZCxQPY",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 925,
+   "cr": 11813,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJpsycJoqqYc4b44p2N",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 699,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJq4Gyp6G3zWNzLroJC",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1152,
+   "cr": 6467,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqCdHYkj45jXSfkHtg",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 334,
+   "cr": 7619,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqPc5WTRozfrcnroAp",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 685,
+   "cr": 7953,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqqdFPv47gWYZErZPg",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1277,
+   "cr": 12738,
+   "out": 0,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaJrZAq8dSJxE2Rb3g5N",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3498,
+   "cr": 14015,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJrYa7jhGmHZkuDtVoq",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 702,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJrYVQbGmvqXnopjaHA",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 691,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJrYgZJzqQcgEaaARxH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 658,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJrZ2dztpYEJ8hYTNrS",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 682,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJrkWTexePLonhELxK2",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 684,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJvQAT5E4Ly47wF5UH8",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1859,
+   "cr": 6470,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJvkhyQuNUhfhfgMdFC",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1016,
+   "cr": 17513,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJz2GBbcn2yz533hRwm",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 2268,
+   "cr": 6459,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJzAR5Z4TB8cF26LMAF",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 2411,
+   "cr": 6426,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJzQNxvKp4HApZRZ7qE",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 782,
+   "cr": 18529,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJzJYye9YFh9z1Xhf1A",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 766,
+   "cr": 8727,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJzfbFiiSgtfiKxDn6v",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1192,
+   "cr": 19311,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK1gpCvyL1BzBGtG4oL",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 2341,
+   "cr": 6450,
+   "out": 0,
+   "tools": [
+    "Read"
+   ]
+  },
+  {
+   "id": "msg_011CgaK1qXKtc8ULKs5iMbwY",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1432,
+   "cr": 6452,
+   "out": 0,
+   "tools": [
+    "Read"
+   ]
+  },
+  {
+   "id": "msg_011CgaK1yKeDMHqs8WrAuLyV",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 569,
+   "cr": 7884,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK1qa4KtAy5sL9dkdRt",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 774,
+   "cr": 8791,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK2JVombs6CekQdEhbS",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1280,
+   "cr": 20503,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK2AsQrTaBCBxKEdAQW",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 258,
+   "cr": 8453,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK2JHueRypXwbZWgnw6",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1189,
+   "cr": 9565,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK2bi9cNcwR56z4e2zR",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 2559,
+   "cr": 21783,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK2avXLPKMiDqweBvCx",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 717,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaK2jHZRN5pVowopieMJ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1354,
+   "cr": 6485,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK2wiS1TiUaEeb2pPcU",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 740,
+   "cr": 24342,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaK3Lh3LxkWWuoAxjEr4",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 514,
+   "cr": 25082,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I didn't post a comment on oven-sh/bun#37028. The comment script ran in dry-run mode and printed `DRY RUN: would post on #37028: Found 1 possible duplicate issues: 19059`. It didn't say how to turn dry-run off, and I didn't try to force a real post.\n\n**Likely duplicate: #19059**, \"overrides / resolu"
+}

@@ -1,0 +1,256 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41201871499",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 15,
+ "duration_ms": 68870,
+ "duration_api_ms": 63398,
+ "total_cost_usd": 0.230837,
+ "input_tokens": 16,
+ "output_tokens": 4273,
+ "cache_read_input_tokens": 186121,
+ "cache_creation_input_tokens": 24822,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 40,
+   "outputTokens": 7351,
+   "cacheReadInputTokens": 281920,
+   "cacheCreationInputTokens": 51622,
+   "webSearchRequests": 0,
+   "costUSD": 0.230837,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 291,
+   "cacheCreationEphemeral5mInputTokens": 51622,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found three likely duplicates of #103645, but the comment was not posted. The comment script ran in dry-run mode and printed what it would have posted: \"Found 3 possible duplicate issues: 99395 100948 103030\".\n\nThe three are all closed issues describing the same bug: the first click on a Button in an unfocused plugin Pane only focuses the pane, and the press is dropped.\n- **#99395:** \"Desktop: f",
+ "task": "claude-code-103645",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "anthropics/claude-code",
+ "target": 103645,
+ "original": 99395,
+ "picked": [
+  99395,
+  100948,
+  103030
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 19,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKy2dbeMnX5x86i5paH",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4389,
+   "cr": 12265,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKyNCqHnBXv7N8cedG4",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3397,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKz3ftZuVAo3o62RZov",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1472,
+   "cr": 16654,
+   "out": 42,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKzM5eR9aapisvKZ5gK",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3390,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKzVWu7FUJuPRBNDVCT",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3403,
+   "cr": 6077,
+   "out": 20,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKzWFJ9jGvc2SES7JjS",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 976,
+   "cr": 9467,
+   "out": 302,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKzdRA9cSp4b5QNP5Kp",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3409,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKzdzt4DV8JLJGhCJuk",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 996,
+   "cr": 9480,
+   "out": 202,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKzmVL4H72skq1XxfvS",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3400,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKzn44g8cv1jnZwj248",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 986,
+   "cr": 9486,
+   "out": 279,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKzva2g3Bg5HjmuXUS1",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3424,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKzvKtjMzFNdbLceyYR",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 5605,
+   "cr": 18126,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKzvHv1euU8nQ9X84Ef",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1001,
+   "cr": 9477,
+   "out": 279,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL17QeUd8TTiJcMEkdw",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1171,
+   "cr": 23731,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL15cFjmSqf5JXBWERd",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1001,
+   "cr": 9501,
+   "out": 364,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL1GPtwXdz3vsC7gQm9",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 980,
+   "cr": 24902,
+   "out": 41,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL3KMnVZWQEebNRxRAB",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1957,
+   "cr": 25882,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL3gxJihbfW9kfEHNZX",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 8883,
+   "cr": 27839,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL3qXWPNKMKmAMHoic8",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 365,
+   "cr": 36722,
+   "out": 418,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found three likely duplicates of #103645, but the comment was not posted. The comment script ran in dry-run mode and printed what it would have posted: \"Found 3 possible duplicate issues: 99395 100948 103030\".\n\nThe three are all closed issues describing the same bug: the first click on a Button in"
+}

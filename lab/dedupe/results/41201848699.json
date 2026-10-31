@@ -1,0 +1,260 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41201848699",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 2,
+ "duration_ms": 4541,
+ "duration_api_ms": 58831,
+ "total_cost_usd": 0.1899661,
+ "input_tokens": 4,
+ "output_tokens": 275,
+ "cache_read_input_tokens": 54766,
+ "cache_creation_input_tokens": 1157,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 40,
+   "outputTokens": 5989,
+   "cacheReadInputTokens": 251361,
+   "cacheCreationInputTokens": 41944,
+   "webSearchRequests": 0,
+   "costUSD": 0.1899661,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 283,
+   "cacheCreationEphemeral5mInputTokens": 41944,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "My own background search failed with \"Error: rate limited\", so it never ran. That also explains why it hung past the timeout.\n\nI still haven't searched for duplicates of #36967 and haven't posted a comment. The five search agents were denied Bash permission, and the one search I ran myself hit the GitHub rate limit.\n\nTo finish, wait for the rate limit to reset, allow Bash for `./scripts/gh.sh`, an",
+ "task": "bun-36967",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 36967,
+ "original": 23420,
+ "picked": [],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 19,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKsVbfZSWuQ1sv6aF67",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4387,
+   "cr": 12265,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsh8CVpPhxh2eXyp37",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1291,
+   "cr": 16652,
+   "out": 24,
+   "tools": [
+    "TaskCreate"
+   ]
+  },
+  {
+   "id": "msg_011CgaKsxTSPQMk9mEQf7Jhe",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3372,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKt7b7Nbf71V9dcQzuJ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 720,
+   "cr": 10675,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKtkqUZsUP7SouMM29r",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1449,
+   "cr": 17943,
+   "out": 17,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKu16yPMJ81vB5UN2KA",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3303,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKu8ELmAbHffwbBfshh",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3311,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKuAFsvXhpx3PZnfwxE",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 955,
+   "cr": 9380,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKuDjynWmFm8QL9bhA8",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3309,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKuGA5iUuheveLgukXK",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 944,
+   "cr": 9388,
+   "out": 226,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKuLy4RhCR7gkd4xymr",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3315,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKuRCJd5FmXKsYWZ444",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3324,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKuRHGhhSLgWG2ZDEEM",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4246,
+   "cr": 19392,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKuP9n3vSZq5Zsphjsf",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 975,
+   "cr": 9386,
+   "out": 316,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKuWo9zucrLTaxqeDx5",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 975,
+   "cr": 9392,
+   "out": 276,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKuZKhzHHKfNfuJ6KAh",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 966,
+   "cr": 9401,
+   "out": 220,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL4SCLCAb5W3KE7op5S",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3334,
+   "cr": 23638,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL845BPZ5dunofVa9ti",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 822,
+   "cr": 26972,
+   "out": 16,
+   "tools": [
+    "Read"
+   ]
+  },
+  {
+   "id": "msg_011CgaL8BsEWfxcAGNaeT6pb",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 335,
+   "cr": 27794,
+   "out": 163,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "My own background search failed with \"Error: rate limited\", so it never ran. That also explains why it hung past the timeout.\n\nI still haven't searched for duplicates of #36967 and haven't posted a comment. The five search agents were denied Bash permission, and the one search I ran myself hit the G"
+}

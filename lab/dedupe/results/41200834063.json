@@ -1,0 +1,306 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41200834063",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 20,
+ "duration_ms": 148018,
+ "duration_api_ms": 69153,
+ "total_cost_usd": 0.23597620000000002,
+ "input_tokens": 20,
+ "output_tokens": 4312,
+ "cache_read_input_tokens": 227425,
+ "cache_creation_input_tokens": 19678,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 50,
+   "outputTokens": 7488,
+   "cacheReadInputTokens": 352037,
+   "cacheCreationInputTokens": 50317,
+   "webSearchRequests": 0,
+   "costUSD": 0.23597620000000002,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 206,
+   "cacheCreationEphemeral5mInputTokens": 50317,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found one likely duplicate of #36967, but the comment was not posted. The comment script ran in dry-run mode and only printed `DRY RUN: would post on #36967: Found 1 possible duplicate issues: 23420`. I didn't try to force a real post. If you want one, check how the script enables posting and tell me to run it that way.\n\n- **Duplicate:** #23420, \"Matchers under `expect().resolves` and `expect().",
+ "task": "bun-36967",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 36967,
+ "original": 23420,
+ "picked": [
+  23420
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 23,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaJp95RjixxsxGiG3RNC",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4387,
+   "cr": 12265,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJpJSzrXQR5T4e5CCgm",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1210,
+   "cr": 16652,
+   "out": 24,
+   "tools": [
+    "TaskCreate"
+   ]
+  },
+  {
+   "id": "msg_011CgaJpYWbJD6kCEcDRtadC",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3350,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJphQrxnAoaxrJp5Zpt",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 711,
+   "cr": 10653,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJq29FA9e7ZYxkWL8zH",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1024,
+   "cr": 17862,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaJqAQ5ckSZvrwutLRsp",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3226,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJqefwihbriXDdwaMQC",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1060,
+   "cr": 18886,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaJqtk2tYbtsxR3yjzJv",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3337,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJr1aY8eyKsrD17TcPz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3324,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJr3d5Qw322W1L1KS9A",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 983,
+   "cr": 9414,
+   "out": 204,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJr8PZMJoMtPJfnum1g",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3342,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJrAChWasiSk4uT8LHJ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 965,
+   "cr": 9401,
+   "out": 237,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJrF3fkbpNXG1Xicrqz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3340,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJrMGxXXca973Bec37o",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4281,
+   "cr": 19946,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJrMCFnK4qxEwKDmn4U",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3347,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJrHkP6xLrtVAyjaadK",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1009,
+   "cr": 9419,
+   "out": 286,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJrQ1v6YUj6bd9J4WDb",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 968,
+   "cr": 9417,
+   "out": 270,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJrW82LQqGXZuQbeRHG",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1006,
+   "cr": 9424,
+   "out": 273,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJv9PxEwwdL1QJcVJgh",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3134,
+   "cr": 24227,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJvM1Chx1Yy9beCKPNJ",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 505,
+   "cr": 27361,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJzMfVmN7ufX2MyjRVR",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 2772,
+   "cr": 27866,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJza1uPNcfwHVZgNGvw",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1084,
+   "cr": 30638,
+   "out": 71,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJzi27SVLUjGdmavKJM",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 221,
+   "cr": 31722,
+   "out": 496,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found one likely duplicate of #36967, but the comment was not posted. The comment script ran in dry-run mode and only printed `DRY RUN: would post on #36967: Found 1 possible duplicate issues: 23420`. I didn't try to force a real post. If you want one, check how the script enables posting and tell"
+}

@@ -1,0 +1,345 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41201893109",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 5,
+ "duration_ms": 14284,
+ "duration_api_ms": 92796,
+ "total_cost_usd": 0.2329047,
+ "input_tokens": 16,
+ "output_tokens": 974,
+ "cache_read_input_tokens": 98404,
+ "cache_creation_input_tokens": 6155,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 3564,
+   "outputTokens": 8538,
+   "cacheReadInputTokens": 299142,
+   "cacheCreationInputTokens": 44193,
+   "webSearchRequests": 0,
+   "costUSD": 0.2329047,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 318,
+   "cacheCreationEphemeral5mInputTokens": 44193,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found two likely duplicates of #50880, but the comment script ran in dry-run mode, so nothing was posted. Its output was: \"DRY RUN: would post on #50880: Found 2 possible duplicate issues: 31097 35781\".\n\n- **#31097**, \"GPT-5.5 forces MultiAgentV2 despite disable\": this is the same bug on an earlier model. A model's `multi_agent_version: v2` metadata takes precedence over the user's disable setti",
+ "task": "codex-50880",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "openai/codex",
+ "target": 50880,
+ "original": 35177,
+ "picked": [
+  31097,
+  35781
+ ],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 27,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaL6Yepom7QmL792HVwF",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1120,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL6sryTM1uoNw4AssbM",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1353,
+   "cr": 10050,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL6scqwxvkBHuxHfbvV",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 702,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL72WPJbVeaBMktJo8g",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1146,
+   "cr": 6470,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL78tcmSrW88R7qwM58",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 299,
+   "cr": 7616,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7MLURRNyueDdbkrAr",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 964,
+   "cr": 7915,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7qmkTrYLunTXsfpS3",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1598,
+   "cr": 11403,
+   "out": 0,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaL8aTHJo56X7nUXUY7V",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3623,
+   "cr": 13001,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL8aaEJKyfP1JDqjXx5",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 672,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL8aYVECv9AC2x6Nvoq",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 711,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL8aVmRnAyKsu9RyqFX",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 669,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL8aRHrfLL5yN24CuF2",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 668,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL8aUGYeEfYdJGtwkh3",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 688,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLCV5SKnWDhx3Eirvkm",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 2732,
+   "cr": 6440,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLCYRMS55PxSkiuCKup",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 3307,
+   "cr": 6437,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLCV2DDcoyZcgsaqpLV",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 3004,
+   "cr": 6479,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLCZowfwDk4Ce1w91ma",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 3321,
+   "cr": 6436,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLCe9QG74Jpj9QBpqSf",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 3260,
+   "cr": 6456,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLCoFaMXSY4kXgWzu7z",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1076,
+   "cr": 16624,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLCyagcBaoqGDNUw8qE",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 4144,
+   "cr": 17700,
+   "out": 0,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaLDSdsG1jkB6439Uq9k",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 824,
+   "cr": 21844,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLDS4QHzWH6fGzRBjEV",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 793,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLDcQW18rReLr7tmVVk",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1364,
+   "cr": 6561,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLDqubVoxWuu9ALGsEs",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 794,
+   "cr": 22668,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLE67sTB2ZosTSnyWm9",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 299,
+   "cr": 23462,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLELeUsycshw2gPFrLq",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 4752,
+   "cr": 23761,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLEbL3ADk8DvHWG8NYX",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 310,
+   "cr": 28513,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found two likely duplicates of #50880, but the comment script ran in dry-run mode, so nothing was posted. Its output was: \"DRY RUN: would post on #50880: Found 2 possible duplicate issues: 31097 35781\".\n\n- **#31097**, \"GPT-5.5 forces MultiAgentV2 despite disable\": this is the same bug on an earlie"
+}

@@ -1,0 +1,307 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41200826183",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 1,
+ "duration_ms": 2850,
+ "duration_api_ms": 72277,
+ "total_cost_usd": 0.10556176500000003,
+ "input_tokens": 2,
+ "output_tokens": 217,
+ "cache_read_input_tokens": 27121,
+ "cache_creation_input_tokens": 1458,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 16,
+   "outputTokens": 3644,
+   "cacheReadInputTokens": 166792,
+   "cacheCreationInputTokens": 16314,
+   "webSearchRequests": 0,
+   "costUSD": 0.09393620000000001,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 408,
+   "cacheCreationEphemeral5mInputTokens": 16314,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  },
+  "claude-haiku-5-5": {
+   "inputTokens": 32,
+   "outputTokens": 8612,
+   "cacheReadInputTokens": 128649,
+   "cacheCreationInputTokens": 48239,
+   "webSearchRequests": 0,
+   "costUSD": 0.011625565000000003,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 2500,
+   "cacheCreationEphemeral5mInputTokens": 48239,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-haiku-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "The monorepo/workspace search agent has now finished, so all five searches are accounted for. It found nothing new. Its closest matches were #19059 and #6608, the same two I already listed. It also named #14774 (open, overrides inside monorepo sub-packages) and #6245 (closed), but neither is about targeting a version, so I'm leaving both out.\n\nMy earlier note that I never saw results from that age",
+ "task": "bun-37028",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 37028,
+ "original": 19059,
+ "picked": [
+  19059,
+  6608
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 23,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaJoYN7ziMqMpfZW9c94",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4387,
+   "cr": 12265,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJorp8h3DYPQU3PX4rW",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 10701,
+   "cr": 0,
+   "out": 2,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJoySzU6C3rg49MRcXG",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 829,
+   "cr": 10701,
+   "out": 3,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJpNHB87bVzAK1KJf2g",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1241,
+   "cr": 16652,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaJpe2UhwGdv5ygnWHQV",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 9421,
+   "cr": 0,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJpkuTYggkLowK6AqHT",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3332,
+   "cr": 6077,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJptnjhzx2s1GHa56wK",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3321,
+   "cr": 6077,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJpvKFPtngym8onjPZA",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1329,
+   "cr": 9409,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJq19iPczNvRPZ7ppkV",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2495,
+   "cr": 9421,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJq1W3SsBL5XXEMv2oA",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3330,
+   "cr": 6077,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJq8B8wGw8QVzXNUUAm",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3329,
+   "cr": 6077,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJq8HqWaqXiXApAvX86",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4501,
+   "cr": 17893,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqCExtQBoSHnu4HDXc",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 808,
+   "cr": 11916,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqJjtV8N7yK956qwS8",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2181,
+   "cr": 9398,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqLwMFsxJdWrCL6W4Y",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 174,
+   "cr": 22394,
+   "out": 21,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJqS5QsaNR3GTRdC2nf",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2168,
+   "cr": 9406,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqTsop1rek1HUxHpDE",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2960,
+   "cr": 9407,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqagqcXSjBJZr9nrp4",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 614,
+   "cr": 11579,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqWcFvNqWe4XbMQ8mi",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 631,
+   "cr": 22568,
+   "out": 10,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqi36uHwXvbeH7c48T",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 716,
+   "cr": 11574,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqi46E2ccVcoE6xd51",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1501,
+   "cr": 23199,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJqvsmEPT7grfwhgrnD",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 2421,
+   "cr": 24700,
+   "out": 423,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJrDoFfpyRmdFFfzkQZ",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1458,
+   "cr": 27121,
+   "out": 2,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "The monorepo/workspace search agent has now finished, so all five searches are accounted for. It found nothing new. Its closest matches were #19059 and #6608, the same two I already listed. It also named #14774 (open, overrides inside monorepo sub-packages) and #6245 (closed), but neither is about t"
+}

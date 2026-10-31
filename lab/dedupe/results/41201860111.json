@@ -1,0 +1,412 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41201860111",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 2,
+ "duration_ms": 6603,
+ "duration_api_ms": 99813,
+ "total_cost_usd": 0.2445589,
+ "input_tokens": 8,
+ "output_tokens": 632,
+ "cache_read_input_tokens": 48470,
+ "cache_creation_input_tokens": 1419,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 4011,
+   "outputTokens": 8912,
+   "cacheReadInputTokens": 365119,
+   "cacheCreationInputTokens": 44362,
+   "webSearchRequests": 0,
+   "costUSD": 0.2445589,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 498,
+   "cacheCreationEphemeral5mInputTokens": 44362,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found three likely duplicates of #104074, but the comment wasn't posted. The comment script only did a dry run and printed: \"DRY RUN: would post on #104074: Found 3 possible duplicate issues: 93201 91495 93156\".\n\nThe likely duplicates, best match first:\n1. **#93201**: It shows the same \"Site-level permissions are disabled for this site\" message in the built-in browser. The host is in Allowed sit",
+ "task": "claude-code-104074",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "anthropics/claude-code",
+ "target": 104074,
+ "original": 93201,
+ "picked": [
+  93201,
+  91495,
+  93156
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 33,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKu1mtojcJkdfD5Va4i",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1128,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKuKBf51c49F9eCJmwF",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1298,
+   "cr": 10058,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKuK3imyo4ayHksgGQa",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 678,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKuWKdhqJP5kEvztsU8",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1805,
+   "cr": 6446,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKutg3byZyXpVh8zxzA",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1198,
+   "cr": 11356,
+   "out": 0,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKvguPvwhV69G9gcDfU",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3768,
+   "cr": 12554,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKvgGwe85WDLrHHjtKZ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 749,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKvgrvLvGf3Y4p8j5Kc",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 733,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKvgow1vZp4Rvrvj4Dv",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 725,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKvgpgCjvwMn9EpjGmn",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 717,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKvgtegWjitCQ7HGZse",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 726,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKvs4aJKJrjcTz8TaUh",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1297,
+   "cr": 6493,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKvrrvWX9teWvXZCLAy",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1409,
+   "cr": 6517,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKvruekp9wAGpL7kchZ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1424,
+   "cr": 6485,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKvsMSXiKRcT5yjKVck",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1420,
+   "cr": 6494,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKvrvtkSx4WCFSG5ZLK",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1437,
+   "cr": 6501,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKw3pF3o6Uzij67P49W",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 802,
+   "cr": 16322,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKwDfpQop8BGWfZNaaN",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 2417,
+   "cr": 17124,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKwnvpPkfWH7N7JLvpB",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 2076,
+   "cr": 7790,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKxAaJxuvtU8Wf7q4Ra",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1423,
+   "cr": 19541,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKxV4ZT5VC4Xa9iQw4m",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 747,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKxWe4ASEeLRuUuSw83",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 858,
+   "cr": 20964,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKxd6zaV97Db96SvyLX",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1361,
+   "cr": 6515,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKxw8i3GUwY3mQTdP3W",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 870,
+   "cr": 21822,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKyMQhvSxDrvh8MqWzp",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 728,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKyN3Qb4iWrgzVQWAeB",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 932,
+   "cr": 22692,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKyWWABVtRhg7rNv39g",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 3370,
+   "cr": 6496,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKydfW8UsiTvNyKQFpT",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1774,
+   "cr": 9866,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKyn1ZRfEkbGnoY2NrA",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 771,
+   "cr": 11640,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKyuJrG9QcWUHsjqApa",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 3077,
+   "cr": 12411,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKz2JJ2aXaiPgkNHAmz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1225,
+   "cr": 15488,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKzT8muQ4vX627UDmKv",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1222,
+   "cr": 23624,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKzbJuGpW17RUMhjaMt",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 197,
+   "cr": 24846,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found three likely duplicates of #104074, but the comment wasn't posted. The comment script only did a dry run and printed: \"DRY RUN: would post on #104074: Found 3 possible duplicate issues: 93201 91495 93156\".\n\nThe likely duplicates, best match first:\n1. **#93201**: It shows the same \"Site-level"
+}

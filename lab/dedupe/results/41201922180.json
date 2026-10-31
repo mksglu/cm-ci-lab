@@ -1,0 +1,273 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41201922180",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 13,
+ "duration_ms": 205480,
+ "duration_api_ms": 55547,
+ "total_cost_usd": 0.19579449999999998,
+ "input_tokens": 14,
+ "output_tokens": 3364,
+ "cache_read_input_tokens": 149635,
+ "cache_creation_input_tokens": 15838,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 42,
+   "outputTokens": 6259,
+   "cacheReadInputTokens": 268130,
+   "cacheCreationInputTokens": 42523,
+   "webSearchRequests": 0,
+   "costUSD": 0.19579449999999998,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 185,
+   "cacheCreationEphemeral5mInputTokens": 42523,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found two likely duplicates of #6474, but no comment was posted. The comment script ran in dry-run mode and printed \"DRY RUN: would post on #6474: Found 2 possible duplicate issues: 1888 5168\".\n\n- **#1888** (open): \"Configurable Range heartbeat bar (7/30/60/90/180/365 days)\". It asks for a configurable range on the status page heartbeat bar, which is the core of #6474.\n- **#5168** (closed): \"Fea",
+ "task": "uptime-kuma-6474",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "louislam/uptime-kuma",
+ "target": 6474,
+ "original": 1888,
+ "picked": [
+  1888,
+  5168
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 20,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaLLLpaJAQQK71ZjsNek",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4393,
+   "cr": 12265,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLLfmMiyK7GKczXTDEi",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3376,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLLmW8JiY7suMxhLiGw",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 714,
+   "cr": 10679,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLLqx28b5Wjgb3CavwV",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 296,
+   "cr": 11393,
+   "out": 31,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLMLU1gVyhS8DUchFxn",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1432,
+   "cr": 16658,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaLMbxgPv3K6bANJiM6t",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3333,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLMhFRKvc4LaUmvyQ3i",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3323,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLMk17f7YQccnFPNLyC",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 965,
+   "cr": 9410,
+   "out": 248,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLMpHqUAPYPxQvMMZDo",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3331,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLMr32De6ttnQZMbuNu",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 977,
+   "cr": 9400,
+   "out": 235,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLMuiGjF1RH17idx3YZ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3331,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLN1SoZtjXcxxuFvzDT",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3343,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLMz9vYLy7KN7ZuQMVt",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1020,
+   "cr": 9408,
+   "out": 220,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLN1bEKAxd9rpdFcDnM",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 5037,
+   "cr": 18090,
+   "out": 10,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLN48nirGDqDv9o5E8Y",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 975,
+   "cr": 9408,
+   "out": 202,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLNA1VdgBNW65an8nMk",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 971,
+   "cr": 9420,
+   "out": 234,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLRnxaraxa5nrUqYvfm",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 2667,
+   "cr": 23127,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLRzk1MCRK2LRDdPyRH",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 422,
+   "cr": 25794,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLb5WzbqJDLAGNzmbnR",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1269,
+   "cr": 26216,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLbFchY5tT2L5zsaqpo",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 618,
+   "cr": 27485,
+   "out": 315,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found two likely duplicates of #6474, but no comment was posted. The comment script ran in dry-run mode and printed \"DRY RUN: would post on #6474: Found 2 possible duplicate issues: 1888 5168\".\n\n- **#1888** (open): \"Configurable Range heartbeat bar (7/30/60/90/180/365 days)\". It asks for a configu"
+}

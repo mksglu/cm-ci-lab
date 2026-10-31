@@ -1,0 +1,327 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41200889688",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 3,
+ "duration_ms": 21902,
+ "duration_api_ms": 75868,
+ "total_cost_usd": 0.2564922,
+ "input_tokens": 6,
+ "output_tokens": 1084,
+ "cache_read_input_tokens": 79542,
+ "cache_creation_input_tokens": 4840,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 54,
+   "outputTokens": 8079,
+   "cacheReadInputTokens": 357042,
+   "cacheCreationInputTokens": 55956,
+   "webSearchRequests": 0,
+   "costUSD": 0.2564922,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 382,
+   "cacheCreationEphemeral5mInputTokens": 55956,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found two likely duplicates of #25559, but nothing was posted. The comment script ran in dry-run mode and only printed what it would have posted: \"Found 2 possible duplicate issues: 21622 20412\".\n\n- **#21622** is the best match. The CLI hangs silently on Linux because `keytar.setPassword()` blocks on GNOME Keyring. It has the same symptom, cause and `GEMINI_FORCE_FILE_STORAGE=true` workaround as",
+ "task": "gemini-cli-25559",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "google-gemini/gemini-cli",
+ "target": 25559,
+ "original": 21622,
+ "picked": [
+  21622,
+  20412
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 25,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKX1EncMjwrNihwqUX9",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4395,
+   "cr": 12265,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKXDXUNFRatsofxYTpV",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1289,
+   "cr": 16660,
+   "out": 24,
+   "tools": [
+    "TaskCreate"
+   ]
+  },
+  {
+   "id": "msg_011CgaKXL776n1diF6FQthTa",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 167,
+   "cr": 17949,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKXWRyA2VJEwgg7Nv4W",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3329,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKXgEa8Qco1mGPd9i6c",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 712,
+   "cr": 10632,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKY6dWc83FGfjfkKkCg",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1125,
+   "cr": 18116,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKYKmnTts4Z4zzvWNiR",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3257,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKYQx6NA5QyW8gJM8EW",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3265,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKYWMmhTkSPNUqVxwvX",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3276,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKYaZ2hbnYVv5Ln4F2i",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1805,
+   "cr": 9334,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKYYr6YEJYpyE1pBWJg",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 982,
+   "cr": 9342,
+   "out": 215,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKYbgzm2ckhEju2Aqgi",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3282,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKYhmrruN6kzveG22b2",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3433,
+   "cr": 19241,
+   "out": 19,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKYhJav1Jaa2tVRxRjg",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3286,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKYn1Mfigo7CMW12eK2",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 743,
+   "cr": 22674,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKYkfkGxa9HtZJPBpKT",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 993,
+   "cr": 9359,
+   "out": 291,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKYjhhzyJEfgAj2WEY1",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1471,
+   "cr": 9353,
+   "out": 642,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKYrawQ5Ty6otrPuDND",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1012,
+   "cr": 9363,
+   "out": 10,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKYyDYx5e1Xq5gzthGk",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 868,
+   "cr": 23417,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKYo7LcyWA15q3GbSD9",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 412,
+   "cr": 11139,
+   "out": 646,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKZ7sxAkZVdHsLBGoWX",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 2050,
+   "cr": 24285,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKZTNisKVhirEHy5LnM",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3490,
+   "cr": 7303,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKZbHTqCnMa8i6E1X5X",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 735,
+   "cr": 10793,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKaL9R5mKkRP5piNPzy",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 2587,
+   "cr": 26335,
+   "out": 45,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKaTrWeETqBr7cECNiy",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 203,
+   "cr": 28922,
+   "out": 405,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found two likely duplicates of #25559, but nothing was posted. The comment script ran in dry-run mode and only printed what it would have posted: \"Found 2 possible duplicate issues: 21622 20412\".\n\n- **#21622** is the best match. The CLI hangs silently on Linux because `keytar.setPassword()` blocks"
+}

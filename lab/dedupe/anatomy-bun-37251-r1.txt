@@ -1,0 +1,80 @@
+
+== bun-37251 r1 direct-ts run 41200818554 cost $0.4742 requests 36 (sub 26)
+  # who    uncached  cache_write  cache_read  output  tools
+   1 main        2        5729       10923       7  
+   2 sub         2       10714           0      16  Bash
+   3 sub         2         708       10714      16  Bash
+   4 sub         2         293       11422       6  Bash
+   5 main        2        1487       16652      17  Agent
+   6 sub         2        9421           0      16  Bash
+   7 sub         2        3304        6077      16  Bash
+   8 sub         2        3299        6077      16  Bash
+   9 sub         2         982        9421     283  
+  10 sub         2         980        9381     277  
+  11 sub         2        3319        6077      16  Bash
+  12 sub         2        1008        9376     297  
+  13 main        2        4269       18139       8  
+  14 sub         2        3317        6077      16  Bash
+  15 sub         2         980        9396     260  
+  16 sub         2        3219        7303      16  Bash
+  17 sub         2        1008        9394     262  
+  18 main        2        3578       22408       4  
+  19 sub         2        3394        6077      16  Bash
+  20 sub         2        3358        6077      16  Bash
+  21 sub         2        3356        6077      16  Bash
+  22 sub         2        3361        6077      16  Bash
+  23 main        2        4097       25986      34  
+  24 sub         2        3355        6077      16  Bash
+  25 main        2         402       30083      26  
+  26 sub         2        1722        9471     480  
+  27 sub         2        1548        9438      10  
+  28 main        2        1005       30485       2  
+  29 sub         2        2299        9435     736  
+  30 sub         2        1964        9433     594  
+  31 main        2        2683       31490       5  
+  32 sub         2        1921        9432     647  
+  33 sub         2         558       10986     718  
+  34 sub         2        3579        7303      16  Bash
+  35 main        2        3662       34173      59  
+  36 main        2         214       37835     503  
+  main totals {'in': 20, 'cw': 27126, 'cr': 258174, 'out': 665}  list-price $ uncached=0.0001 write=0.1017 read=0.0775 output=0.0100
+  sub  totals {'in': 52, 'cw': 72967, 'cr': 196598, 'out': 4794}  list-price $ uncached=0.0002 write=0.2736 read=0.0590 output=0.0719
+
+== bun-37251 r1 gateway run 41200822437 cost $0.2861 requests 34 (sub 21)
+  # who    uncached  cache_write  cache_read  output  tools
+   1 main      499       10056           0       0  
+   2 main        4        1317       10056       0  
+   3 sub       427        6469           0       0  Bash
+   4 sub         4        1149        6469       0  Bash
+   5 sub         4        1582        7618       0  
+   6 main        4        1560       11373       0  Agent
+   7 main        4        3666       12933       0  
+   8 sub       427         712        5768       0  Bash
+   9 sub       427         697        5768       0  Bash
+  10 sub       427         688        5768       0  Bash
+  11 sub       427         700        5768       0  Bash
+  12 sub       427         672        5768       0  Bash
+  13 sub         4        1357        6480       0  
+  14 sub         4        1427        6440       0  
+  15 sub         4        1424        6456       0  
+  16 sub         4        1450        6468       0  
+  17 sub         4        1411        6465       0  
+  18 sub         4         433        7837       0  
+  19 main        4        1529       16599       0  
+  20 main        4        1706       18128       0  
+  21 main        4        1777       19834       0  
+  22 sub       427         737        5768       0  Bash
+  23 sub       427         711        5768       0  Bash
+  24 sub         4        1430        6505       0  
+  25 sub         4        1364        6479       0  
+  26 main        4         780       21611       0  
+  27 main        4         349       22391       0  
+  28 main        4         227       22740       0  Bash
+  29 sub         4        1754        8270       0  
+  30 sub         4         620        7843       0  Bash
+  31 sub         4         945        8463       0  
+  32 main        4        3557       22967       0  
+  33 main        4        1745       26524       0  
+  34 main        4         231       28269       0  
+  main totals {'in': 547, 'cw': 28500, 'cr': 233425, 'out': 0}  list-price $ uncached=0.0016 write=0.1069 read=0.0700 output=0.0000
+  sub  totals {'in': 3468, 'cw': 27732, 'cr': 132169, 'out': 0}  list-price $ uncached=0.0104 write=0.1040 read=0.0397 output=0.0000

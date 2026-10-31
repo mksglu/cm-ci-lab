@@ -1,0 +1,455 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41201840690",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 1,
+ "duration_ms": 2539,
+ "duration_api_ms": 100398,
+ "total_cost_usd": 0.12241667,
+ "input_tokens": 2,
+ "output_tokens": 150,
+ "cache_read_input_tokens": 28806,
+ "cache_creation_input_tokens": 1617,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 20,
+   "outputTokens": 3942,
+   "cacheReadInputTokens": 226925,
+   "cacheCreationInputTokens": 18158,
+   "webSearchRequests": 0,
+   "costUSD": 0.10754750000000002,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 136,
+   "cacheCreationEphemeral5mInputTokens": 18158,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  },
+  "claude-haiku-5-5": {
+   "inputTokens": 56,
+   "outputTokens": 12986,
+   "cacheReadInputTokens": 265032,
+   "cacheCreationInputTokens": 45762,
+   "webSearchRequests": 0,
+   "costUSD": 0.01486917,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 4875,
+   "cacheCreationEphemeral5mInputTokens": 45762,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-haiku-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "The \"nested overrides\" agent has now reported, and its results agree with what I already had. Its top two candidates were #6608 and #19059, the same two I flagged. It also listed #36377 as \"possibly related\", and the filtering agent had already rejected that one. It found nothing new, so I'm not changing the result.\n\nThe comment script only did a dry run, so nothing was posted to #37028. The candi",
+ "task": "bun-37028",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 37028,
+ "original": 19059,
+ "picked": [
+  19059,
+  6608
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 38,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKrRogoqJAQp257od2y",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4387,
+   "cr": 12265,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKrku9JiNdoaydm9Eua",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3344,
+   "cr": 6077,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKrm1qXUee6CgkJmve6",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 900,
+   "cr": 16652,
+   "out": 24,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKrtACBZSUEuD15ZXAJ",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 848,
+   "cr": 9421,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKrz8d3udyUoJGFMgHk",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 698,
+   "cr": 10269,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKs8uDYNALLdsp9tt41",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 604,
+   "cr": 10967,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsKUi4A1svJ3atBhUg",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 452,
+   "cr": 11571,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsZYnjg8vaCthTJnzn",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1100,
+   "cr": 17552,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsqfupSAbwyfVEPXHn",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3333,
+   "cr": 6077,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsxRiLP2LqF2WtYYwT",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3349,
+   "cr": 6077,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsyXgdZhnYn6fdNPS7",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 954,
+   "cr": 9410,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKt6Fzx3vgqVPy2kP3N",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3345,
+   "cr": 6077,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKt4teZScaEQ6n33Kow",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1191,
+   "cr": 9426,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKt6mGDuBbPTYwqSzbb",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 540,
+   "cr": 10364,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtCivysdZXr13XRnDq",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1018,
+   "cr": 9422,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtDjTsP2HXtgZzZqyW",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3360,
+   "cr": 6077,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtK6ur63EgXRz3cEo6",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 530,
+   "cr": 10440,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtNhxqoZwckE9jS1fD",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3397,
+   "cr": 6077,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtMYm6eU7UAb3DMpkE",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1258,
+   "cr": 9437,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtNnfz1bSeAdQkZnah",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 5630,
+   "cr": 18652,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtWaymEpnSqy5v5RuQ",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 439,
+   "cr": 10695,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtZ923XFQjbmzKsRAc",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1262,
+   "cr": 9474,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKteYTg8oxj2sE9SGsG",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 466,
+   "cr": 10736,
+   "out": 20,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKxAoD23E7E2L9mktPR",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1356,
+   "cr": 10970,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKxGdCsodcPtmdYREY2",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 953,
+   "cr": 11134,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKxRcvvqSSmsKRqdiaV",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1657,
+   "cr": 11202,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKxUrfLjbdw28u6WN7m",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1368,
+   "cr": 12326,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKxYvjK6gi6Y3XjZa71",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 478,
+   "cr": 12859,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKxsatkaeU8Xbce52xs",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1327,
+   "cr": 24282,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKy1d5bjRfSj7CdJZnY",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1190,
+   "cr": 25609,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKyKAGXAn5QoEA2r9v4",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 879,
+   "cr": 26799,
+   "out": 49,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKyK6JfGuHNmUtVpnkr",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3440,
+   "cr": 6077,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKyTbHYpVzsrraLfu1J",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1249,
+   "cr": 9517,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKyhjaawPCmfnFbKSqY",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3333,
+   "cr": 10766,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKzDheGgUzU42woxe5D",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 952,
+   "cr": 27678,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKzMTDY7c5QyF2TRcc6",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 176,
+   "cr": 28630,
+   "out": 444,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL28WANdfVzChEeRuXF",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1540,
+   "cr": 12087,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL2UwjNdeCxydMrnrou",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1617,
+   "cr": 28806,
+   "out": 8,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "The \"nested overrides\" agent has now reported, and its results agree with what I already had. Its top two candidates were #6608 and #19059, the same two I flagged. It also listed #36377 as \"possibly related\", and the filtering agent had already rejected that one. It found nothing new, so I'm not cha"
+}

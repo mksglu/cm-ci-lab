@@ -1,0 +1,330 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41200877395",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 1,
+ "duration_ms": 5287,
+ "duration_api_ms": 85799,
+ "total_cost_usd": 0.18864080000000005,
+ "input_tokens": 4,
+ "output_tokens": 510,
+ "cache_read_input_tokens": 23162,
+ "cache_creation_input_tokens": 933,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 3560,
+   "outputTokens": 7558,
+   "cacheReadInputTokens": 261633,
+   "cacheCreationInputTokens": 31911,
+   "webSearchRequests": 0,
+   "costUSD": 0.18864080000000005,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 480,
+   "cacheCreationEphemeral5mInputTokens": 31911,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I haven't posted anything to #50880. The verification step was blocked, and I didn't want to publish unverified duplicates.\n\n- **Eligibility:** The issue is open and is a specific bug report. It has no earlier duplicates comment, so it was eligible.\n- **Search:** Four of the five search agents were denied Bash permission and returned nothing. The fifth ran only two searches, and those covered all ",
+ "task": "codex-50880",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "openai/codex",
+ "target": 50880,
+ "original": 35177,
+ "picked": [],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 26,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKUYuwpS43BWZ3iMLY4",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1120,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKUsBoaSpxYqMgLKCeU",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1785,
+   "cr": 10050,
+   "out": 0,
+   "tools": [
+    "TaskCreate"
+   ]
+  },
+  {
+   "id": "msg_011CgaKVBTdxCncN3iomn46q",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 931,
+   "cr": 11835,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKVBJDZc2WSgkTRuHZy",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 719,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKVMMDNK7qscWSFzyWY",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1163,
+   "cr": 6487,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKVVd2zj12eu8LsW4TL",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 934,
+   "cr": 7650,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKVtrXmmNAvsEyRJJou",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1385,
+   "cr": 12766,
+   "out": 0,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWfNT3hFLSVPvyin6r",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3645,
+   "cr": 14151,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKWetgEvQt6LiAajQG5",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 715,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWesggKxxkAWPeBU81",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 700,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWeqwh5SDDhDh7CNv3",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 703,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWeqCzau2whnL27VKz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 718,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWeqD1CLJoUHUHtQkR",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 705,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWoZKtc1qPu8Hgj6PS",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1213,
+   "cr": 6483,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKWpTtk9SCjDqRYeevR",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1427,
+   "cr": 6468,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKWq94uhTN6Xw3EKyqu",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1415,
+   "cr": 6471,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKWqF2MFAPNK8RYqeje",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1439,
+   "cr": 6486,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKWqGWhsWRdTSKSU3DP",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1413,
+   "cr": 6473,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKX389cNrfSKGkMGvGx",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 800,
+   "cr": 17796,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKX4jPE7SJBKzuMp354",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1332,
+   "cr": 7696,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKXCnKXhFQacdNs8dcQ",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 2402,
+   "cr": 18596,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKXVqjuFdaBfb2QAmuh",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1201,
+   "cr": 20998,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKXv1JTDFLMNHPzGyiQ",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 963,
+   "cr": 22199,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKXuYWggLuW449XM6UB",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 792,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKY4yYVqkMipg3i2yLf",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1358,
+   "cr": 6560,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKYPiuupmFKeZw8crSw",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 933,
+   "cr": 23162,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I haven't posted anything to #50880. The verification step was blocked, and I didn't want to publish unverified duplicates.\n\n- **Eligibility:** The issue is open and is a specific bug report. It has no earlier duplicates comment, so it was eligible.\n- **Search:** Four of the five search agents were "
+}

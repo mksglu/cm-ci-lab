@@ -1,0 +1,404 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41200861075",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 7,
+ "duration_ms": 18180,
+ "duration_api_ms": 89699,
+ "total_cost_usd": 0.10496459500000001,
+ "input_tokens": 20,
+ "output_tokens": 1204,
+ "cache_read_input_tokens": 107361,
+ "cache_creation_input_tokens": 7791,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 539,
+   "outputTokens": 3569,
+   "cacheReadInputTokens": 179036,
+   "cacheCreationInputTokens": 16554,
+   "webSearchRequests": 0,
+   "costUSD": 0.0960566,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 407,
+   "cacheCreationEphemeral5mInputTokens": 16554,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  },
+  "claude-haiku-5-5": {
+   "inputTokens": 2610,
+   "outputTokens": 8899,
+   "cacheReadInputTokens": 147062,
+   "cacheCreationInputTokens": 21815,
+   "webSearchRequests": 0,
+   "costUSD": 0.008907995,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 2374,
+   "cacheCreationEphemeral5mInputTokens": 21815,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-haiku-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found one likely duplicate of #103645: #103030. The comment script ran in dry-run mode, so nothing was actually posted to GitHub.\n\nThe script printed: `DRY RUN: would post on #103645: Found 1 possible duplicate issues: 103030`.\n\n- **Why #103030 matches:** It describes the same bug: the first click on a `Button` in an unfocused mod `Pane` only focuses the pane. The press is dropped, `ui.focus` fi",
+ "task": "claude-code-103645",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "anthropics/claude-code",
+ "target": 103645,
+ "original": 99395,
+ "picked": [
+  103030
+ ],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 32,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKDNNmtNQSwmZRArWVx",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1128,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKDjVXn4tfTK4KfLpAv",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 425,
+   "cw": 702,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKDjZjckgU3YQpL9y6g",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1365,
+   "cr": 10058,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKDrwzw3BcdbMcyew4U",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 238,
+   "cr": 11423,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKDsx1xeswkP4gagiYq",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1930,
+   "cr": 6470,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKEJU9mSdJ6DaQeEBck",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1291,
+   "cr": 11661,
+   "out": 0,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKF41XhV1H8WCk8U9HD",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 425,
+   "cw": 663,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKF49yCNVUc57GxFArV",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3699,
+   "cr": 12952,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKF4KPh3c699wzjfeyv",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 425,
+   "cw": 660,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKF3rrCQ42edokcJUZX",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 425,
+   "cw": 706,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKF45kFgqPpPounbfGg",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 425,
+   "cw": 662,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKF41n3RpE5NgBsUizG",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 425,
+   "cw": 666,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKFBx1p9byHt8pugTFC",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1486,
+   "cr": 6431,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFCo7fqZsgF3ZGn292",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1419,
+   "cr": 6434,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFCifR6LHBLBPv4CUp",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1493,
+   "cr": 6430,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFCSnp9jAjtAywSUJm",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1483,
+   "cr": 6428,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFCx3W3z47j8tscbkh",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1421,
+   "cr": 6474,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFLSVUSzZhm7fAM9FC",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 603,
+   "cr": 7853,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFMJqy1838pRSbBsrQ",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 630,
+   "cr": 7911,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFMC99rdJaaoidHCew",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 610,
+   "cr": 7923,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFSuwGj6knSpdXHb2H",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 514,
+   "cr": 8456,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFN5E83qnZHb7qZB8j",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 863,
+   "cr": 7895,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFUwy1tSKK4fcWYB64",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 563,
+   "cr": 8541,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFXEtVfuQkjQDwGbGB",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 640,
+   "cr": 8533,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFbiWp6g5FsrcW1eiJ",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 3155,
+   "cr": 7917,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFe7sGxNNDdeWEwZJq",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1042,
+   "cr": 16651,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFeBLfDuvpi8NgCHXU",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 946,
+   "cr": 8758,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKFoDZWng5Ns5YEDoZS",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1869,
+   "cr": 17693,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKG2FeL2E1ryy7E7g5G",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 2777,
+   "cr": 19562,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKGEWpuGn4qUmbi33yF",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 232,
+   "cr": 22339,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKGado9vFneKKaLU2G8",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 2625,
+   "cr": 22571,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKGnWBJ5Z82G3YtJkWF",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 288,
+   "cr": 25196,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found one likely duplicate of #103645: #103030. The comment script ran in dry-run mode, so nothing was actually posted to GitHub.\n\nThe script printed: `DRY RUN: would post on #103645: Found 1 possible duplicate issues: 103030`.\n\n- **Why #103030 matches:** It describes the same bug: the first click"
+}

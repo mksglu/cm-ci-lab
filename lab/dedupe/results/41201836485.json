@@ -1,0 +1,300 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41201836485",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 7,
+ "duration_ms": 184556,
+ "duration_api_ms": 71668,
+ "total_cost_usd": 0.16670060000000003,
+ "input_tokens": 20,
+ "output_tokens": 1239,
+ "cache_read_input_tokens": 100250,
+ "cache_creation_input_tokens": 5676,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 3125,
+   "outputTokens": 6672,
+   "cacheReadInputTokens": 240506,
+   "cacheCreationInputTokens": 27872,
+   "webSearchRequests": 0,
+   "costUSD": 0.16670060000000003,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 314,
+   "cacheCreationEphemeral5mInputTokens": 27872,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found one likely duplicate of #37251, but no comment was posted. The comment script ran in dry-run mode and printed `DRY RUN: would post on #37251: Found 1 possible duplicate issues: 16834`.\n\n- **Duplicate:** #16834, \"`node:https` Request socket is not a TLSSocket\" (open, opened 2025-01-28). It describes the same bug as #37251: `req.socket` in an `https.createServer` handler is a plain `Socket`,",
+ "task": "bun-37251",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 37251,
+ "original": 16834,
+ "picked": [
+  16834
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 23,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKrU6bciX2f9US4ygzF",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1126,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKrmx9UwF9mLRakeqDw",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1300,
+   "cr": 10056,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKrnRAPLEwhMy1GM7F5",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 653,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKrzWgdtW5nUY5AaXbw",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 2570,
+   "cr": 6421,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsQET6DsoPxYEXxKuU",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1353,
+   "cr": 11356,
+   "out": 0,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKt54pGZVLJZZwEoRfU",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3481,
+   "cr": 12709,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKt4x7bKTMgLqp5E2Qk",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 667,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKt4jitPhoeHqYKvkmC",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 686,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKt52aaD7kZzCXEQYi2",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 667,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKt53pBpjNFHduwKNgE",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 675,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKt57nfbgTsYz6ZTswH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 666,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKtGkHVAtHRGJworNub",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1351,
+   "cr": 6434,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtEuexhCqxkJhXqKB7",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1428,
+   "cr": 6435,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtFJxcPkfbSuhcest8",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1440,
+   "cr": 6435,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtFRuY3eF3RKDX7ikg",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1431,
+   "cr": 6454,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtFd4tTNHm2sjQGcZB",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1458,
+   "cr": 6443,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtURF9E5MNo1hEsJH5",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 798,
+   "cr": 16190,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtSnX5ptzeavm5ZKUG",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 446,
+   "cr": 7785,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtcyCL7g5fB6ACyqsv",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 2454,
+   "cr": 16988,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKto5QenvB3VpEqezeq",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1143,
+   "cr": 19442,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtxXSKpiVx7sbM4zRB",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 256,
+   "cr": 20585,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL7ekxw857F6CSnPvV6",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1553,
+   "cr": 20841,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7t9d9zisNTU5cAeJW",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 270,
+   "cr": 22394,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found one likely duplicate of #37251, but no comment was posted. The comment script ran in dry-run mode and printed `DRY RUN: would post on #37251: Found 1 possible duplicate issues: 16834`.\n\n- **Duplicate:** #16834, \"`node:https` Request socket is not a TLSSocket\" (open, opened 2025-01-28). It de"
+}

@@ -27,7 +27,9 @@ pc = lambda x: 100 * (math.exp(x) - 1)
 print(f"cost change {pc(mean):+.1f}%  task-resampled 95% CI {pc(lo):+.1f}..{pc(hi):+.1f}  cheaper {sum(x < 0 for x in allv)}/{len(allv)}")
 def arm_stats(arm):
     ms = [v[arm] for v in pairs.values()]; n = len(ms)
-    tok = lambda k: sum(sum(x[k] for x in m["per_message_usage"]) for m in ms) / n
+    MU = dict(**{"in": "inputTokens", "cw": "cacheCreationInputTokens", "cr": "cacheReadInputTokens", "out": "outputTokens"})
+    # tokens from model_usage (the same source as total_cost_usd). The streamed per-message usage shows output 0 on the gateway arm.
+    tok = lambda k: sum(sum(v.get(MU[k], 0) for v in m["model_usage"].values()) for m in ms) / n
     return dict(cost=sum(m["total_cost_usd"] for m in ms) / n, api_calls=sum(m["api_calls"] for m in ms) / n,
                 turns=sum(m["num_turns"] for m in ms) / n, uncached=tok("in"), cache_write=tok("cw"), cache_read=tok("cr"), output=tok("out"),
                 hit=sum(bool(m["hit_top3"]) for m in ms), n=n)

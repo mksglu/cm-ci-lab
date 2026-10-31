@@ -1,0 +1,446 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41201844721",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 1,
+ "duration_ms": 3129,
+ "duration_api_ms": 119912,
+ "total_cost_usd": 0.2390359,
+ "input_tokens": 4,
+ "output_tokens": 210,
+ "cache_read_input_tokens": 23968,
+ "cache_creation_input_tokens": 1258,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 3181,
+   "outputTokens": 10209,
+   "cacheReadInputTokens": 402064,
+   "cacheCreationInputTokens": 36151,
+   "webSearchRequests": 0,
+   "costUSD": 0.2390359,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 885,
+   "cacheCreationEphemeral5mInputTokens": 36151,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "The last search agent (npm parity) did return results, and they support my candidate list. It named #19059 as the closest match and #6608 as related. It rated #1134, the original \"Implement overrides\" request, as context rather than a duplicate. It also surfaced #28792 and #159, which it judged not to be duplicates.\n\nMy list is still #19059, #36377 and #6608. #36377 came only from my own searches,",
+ "task": "bun-37028",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 37028,
+ "original": 19059,
+ "picked": [
+  19059,
+  36377,
+  6608
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 37,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKrwy9XPbvnEgtdnBME",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1126,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsHqjdS6xXSPX2qb6S",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1409,
+   "cr": 10056,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsHacF6h5wchjEGPSq",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 722,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKsU39zrsMUpwNheoba",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1152,
+   "cr": 6490,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKsdSCx8iC8bkHAxmpM",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 620,
+   "cr": 7642,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKt1axrQJmQSyTKaHSV",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1185,
+   "cr": 11465,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtkj2jj88cCx2RhE6F",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3673,
+   "cr": 12650,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtkPRuF2vKNt5FrjoK",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 695,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKtkeZwdeERfKX55zf5",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 689,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKtkHEMB97XHt4eTQ4J",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 696,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKtkgYWd1rB68qQaWD6",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 712,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKtkaMWHdNWVGf7sm9L",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 728,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKtwn3mqohrUgumXqVw",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1286,
+   "cr": 6457,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtxPWXGynxbXBEW2GY",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1355,
+   "cr": 6464,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtx4umZBTGsTbZyDRE",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1282,
+   "cr": 6480,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtwpXahazsAzyVend3",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1349,
+   "cr": 6463,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtzCPrAARBgPY9Xobr",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1470,
+   "cr": 6496,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKuBPM2YfYc8M9kaAdW",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 460,
+   "cr": 7966,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKu7s1TQaW7Z113aa16",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 432,
+   "cr": 7819,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKu8FL9AsmUqASMZXcG",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 408,
+   "cr": 7762,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKu9MoeydHmi43UF8Ea",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 454,
+   "cr": 7812,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKuR7MPaiaWcwLSS85A",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1858,
+   "cr": 16323,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKug1HjiJJhTf3YG7s6",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1136,
+   "cr": 18181,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL3yxWEMFXjm1BvJMXY",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 532,
+   "cr": 7743,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL4BBCbPZ552h3W2UGN",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 411,
+   "cr": 8275,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL4LASYn7QPvQ1tki8r",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 174,
+   "cr": 8686,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL4WEAahztgHGZKk8zH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 420,
+   "cr": 8860,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL4pbUizRxqurkhWUBm",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 881,
+   "cr": 19317,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL6q2p9h75n9yV5BU7x",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 565,
+   "cr": 20198,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL72jHamPcZgzxfXPg8",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 301,
+   "cr": 20763,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL7RD8wwMyU3H3Tes1H",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1345,
+   "cr": 21064,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7jKZ7UE7PdxzqbNDm",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 835,
+   "cr": 9280,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7hJWvKaatnj4wVRAU",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 407,
+   "cr": 22409,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7x2nddWVNgvQ2snZz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1769,
+   "cr": 8426,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL86SoVeJ5uMEf9mkUM",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1152,
+   "cr": 22816,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL8Ggwf8TDSJC8sgHhL",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1204,
+   "cr": 10195,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL8exPrRo42rHYJyUPn",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1258,
+   "cr": 23968,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "The last search agent (npm parity) did return results, and they support my candidate list. It named #19059 as the closest match and #6608 as related. It rated #1134, the original \"Implement overrides\" request, as context rather than a duplicate. It also surfaced #28792 and #159, which it judged not "
+}

@@ -1,0 +1,271 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41201905239",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 12,
+ "duration_ms": 46817,
+ "duration_api_ms": 63028,
+ "total_cost_usd": 0.21640079999999998,
+ "input_tokens": 16,
+ "output_tokens": 4002,
+ "cache_read_input_tokens": 181952,
+ "cache_creation_input_tokens": 19714,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 42,
+   "outputTokens": 7160,
+   "cacheReadInputTokens": 288918,
+   "cacheCreationInputTokens": 46330,
+   "webSearchRequests": 0,
+   "costUSD": 0.21640079999999998,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 462,
+   "cacheCreationEphemeral5mInputTokens": 46330,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found two likely duplicates of #25559, but the script only did a dry run, so nothing was posted to the issue. Its output was \"DRY RUN: would post on #25559: Found 2 possible duplicate issues: 21622 17616\".\n\n- **#21622** (closed): \"CLI hangs silently on Linux when keytar.setPassword() blocks on GNOME Keyring\". It has the same silent startup freeze from keychain access, and the same `GEMINI_FORCE_",
+ "task": "gemini-cli-25559",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "google-gemini/gemini-cli",
+ "target": 25559,
+ "original": 21622,
+ "picked": [
+  21622,
+  17616
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 20,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaLEjfqeo8TGiK6E6egT",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4395,
+   "cr": 12265,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLF6Wibzt5rWuhhZhru",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3369,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLFF5uVpskssWyvozy9",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 712,
+   "cr": 10672,
+   "out": 43,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLFse6EMwiGt8aPABNh",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1403,
+   "cr": 16660,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaLG9KfVC2zQp6S9iw78",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3365,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLGEDatMZWLzM5KhAYp",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3346,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLGGs6Hv3sLKaZonVBg",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 968,
+   "cr": 9442,
+   "out": 292,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLGLpTcgYcnXHx4ykas",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3361,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLGPPVo6mwVHFFYBgZn",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1011,
+   "cr": 9423,
+   "out": 251,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLGUSr27jzNDNgPDC7W",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3368,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLGW45hHXZhkQUvvxiN",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1005,
+   "cr": 9438,
+   "out": 273,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLGcYkoF47ze4MJckWv",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 5292,
+   "cr": 18063,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLGd5m183oV6XP2qX9N",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1028,
+   "cr": 9445,
+   "out": 267,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLGchSpv4ZJwk3dxpAg",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3397,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLGpd3BKWJ931uDRzyz",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1811,
+   "cr": 23355,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLGvPpFRxHRFTk8UYFL",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1018,
+   "cr": 9474,
+   "out": 332,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLH2gphwW5y1zAAfxfd",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 494,
+   "cr": 25166,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLHTzqgdC8dQUkHdYg6",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3471,
+   "cr": 25660,
+   "out": 10,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLHkkuggrf9kpHhoiAN",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 2521,
+   "cr": 29131,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLHwGv4sx6camjmH4ZA",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 327,
+   "cr": 31652,
+   "out": 358,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found two likely duplicates of #25559, but the script only did a dry run, so nothing was posted to the issue. Its output was \"DRY RUN: would post on #25559: Found 2 possible duplicate issues: 21622 17616\".\n\n- **#21622** (closed): \"CLI hangs silently on Linux when keytar.setPassword() blocks on GNO"
+}

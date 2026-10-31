@@ -1,0 +1,309 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41200881571",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 1,
+ "duration_ms": 2374,
+ "duration_api_ms": 66654,
+ "total_cost_usd": 0.23465620000000004,
+ "input_tokens": 2,
+ "output_tokens": 161,
+ "cache_read_input_tokens": 29446,
+ "cache_creation_input_tokens": 1272,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 48,
+   "outputTokens": 7361,
+   "cacheReadInputTokens": 332602,
+   "cacheCreationInputTokens": 51076,
+   "webSearchRequests": 0,
+   "costUSD": 0.23465620000000004,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 107,
+   "cacheCreationEphemeral5mInputTokens": 51076,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "The last search agent has now reported, and its results match what I already had. It ranked #49337 and #33240 as the two real duplicates. Its third candidate, #26389, is a weaker match, and it hadn't confirmed that issue involves digest verification. I'm leaving #26389 out, so the final list is still #33240 and #49337.\n\nThe comment on #53191 is still not posted. The script only did a dry run, and ",
+ "task": "codex-53191",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "openai/codex",
+ "target": 53191,
+ "original": 33240,
+ "picked": [
+  33240,
+  49337
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 23,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKUqFDQZPmYAJ99TB3W",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4381,
+   "cr": 12265,
+   "out": 25,
+   "tools": [
+    "ToolSearch"
+   ]
+  },
+  {
+   "id": "msg_011CgaKUwrbPMWb1o5bSj4DG",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1133,
+   "cr": 16646,
+   "out": 24,
+   "tools": [
+    "TaskCreate"
+   ]
+  },
+  {
+   "id": "msg_011CgaKVCyRXyArqh9xNpLNw",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3372,
+   "cr": 7303,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKVNHWqgRE9EEU212pX",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 705,
+   "cr": 10675,
+   "out": 5,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKW1cb2Cf4aqrgCHnK2",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1736,
+   "cr": 17779,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWG9CPYQp6xFVLHBVj",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3382,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWQfAXZusZto8kkVbP",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3373,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWRWmbfFVWMX9SGtPW",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1000,
+   "cr": 9459,
+   "out": 256,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKWVojGAyeMuHLLw1Rt",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3365,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWduPZSw8uBSCoz4Ed",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3364,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWnECUQhC9bS3egZwH",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4526,
+   "cr": 19515,
+   "out": 33,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKWnCDD85ZpQrpPqRvx",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3362,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWie9UxrKdWubZvZFB",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2507,
+   "cr": 9450,
+   "out": 385,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKWoMuouehtCSUy3ZT6",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1006,
+   "cr": 9441,
+   "out": 303,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKWniUf222nt5mycXfQ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1517,
+   "cr": 9442,
+   "out": 262,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKWx34Yhpt6rEdGNBVq",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 679,
+   "cr": 24041,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKWx5HQAWZQzCBSUywm",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2016,
+   "cr": 9439,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKX7zMCx6PSzc8t6ZsP",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3940,
+   "cr": 24720,
+   "out": 9,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKXArEbJuFHcjdC2fDT",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 399,
+   "cr": 11455,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKXGbWc7XwrsguNkDzn",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 587,
+   "cr": 28660,
+   "out": 41,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKXSM9WMpGvnVRnuJJp",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1129,
+   "cr": 11854,
+   "out": 311,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKXPENpBvs8vfj7opsm",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 199,
+   "cr": 29247,
+   "out": 449,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKXgNFgGFpoRkVonQ9t",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1272,
+   "cr": 29446,
+   "out": 2,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "The last search agent has now reported, and its results match what I already had. It ranked #49337 and #33240 as the two real duplicates. Its third candidate, #26389, is a weaker match, and it hadn't confirmed that issue involves digest verification. I'm leaving #26389 out, so the final list is stil"
+}

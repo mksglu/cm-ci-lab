@@ -1,0 +1,386 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41201918651",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 11,
+ "duration_ms": 193536,
+ "duration_api_ms": 98529,
+ "total_cost_usd": 0.2459006,
+ "input_tokens": 24,
+ "output_tokens": 1882,
+ "cache_read_input_tokens": 137060,
+ "cache_creation_input_tokens": 17032,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 3157,
+   "outputTokens": 9289,
+   "cacheReadInputTokens": 333316,
+   "cacheCreationInputTokens": 45346,
+   "webSearchRequests": 0,
+   "costUSD": 0.2459006,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 499,
+   "cacheCreationEphemeral5mInputTokens": 45346,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found three likely duplicates of #25618, but no comment was posted. The comment script ran in dry-run mode and only printed what it would post: \"Found 3 possible duplicate issues: 22129 22502 22029\". I didn't try to force a real post.\n\n#25618 is open. It reports a crash with `ENAMETOOLONG` when multiline text is pasted. All three duplicates are closed, and each hits the same code path, `atComman",
+ "task": "gemini-cli-25618",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "google-gemini/gemini-cli",
+ "target": 25618,
+ "original": 22029,
+ "picked": [
+  22129,
+  22502,
+  22029
+ ],
+ "hit_top3": true,
+ "rank": 3,
+ "api_calls": 31,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaLKLpo4YKXaa6ZcPYya",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1134,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLKgvHAnEXKg6ZgXDNf",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 680,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLKgvn2Txwn8Y6WG1T5",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1379,
+   "cr": 10064,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLKqDbLaDCDD3KAxMBS",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 240,
+   "cr": 11443,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLKr1EHGkWNU8tXnE1Y",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1153,
+   "cr": 6448,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLKxnGRoyNT3gTAd1GH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 356,
+   "cr": 7601,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLL8yRw9gycvsJtzASP",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 2924,
+   "cr": 7957,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLLXw4HTTpDBFAt536a",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1257,
+   "cr": 11683,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLMVv3QCodNW6r2mHEB",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 4178,
+   "cr": 12940,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLMVpanE4ViN9Zamw2M",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 743,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLMW3Ev57jioNbYFXdh",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 748,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLMVqLMrMy1yKA6DZT1",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 748,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLMVsZeAAmwMBkq1fQr",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 759,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLMXfTdG9F6VmjDiVDF",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 783,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLMfXjfdzAFqgkGWEwh",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1412,
+   "cr": 6511,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLMid2Kk1KBKizgtALQ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1414,
+   "cr": 6551,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLMgyYs7kiXMvoUobcV",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1406,
+   "cr": 6516,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLMwQDjsMPAgWX6dC3i",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 853,
+   "cr": 17118,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLRnGf59xs5VgnCyFiE",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1857,
+   "cr": 17971,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLWWjAJM6zGbTZumrVT",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1496,
+   "cr": 6516,
+   "out": 0,
+   "tools": [
+    "Read"
+   ]
+  },
+  {
+   "id": "msg_011CgaLWb56dpVAXeJ7znAXv",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1523,
+   "cr": 6527,
+   "out": 0,
+   "tools": [
+    "Read"
+   ]
+  },
+  {
+   "id": "msg_011CgaLWd69TrfvVtYWQAmdz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 493,
+   "cr": 8012,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLWiMttX3dx7dHpUeiR",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 529,
+   "cr": 8050,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLWmDJf3kbbipqTxRXh",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 840,
+   "cr": 8505,
+   "out": 0,
+   "tools": [
+    "Read"
+   ]
+  },
+  {
+   "id": "msg_011CgaLWsCTVyctyE3X46rVN",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 891,
+   "cr": 8579,
+   "out": 0,
+   "tools": [
+    "Read"
+   ]
+  },
+  {
+   "id": "msg_011CgaLWsc2DxgrbxhYuMhzH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 687,
+   "cr": 9345,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLX2yaUVeD36a3hpqtW",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 541,
+   "cr": 9470,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLb5eRTcjt1VzPF1o6y",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 4124,
+   "cr": 19828,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLbHY3zbsB8t1rUyS2Q",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 398,
+   "cr": 23952,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLbZcvsVS7AZKhViHXU",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 9491,
+   "cr": 24350,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLboTd1c1igPmjvpXvg",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 309,
+   "cr": 33841,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found three likely duplicates of #25618, but no comment was posted. The comment script ran in dry-run mode and only printed what it would post: \"Found 3 possible duplicate issues: 22129 22502 22029\". I didn't try to force a real post.\n\n#25618 is open. It reports a crash with `ENAMETOOLONG` when mu"
+}

@@ -1,43 +1,47 @@
-> **INVALID: do not use the numbers below.** The lab tenant `t_ci_lab_1` used up its 1,000 free requests and was paused at 2026-10-31 10:29:57 UTC. A paused tenant gets plain pass-through: the gateway forwards the request unchanged, with no savings. 25 of the 25 gateway-arm runs behind this doc started after that time, so this doc compares direct with a paused pass-through, not with the gateway. The tenant is back in full mode and a clean re-run is in progress. Note added 2026-10-31.
-
-# Issue dedupe benchmark (2026-10-31)
+# Issue dedupe benchmark (2026-10-31, clean re-run)
 
 Area: issue dedupe. Sonnet 5.5, headless `claude -p` (native installer), arms `direct-ts` (direct API + ENABLE_TOOL_SEARCH) and `gateway`. Workflow `.github/workflows/dedupe.yml`. Nothing here is published.
 
+History: the first run of this bench (tags `a1031-dedupe-sonnet-r1`, `r2`) was invalid, because the lab tenant `t_ci_lab_1` was paused at 2026-10-31 10:29:57 UTC and the gateway arm ran as plain pass-through. This doc is the clean re-run (tags `c1031-dedupe-sonnet-r1`, `r2`) with the tenant in full mode.
+
 ## Result: the pass bar is NOT met
 
-Bar, fixed in advance: task-resampled CI upper bound < 0, quality not lower than direct-ts, 0 errors.
+Bar, fixed in advance: task-resampled CI upper bound < 0, quality not lower than direct-ts, 0 errors, every round valid.
 
 | bar | result |
 |---|---|
-| CI upper bound < 0 | NO. Cost change +0.8%, task-resampled 95% CI -14.0% to +17.4% (12 tasks, 10,000 resamples, seed 1). Cheaper in 12 of 24 pairs. |
-| quality not lower | yes. Original in the agent's top 3: gateway 19/24, direct-ts 17/24. McNemar exact p = 0.727 (3 direct-only, 5 gateway-only). |
+| every round valid | yes. `used_paused` was 1518 before round 1, between the rounds and after round 2 (unchanged). Request 1 on the gateway arm is 37% smaller than on direct-ts (10,556 vs 16,655 tokens, all 24 runs on each side within 14 tokens of the mean), so the gateway was in full mode. |
+| CI upper bound < 0 | NO. Cost change -24.1%, task-resampled 95% CI -48.2% to +2.6% (12 tasks, 10,000 resamples, seed 1). Cheaper in 16 of 24 pairs. |
+| quality not lower | yes. Original in the agent's top 3: 19/24 on both arms. McNemar exact p = 1.000 (2 direct-only, 2 gateway-only). |
 | 0 errors | yes, 0 errors, no "Credit balance is too low". |
-| net per run > 0 | NO. Net = 0.2302 - 0.2327 - 0.0009 x 26.1 requests = -$0.0260 per run (-$0.0076 if the fee is counted per Claude turn, 5.7, instead of per request). |
+| net per run > 0 | point estimate yes, not proven. Net = 0.2443 - 0.1975 - 0.0009 x 28.0 requests = +$0.0215 per run (+$0.0428 if the fee is counted per Claude turn, 4.5, instead of per request). The CI for the cost change includes zero, so this net is not shown to be real. |
 
-Honest reading: for issue dedupe the gateway does not save money in this lab. The data does not show a cost increase either: the CI spans zero, and per-task results range from -41% to +68%. With 12 tasks the CI is about 16 points wide each side, so a true saving smaller than that cannot be shown.
+Honest reading: the point estimate is a saving, and the first request is clearly smaller. But the CI crosses zero, so by the fixed bar issue dedupe is not proven. The headline is helped by one task: on bun-36967 both gateway runs (r1 and r2) skipped the subagent fan-out (6 requests, no subagent, $0.03 each), while direct-ts used 19 to 23 requests and $0.19 to $0.24. Without that task (22 pairs) the change is -11.6%, 95% CI -26.9% to +10.2%. Both numbers are in the data; neither passes the bar. Per-pair results range from -86% to +123%, and the CI is about 25 points wide each side, so a true saving of 10 to 25% cannot be separated from zero with 12 tasks.
 
 ## Numbers
 
-Pairs are (task, round). Paired log-ratio mean = 0.0078, shown as exp(mean)-1.
+Pairs are (task, round). Paired log-ratio mean = -0.2757, shown as exp(mean)-1.
 
 | arm | top-3 hit | errors | mean cost | requests / run | turns / run | uncached | cache_write | cache_read | output |
 |---|---|---|---|---|---|---|---|---|---|
-| direct-ts | 17/24 | 0 | $0.2302 | 23.5 | 5.83 | 47 | 51,758 | 315,966 | 2,346 |
-| gateway | 19/24 | 0 | $0.2327 | 26.1 | 5.71 | 52 | 54,325 | 364,922 | 1,822 |
+| direct-ts | 19/24 | 0 | $0.2443 | 26.0 | 6.29 | 55 | 61,772 | 372,085 | 9,810 |
+| gateway | 19/24 | 0 | $0.1975 | 28.0 | 4.46 | 3,249 | 37,558 | 302,619 | 8,793 |
 
-Tokens are mean per run summed over every API request, main agent and subagents (from the per-message usage list, de-duplicated by message id). Cost is the `total_cost_usd` that Claude Code reports.
+Tokens are the mean per run from `modelUsage` in the final result (main agent and subagents, the same source as `total_cost_usd`). Cost is the `total_cost_usd` that Claude Code reports. Note: the streamed per-message usage shows `output_tokens` 0 on every gateway-arm message (the stream carries the start-of-message value only), so `lab/dedupe/analyze.py` now takes tokens from `modelUsage` instead.
 
-Total model spend: $11.11 for the 48 runs plus $0.33 for one smoke run = $11.44, under the $15 cap.
+Request 1 (first main-agent request, input + cache_write + cache_read): direct-ts 16,655 tokens (2 + 4,444 + 12,209), gateway 10,556 tokens (499 + 1,499 + 8,558). Script: `lab/dedupe/req1.py`.
+
+Total model spend: $10.60 for the 48 runs, under the $15 cap.
 
 ## Method
 
-- Template mirrored: anthropics/claude-code `claude-dedupe-issues.yml` (154k stars, the most-starred dedupe template). Same command file `.claude/commands/dedupe.md` (copied verbatim, `lab/dedupe/commands/dedupe.md`), same prompt `/dedupe <repo>/issues/<n>`, same tools (`./scripts/gh.sh`, `./scripts/comment-on-duplicates.sh`) and same disallowed tools (WebFetch, WebSearch, Write, Edit, MultiEdit, NotebookEdit). Differences: `claude -p` instead of claude-code-action (that action cannot use this key), model claude-sonnet-5-5 instead of claude-sonnet-4-6, no `--permission-mode auto`, `--max-turns 60 --max-budget-usd 2`.
-- Time box: `lab/dedupe/scripts/gh.sh` shows only the world before the target. Search and list queries get `created:<DATE`, results at or after DATE are dropped, comments at or after DATE are dropped (this hides the maintainer verdict), and the target shows as OPEN with title and body only. A request for a later issue returns "not found".
+- Template mirrored: anthropics/claude-code `claude-dedupe-issues.yml` (the most-starred dedupe template). Same command file `.claude/commands/dedupe.md` (`lab/dedupe/commands/dedupe.md`), same prompt `/dedupe <repo>/issues/<n>`, same tools (`./scripts/gh.sh`, `./scripts/comment-on-duplicates.sh`) and same disallowed tools. Differences: `claude -p` instead of claude-code-action, model claude-sonnet-5-5 instead of claude-sonnet-4-6, no `--permission-mode auto`, `--max-turns 60 --max-budget-usd 2`.
+- Time box: `lab/dedupe/scripts/gh.sh` shows only the world before the target. Search and list queries get `created:<DATE`, results at or after DATE are dropped, comments at or after DATE are dropped (this hides the maintainer verdict), and the target shows as OPEN with title and body only.
 - Posting is stubbed: `comment-on-duplicates.sh` prints the action and writes the numbers to a file. The lab writes to no other repo.
-- Quality is objective: the maintainer-confirmed original is in the agent's top 3 (the order the agent passed to the comment script). No judge is needed, so no label hiding is needed; the score is read from a file by script.
+- Quality is objective: the maintainer-confirmed original is in the agent's top 3 (the order passed to the comment script). The score is read from a file by script.
 - Stats: `lab/dedupe/analyze.py`. Pairs by (task, round). Bootstrap resamples tasks, all rounds of a task together.
-- Arms and headers: `lab/path-env.sh` (the lines `ci init` writes). Tags `a1031-dedupe-sonnet-r1`, `r2`.
+- Arms and headers: `lab/path-env.sh` (the lines `ci init` writes).
+- Validity: `python3 /tmp/ci-quota-guard.py --need 3000` before each round and after round 2. Mode full, `used_paused` 1518 each time.
 
 ## Tasks (12 real closed-as-duplicate issues, 5 repos, all above 93k stars)
 
@@ -64,68 +68,56 @@ Cost / API requests / original in top 3.
 
 | task | round | direct-ts | gateway | direct-ts run | gateway run |
 |---|---|---|---|---|---|
-| bun-36967 | r1 | $0.1580 / 36 / yes | $0.2548 / 24 / yes | [41193641690](https://github.com/mksglu/cm-ci-lab/actions/runs/41193641690) | [41193650982](https://github.com/mksglu/cm-ci-lab/actions/runs/41193650982) |
-| bun-36967 | r2 | $0.2150 / 25 / yes | $0.1774 / 20 / no | [41194627318](https://github.com/mksglu/cm-ci-lab/actions/runs/41194627318) | [41194638177](https://github.com/mksglu/cm-ci-lab/actions/runs/41194638177) |
-| bun-37028 | r1 | $0.1758 / 17 / no | $0.1877 / 18 / yes | [41193623213](https://github.com/mksglu/cm-ci-lab/actions/runs/41193623213) | [41193632566](https://github.com/mksglu/cm-ci-lab/actions/runs/41193632566) |
-| bun-37028 | r2 | $0.2267 / 22 / yes | $0.2100 / 21 / yes | [41194605993](https://github.com/mksglu/cm-ci-lab/actions/runs/41194605993) | [41194616541](https://github.com/mksglu/cm-ci-lab/actions/runs/41194616541) |
-| bun-37251 | r1 | $0.1748 / 40 / yes | $0.2858 / 30 / yes | [41193603122](https://github.com/mksglu/cm-ci-lab/actions/runs/41193603122) | [41193613533](https://github.com/mksglu/cm-ci-lab/actions/runs/41193613533) |
-| bun-37251 | r2 | $0.2208 / 24 / yes | $0.3824 / 29 / yes | [41194586473](https://github.com/mksglu/cm-ci-lab/actions/runs/41194586473) | [41194596088](https://github.com/mksglu/cm-ci-lab/actions/runs/41194596088) |
-| claude-code-103645 | r1 | $0.2164 / 20 / yes | $0.2229 / 21 / yes | [41193945937](https://github.com/mksglu/cm-ci-lab/actions/runs/41193945937) | [41193956013](https://github.com/mksglu/cm-ci-lab/actions/runs/41193956013) |
-| claude-code-103645 | r2 | $0.2260 / 24 / no | $0.1869 / 20 / no | [41194889324](https://github.com/mksglu/cm-ci-lab/actions/runs/41194889324) | [41194899984](https://github.com/mksglu/cm-ci-lab/actions/runs/41194899984) |
-| claude-code-103661 | r1 | $0.1944 / 17 / yes | $0.1405 / 33 / yes | [41193927311](https://github.com/mksglu/cm-ci-lab/actions/runs/41193927311) | [41193936712](https://github.com/mksglu/cm-ci-lab/actions/runs/41193936712) |
-| claude-code-103661 | r2 | $0.1985 / 20 / yes | $0.2974 / 22 / yes | [41194866378](https://github.com/mksglu/cm-ci-lab/actions/runs/41194866378) | [41194879706](https://github.com/mksglu/cm-ci-lab/actions/runs/41194879706) |
-| claude-code-104074 | r1 | $0.1927 / 17 / yes | $0.2627 / 28 / yes | [41193660428](https://github.com/mksglu/cm-ci-lab/actions/runs/41193660428) | [41193670538](https://github.com/mksglu/cm-ci-lab/actions/runs/41193670538) |
-| claude-code-104074 | r2 | $0.2219 / 19 / yes | $0.1737 / 30 / yes | [41194647609](https://github.com/mksglu/cm-ci-lab/actions/runs/41194647609) | [41194657703](https://github.com/mksglu/cm-ci-lab/actions/runs/41194657703) |
-| codex-50880 | r1 | $0.3071 / 25 / yes | $0.2181 / 22 / no | [41193986045](https://github.com/mksglu/cm-ci-lab/actions/runs/41193986045) | [41193995330](https://github.com/mksglu/cm-ci-lab/actions/runs/41193995330) |
-| codex-50880 | r2 | $0.3352 / 24 / yes | $0.1894 / 31 / no | [41194930453](https://github.com/mksglu/cm-ci-lab/actions/runs/41194930453) | [41194939719](https://github.com/mksglu/cm-ci-lab/actions/runs/41194939719) |
-| codex-52463 | r1 | $0.3387 / 29 / yes | $0.2360 / 25 / yes | [41193966027](https://github.com/mksglu/cm-ci-lab/actions/runs/41193966027) | [41193975850](https://github.com/mksglu/cm-ci-lab/actions/runs/41193975850) |
-| codex-52463 | r2 | $0.2316 / 23 / yes | $0.2915 / 34 / yes | [41194909949](https://github.com/mksglu/cm-ci-lab/actions/runs/41194909949) | [41194921062](https://github.com/mksglu/cm-ci-lab/actions/runs/41194921062) |
-| codex-53191 | r1 | $0.1887 / 18 / no | $0.2203 / 20 / yes | [41194240720](https://github.com/mksglu/cm-ci-lab/actions/runs/41194240720) | [41194251074](https://github.com/mksglu/cm-ci-lab/actions/runs/41194251074) |
-| codex-53191 | r2 | $0.2515 / 27 / yes | $0.2500 / 23 / yes | [41195153822](https://github.com/mksglu/cm-ci-lab/actions/runs/41195153822) | [41195165247](https://github.com/mksglu/cm-ci-lab/actions/runs/41195165247) |
-| gemini-cli-25559 | r1 | $0.1891 / 20 / no | $0.1860 / 39 / yes | [41194261867](https://github.com/mksglu/cm-ci-lab/actions/runs/41194261867) | [41194271739](https://github.com/mksglu/cm-ci-lab/actions/runs/41194271739) |
-| gemini-cli-25559 | r2 | $0.2169 / 21 / yes | $0.2830 / 17 / yes | [41195175614](https://github.com/mksglu/cm-ci-lab/actions/runs/41195175614) | [41195185859](https://github.com/mksglu/cm-ci-lab/actions/runs/41195185859) |
-| gemini-cli-25618 | r1 | $0.3754 / 27 / no | $0.1436 / 42 / yes | [41194281142](https://github.com/mksglu/cm-ci-lab/actions/runs/41194281142) | [41194290887](https://github.com/mksglu/cm-ci-lab/actions/runs/41194290887) |
-| gemini-cli-25618 | r2 | $0.2783 / 30 / no | $0.2526 / 25 / no | [41195196602](https://github.com/mksglu/cm-ci-lab/actions/runs/41195196602) | [41195207001](https://github.com/mksglu/cm-ci-lab/actions/runs/41195207001) |
-| uptime-kuma-6474 | r1 | $0.1895 / 19 / no | $0.2289 / 28 / yes | [41194300701](https://github.com/mksglu/cm-ci-lab/actions/runs/41194300701) | [41194310722](https://github.com/mksglu/cm-ci-lab/actions/runs/41194310722) |
-| uptime-kuma-6474 | r2 | $0.2024 / 20 / yes | $0.3040 / 25 / yes | [41195217434](https://github.com/mksglu/cm-ci-lab/actions/runs/41195217434) | [41195228816](https://github.com/mksglu/cm-ci-lab/actions/runs/41195228816) |
+| bun-36967 | r1 | $0.2360 / 23 / yes | $0.0324 / 6 / yes | [41200834063](https://github.com/mksglu/cm-ci-lab/actions/runs/41200834063) | [41200837935](https://github.com/mksglu/cm-ci-lab/actions/runs/41200837935) |
+| bun-36967 | r2 | $0.1900 / 19 / no | $0.0279 / 6 / yes | [41201848699](https://github.com/mksglu/cm-ci-lab/actions/runs/41201848699) | [41201852515](https://github.com/mksglu/cm-ci-lab/actions/runs/41201852515) |
+| bun-37028 | r1 | $0.1056 / 23 / yes | $0.2303 / 33 / yes | [41200826183](https://github.com/mksglu/cm-ci-lab/actions/runs/41200826183) | [41200829939](https://github.com/mksglu/cm-ci-lab/actions/runs/41200829939) |
+| bun-37028 | r2 | $0.1224 / 38 / yes | $0.2390 / 37 / yes | [41201840690](https://github.com/mksglu/cm-ci-lab/actions/runs/41201840690) | [41201844721](https://github.com/mksglu/cm-ci-lab/actions/runs/41201844721) |
+| bun-37251 | r1 | $0.4742 / 36 / yes | $0.2861 / 34 / yes | [41200818554](https://github.com/mksglu/cm-ci-lab/actions/runs/41200818554) | [41200822437](https://github.com/mksglu/cm-ci-lab/actions/runs/41200822437) |
+| bun-37251 | r2 | $0.1356 / 29 / yes | $0.1667 / 23 / yes | [41201832444](https://github.com/mksglu/cm-ci-lab/actions/runs/41201832444) | [41201836485](https://github.com/mksglu/cm-ci-lab/actions/runs/41201836485) |
+| claude-code-103645 | r1 | $0.2860 / 26 / yes | $0.1050 / 32 / no | [41200857173](https://github.com/mksglu/cm-ci-lab/actions/runs/41200857173) | [41200861075](https://github.com/mksglu/cm-ci-lab/actions/runs/41200861075) |
+| claude-code-103645 | r2 | $0.2308 / 19 / yes | $0.2691 / 25 / yes | [41201871499](https://github.com/mksglu/cm-ci-lab/actions/runs/41201871499) | [41201875697](https://github.com/mksglu/cm-ci-lab/actions/runs/41201875697) |
+| claude-code-103661 | r1 | $0.2515 / 24 / yes | $0.2685 / 35 / yes | [41200849190](https://github.com/mksglu/cm-ci-lab/actions/runs/41200849190) | [41200853217](https://github.com/mksglu/cm-ci-lab/actions/runs/41200853217) |
+| claude-code-103661 | r2 | $0.3072 / 33 / yes | $0.2647 / 29 / yes | [41201864277](https://github.com/mksglu/cm-ci-lab/actions/runs/41201864277) | [41201867951](https://github.com/mksglu/cm-ci-lab/actions/runs/41201867951) |
+| claude-code-104074 | r1 | $0.2286 / 23 / no | $0.1000 / 29 / yes | [41200841721](https://github.com/mksglu/cm-ci-lab/actions/runs/41200841721) | [41200845363](https://github.com/mksglu/cm-ci-lab/actions/runs/41200845363) |
+| claude-code-104074 | r2 | $0.2768 / 26 / yes | $0.2446 / 33 / yes | [41201856366](https://github.com/mksglu/cm-ci-lab/actions/runs/41201856366) | [41201860111](https://github.com/mksglu/cm-ci-lab/actions/runs/41201860111) |
+| codex-50880 | r1 | $0.2119 / 20 / no | $0.1886 / 26 / no | [41200873282](https://github.com/mksglu/cm-ci-lab/actions/runs/41200873282) | [41200877395](https://github.com/mksglu/cm-ci-lab/actions/runs/41200877395) |
+| codex-50880 | r2 | $0.2071 / 22 / no | $0.2329 / 27 / no | [41201888422](https://github.com/mksglu/cm-ci-lab/actions/runs/41201888422) | [41201893109](https://github.com/mksglu/cm-ci-lab/actions/runs/41201893109) |
+| codex-52463 | r1 | $0.4967 / 40 / yes | $0.2314 / 26 / yes | [41200865053](https://github.com/mksglu/cm-ci-lab/actions/runs/41200865053) | [41200869144](https://github.com/mksglu/cm-ci-lab/actions/runs/41200869144) |
+| codex-52463 | r2 | $0.2159 / 20 / yes | $0.2079 / 30 / yes | [41201879696](https://github.com/mksglu/cm-ci-lab/actions/runs/41201879696) | [41201883659](https://github.com/mksglu/cm-ci-lab/actions/runs/41201883659) |
+| codex-53191 | r1 | $0.2347 / 23 / yes | $0.1909 / 28 / yes | [41200881571](https://github.com/mksglu/cm-ci-lab/actions/runs/41200881571) | [41200885513](https://github.com/mksglu/cm-ci-lab/actions/runs/41200885513) |
+| codex-53191 | r2 | $0.2627 / 27 / yes | $0.2092 / 27 / yes | [41201897286](https://github.com/mksglu/cm-ci-lab/actions/runs/41201897286) | [41201901319](https://github.com/mksglu/cm-ci-lab/actions/runs/41201901319) |
+| gemini-cli-25559 | r1 | $0.2565 / 25 / yes | $0.1791 / 25 / yes | [41200889688](https://github.com/mksglu/cm-ci-lab/actions/runs/41200889688) | [41200893578](https://github.com/mksglu/cm-ci-lab/actions/runs/41200893578) |
+| gemini-cli-25559 | r2 | $0.2164 / 20 / yes | $0.2900 / 43 / yes | [41201905239](https://github.com/mksglu/cm-ci-lab/actions/runs/41201905239) | [41201910409](https://github.com/mksglu/cm-ci-lab/actions/runs/41201910409) |
+| gemini-cli-25618 | r1 | $0.2467 / 25 / no | $0.2195 / 29 / no | [41200897716](https://github.com/mksglu/cm-ci-lab/actions/runs/41200897716) | [41200901402](https://github.com/mksglu/cm-ci-lab/actions/runs/41200901402) |
+| gemini-cli-25618 | r2 | $0.1494 / 38 / yes | $0.2459 / 31 / yes | [41201914387](https://github.com/mksglu/cm-ci-lab/actions/runs/41201914387) | [41201918651](https://github.com/mksglu/cm-ci-lab/actions/runs/41201918651) |
+| uptime-kuma-6474 | r1 | $0.3240 / 25 / yes | $0.2002 / 30 / yes | [41200905167](https://github.com/mksglu/cm-ci-lab/actions/runs/41200905167) | [41200908778](https://github.com/mksglu/cm-ci-lab/actions/runs/41200908778) |
+| uptime-kuma-6474 | r2 | $0.1958 / 20 / yes | $0.1103 / 29 / no | [41201922180](https://github.com/mksglu/cm-ci-lab/actions/runs/41201922180) | [41201926169](https://github.com/mksglu/cm-ci-lab/actions/runs/41201926169) |
 
-Per-run files, with the per-message usage list, are in `lab/dedupe/results/<run id>.json`. Full analysis output: `lab/dedupe/analysis.txt`.
+Per-run files, with the per-message usage list and `modelUsage`, are in `lab/dedupe/results/<run id>.json`. Full analysis output: `lab/dedupe/analysis.txt`.
 
 ## Anatomy (2 tasks, per request and per arm)
 
-Full per-request tables: `lab/dedupe/anatomy-bun-37251-r2.txt` and `lab/dedupe/anatomy-gemini-cli-25618-r1.txt`. Totals, with list-price dollars by token class:
+Full tables: `lab/dedupe/anatomy-bun-36967-r1.txt` and `lab/dedupe/anatomy-bun-37251-r1.txt`. The output column of the gateway arm in these files reads 0 for the stream reason above; use the `modelUsage` totals for output.
 
-```
-== bun-37251 r2 direct-ts run 41194586473 cost $0.2208 requests 24 (sub 14)
-    main totals {'in': 20, 'cw': 17513, 'cr': 223382, 'out': 553}  list-price $ uncached=0.0001 write=0.0657 read=0.0670 output=0.0083
-    sub  totals {'in': 28, 'cw': 27729, 'cr': 113461, 'out': 2049}  list-price $ uncached=0.0001 write=0.1040 read=0.0340 output=0.0307
-== bun-37251 r2 gateway run 41194596088 cost $0.3824 requests 29 (sub 24)
-    main totals {'in': 10, 'cw': 14355, 'cr': 98861, 'out': 431}  list-price $ uncached=0.0000 write=0.0538 read=0.0297 output=0.0065
-    sub  totals {'in': 48, 'cw': 36702, 'cr': 248933, 'out': 513}  list-price $ uncached=0.0001 write=0.1376 read=0.0747 output=0.0077
-== gemini-cli-25618 r1 direct-ts run 41194281142 cost $0.3754 requests 27 (sub 19)
-    main totals {'in': 16, 'cw': 18745, 'cr': 186740, 'out': 486}  list-price $ uncached=0.0000 write=0.0703 read=0.0560 output=0.0073
-    sub  totals {'in': 38, 'cw': 49679, 'cr': 193537, 'out': 2110}  list-price $ uncached=0.0001 write=0.1863 read=0.0581 output=0.0316
-== gemini-cli-25618 r1 gateway run 41194290887 cost $0.1436 requests 42 (sub 30)
-    main totals {'in': 24, 'cw': 20587, 'cr': 294743, 'out': 533}  list-price $ uncached=0.0001 write=0.0772 read=0.0884 output=0.0080
-    sub  totals {'in': 60, 'cw': 66087, 'cr': 322637, 'out': 231}  list-price $ uncached=0.0002 write=0.2478 read=0.0968 output=0.0035
-```
+- bun-36967 r1: direct-ts run 41200834063, $0.2360, 23 requests (13 subagent). Gateway run 41200837935, $0.0324, 6 requests, no subagent. The gateway main agent answered after a few searches without launching the parallel subagents that the dedupe command asks for. Quality was the same (original found in both). This is agent behavior, not a gateway saving on bytes, and it repeated in r2.
+- bun-37251 r1: direct-ts $0.4742, 36 requests (26 subagent). Gateway $0.2861, 34 requests (21 subagent). Main cache write 27,126 vs 28,500 and main cache read 258,174 vs 233,425 tokens; the subagent loops write 72,967 vs 27,732 cache tokens.
 
 What the data shows:
 
-- The dedupe command fans out. The main agent starts 5 parallel subagents. Subagent requests ran on Sonnet 5.5 (602 requests) and Haiku 5.5 (149 requests); the main agent ran on Sonnet 5.5 (440 requests). A run is 17 to 42 API requests, and about two thirds are subagent requests.
-- Where the gateway did NOT save: the first request is the same in both arms (cache write median 4,388, write plus read median 16,653 in both). The client prefix here is small, about 16.7k tokens, so there was no big prefix to shrink. Each subagent also starts with the same small prefix in both arms (cache write about 3.3k, cache read about 6.1k).
-- Where the money goes: cache writes of new tool results in the subagent loops (search output, issue bodies) and cache reads of the growing history. These bytes are the same in both arms.
-- The gateway arm made more requests (26.1 vs 23.5 per run) and read more cache (365k vs 316k). It wrote less output (1,822 vs 2,346), because its subagents answered with fewer tokens. These two effects cancel, which gives +0.8%.
-- Cost varies more between runs of the same arm than between arms. The number of subagent requests per run ranges from 11 to 26 on direct-ts and from 11 to 30 on gateway. That variance is why the CI is wide.
+- The dedupe command fans out. The main agent starts parallel subagents, and about 60% of requests are subagent requests (about 16.5 of 26 on direct-ts, 16.8 of 28 on gateway). Subagents ran on Sonnet 5.5 and Haiku 5.5.
+- Where the gateway saves: the fixed prefix. Request 1 is 37% smaller (10.6k vs 16.7k), and cache write falls from 61.8k to 37.6k tokens per run, cache read from 372k to 303k. The gateway arm sends more uncached input (3.2k vs 55 tokens per run), which costs little.
+- Where it does not: new tool results (search output, issue bodies) are the same bytes in both arms. The gateway arm made 2 more requests per run, so the fee is larger there.
+- Cost varies more between runs of one arm than between arms (direct-ts $0.11 to $0.50, gateway $0.03 to $0.38). That variance is why the CI is wide.
 
 ## What this means for selling
 
-- Issue dedupe is not an area where we show a saving today. The earlier areas that did show one (CI failure fix, PR review on Haiku) had a large fixed prefix or a large tool result; dedupe has neither.
-- Quality is not hurt, and the top-3 hit rate was higher on the gateway (19/24 vs 17/24, not significant).
-- The fee ($0.0009 per request) is costly here because the fan-out gives about 26 requests per run. If the fee is per request, net is negative in this area.
+- Dedupe is an area with a likely saving (point estimate -24%, request 1 -37%) that this bench cannot prove. Do not publish a number from it. A bench with more tasks or more rounds is needed: about 4x the pairs would narrow the CI to roughly half its width.
+- Quality is not hurt: 19/24 on both arms.
+- At $0.0009 per request, net is +$0.0215 per run at the point estimate, and negative if the true saving is below about 10%, because the gateway arm makes about 28 requests per run.
 
 ## Limits
 
-- 12 tasks, 2 rounds. Not enough to rule out a saving of 10% or less.
+- 12 tasks, 2 rounds. Not enough to rule out a zero saving.
 - Model differs from the real template (Sonnet 5.5, not 4.6). The real template runs on an egress-firewall runner and posts a comment; this lab does neither.
 - Cost is the client-reported `total_cost_usd` for both arms; the Haiku subagent share is included.
+- Agent behavior varies: two of 24 gateway runs skipped the fan-out.

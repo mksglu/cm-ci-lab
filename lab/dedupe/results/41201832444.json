@@ -1,0 +1,370 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41201832444",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 2,
+ "duration_ms": 9446,
+ "duration_api_ms": 82092,
+ "total_cost_usd": 0.135634615,
+ "input_tokens": 4,
+ "output_tokens": 980,
+ "cache_read_input_tokens": 57951,
+ "cache_creation_input_tokens": 1512,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 28,
+   "outputTokens": 4036,
+   "cacheReadInputTokens": 287663,
+   "cacheCreationInputTokens": 22322,
+   "webSearchRequests": 0,
+   "costUSD": 0.1249873,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 498,
+   "cacheCreationEphemeral5mInputTokens": 22322,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  },
+  "claude-haiku-5-5": {
+   "inputTokens": 30,
+   "outputTokens": 8740,
+   "cacheReadInputTokens": 120269,
+   "cacheCreationInputTokens": 40573,
+   "webSearchRequests": 0,
+   "costUSD": 0.010647315000000001,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 3029,
+   "cacheCreationEphemeral5mInputTokens": 40573,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-haiku-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found one likely duplicate of #37251, and nothing was posted. The comment script ran in dry-run mode and only printed what it would post: \"Found 1 possible duplicate issues: 16834\".\n\n- **Likely duplicate:** #16834, \"`node:https` Request socket is not a TLSSocket\". It's still open. It has the same title and symptom as #37251, and all five search agents ranked it first.\n- **Filter step not complet",
+ "task": "bun-37251",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 37251,
+ "original": 16834,
+ "picked": [
+  16834
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 29,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKquo97cXbF8BwxR7x5",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4387,
+   "cr": 12265,
+   "out": 17,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKr7vQKyjdEmLXRxYxu",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 9343,
+   "cr": 0,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKr88oKpfMEdeajzhV1",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 691,
+   "cr": 16652,
+   "out": 42,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKrD2ywqJ9RRaUfox3T",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 762,
+   "cr": 9343,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKrLK37q1oRwfhVowPP",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1698,
+   "cr": 10105,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKrbpSevBM6G2dYz1QK",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1219,
+   "cr": 17343,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaKrridnGrkdbAsEmnbf",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3313,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKrx47EQCKKa7L5dog1",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3300,
+   "cr": 6077,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKs5DiDUWY32ptJ2gWd",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3290,
+   "cr": 6077,
+   "out": 20,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKs64ZJLE6iRJAHNYpB",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1544,
+   "cr": 9390,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsC8wbddjbytUMJfTY",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3317,
+   "cr": 6077,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsJD4jyh8FqDXWUPdK",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3304,
+   "cr": 6077,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsJSCaG4Vo8TiiCdT3",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3633,
+   "cr": 18562,
+   "out": 40,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsHgoddcEtFjyANBBh",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2386,
+   "cr": 9377,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsQZJWrt13GnzS2jnk",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1064,
+   "cr": 22195,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsPXXouFAVa9DdUyjk",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1909,
+   "cr": 9367,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsWidjXKqeuAAp5TVM",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2481,
+   "cr": 9394,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsZv7r1wnkKvRV1DrP",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2271,
+   "cr": 9381,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsdiZo46NiszvcqmrU",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1204,
+   "cr": 23231,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsj3HoBGBFpBRKi2aP",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1078,
+   "cr": 24407,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsi2HRPcVbs8GZYpPZ",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 735,
+   "cr": 11875,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsrJ77FaxavuzRUX4v",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 920,
+   "cr": 11652,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKt5W6rcC2UmecLEXyb",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1227,
+   "cr": 25329,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtBEtqbt7tHP3XxNJX",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1116,
+   "cr": 26528,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtUkbP3vcBCztt3g24",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 869,
+   "cr": 27644,
+   "out": 70,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtUkayexzLNDvNfrDn",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3402,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKtcbsH1ScphQFjKmYe",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 920,
+   "cr": 9479,
+   "out": 10,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtvQSUVBkdtChuj3b2",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 925,
+   "cr": 28513,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKuKKao7bBfPMVWGPPp",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 587,
+   "cr": 29438,
+   "out": 456,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found one likely duplicate of #37251, and nothing was posted. The comment script ran in dry-run mode and only printed what it would post: \"Found 1 possible duplicate issues: 16834\".\n\n- **Likely duplicate:** #16834, \"`node:https` Request socket is not a TLSSocket\". It's still open. It has the same "
+}

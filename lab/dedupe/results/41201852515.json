@@ -1,0 +1,120 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41201852515",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 6,
+ "duration_ms": 17953,
+ "duration_api_ms": 14955,
+ "total_cost_usd": 0.0279149,
+ "input_tokens": 519,
+ "output_tokens": 1120,
+ "cache_read_input_tokens": 65394,
+ "cache_creation_input_tokens": 3655,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 519,
+   "outputTokens": 1120,
+   "cacheReadInputTokens": 65394,
+   "cacheCreationInputTokens": 3655,
+   "webSearchRequests": 0,
+   "costUSD": 0.0279149,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 147,
+   "cacheCreationEphemeral5mInputTokens": 3655,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found three possible duplicates of #36967, but the comment wasn't posted. The comment script ran in dry-run mode, so it only printed what it would post.\n\nThe three issues, strongest match first:\n- **#23420** (open): matchers under `expect().resolves` and `expect().rejects` should return a promise but return `undefined`. This is almost the same request as #36967.\n- **#15457** (closed): undocument",
+ "task": "bun-36967",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 36967,
+ "original": 23420,
+ "picked": [
+  23420,
+  15457,
+  4909
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 6,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKsQmTYKZ653MmxsLk1",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1126,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKsfMnSeUz3WFJZuT1k",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 804,
+   "cr": 10056,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKspSzEoSd2uyRdN5a3",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 602,
+   "cr": 10860,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKszAt7nnKSGihg19zz",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 240,
+   "cr": 11462,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKtJWCgeJw6fjcfRo34",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 682,
+   "cr": 11702,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKtTAqf2vgMHk521aR5",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 201,
+   "cr": 12384,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found three possible duplicates of #36967, but the comment wasn't posted. The comment script ran in dry-run mode, so it only printed what it would post.\n\nThe three issues, strongest match first:\n- **#23420** (open): matchers under `expect().resolves` and `expect().rejects` should return a promise "
+}

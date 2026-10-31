@@ -1,0 +1,369 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41201883659",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 7,
+ "duration_ms": 75844,
+ "duration_api_ms": 91890,
+ "total_cost_usd": 0.2078636,
+ "input_tokens": 28,
+ "output_tokens": 1606,
+ "cache_read_input_tokens": 160709,
+ "cache_creation_input_tokens": 9278,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 3576,
+   "outputTokens": 7775,
+   "cacheReadInputTokens": 343616,
+   "cacheCreationInputTokens": 35440,
+   "webSearchRequests": 0,
+   "costUSD": 0.2078636,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 592,
+   "cacheCreationEphemeral5mInputTokens": 35440,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found two likely duplicates of #52463, but the comment was not posted. The script only did a dry run and printed \"DRY RUN: would post on #52463: Found 2 possible duplicate issues: 48664 47469\".\n\n- **#48664** (open): \"CLI: allow disabling mouse capture independently of alternate-screen mode\". It asks for the same opt-out from fullscreen mouse capture.\n- **#47469** (closed): \"Windows Terminal: ful",
+ "task": "codex-52463",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "openai/codex",
+ "target": 52463,
+ "original": 48664,
+ "picked": [
+  48664,
+  47469
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 30,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaL5JQoUDQY2fQs8Uv4z",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1120,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL5egCrAQKQAfqd94BU",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 673,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL5egCsAi1dYx4yaYi9",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1349,
+   "cr": 10050,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL5nB9AuuQkUQCqqz8z",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 243,
+   "cr": 11399,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL5nxXrAmovjrJYNeT2",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1149,
+   "cr": 6441,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL5vJJdCXf2GSMpuGaY",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 342,
+   "cr": 7590,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL67unuQW8UeHJd7mJv",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1296,
+   "cr": 7932,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL6Kq9vMTVahnp1ML94",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 783,
+   "cr": 11642,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL6Y8q644Kjb8JmH4Lx",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 628,
+   "cr": 12425,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL6c1EfBsfCoBgaHK1V",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 579,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL6mo79t21DJHARBsYW",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 2171,
+   "cr": 6347,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7Be4dyfCoAN6VJMAD",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1228,
+   "cr": 13053,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL81V9mFN4bLBqbW8Nz",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3932,
+   "cr": 14281,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7yf1isQkokL2ghGrs",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 726,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL7yKRYVahs6QADVoDh",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 738,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL7y43s4ggy6Mh9pq7j",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 721,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL7y34ReVbYeGJobPV4",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 718,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL81MDb95stizs8Ytfd",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 698,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL89HTW3e179bFckJwp",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1410,
+   "cr": 6506,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL89Hx5RVZXhPNHen3h",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1428,
+   "cr": 6494,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL89KSY84P35VLC38yv",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1404,
+   "cr": 6486,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL89LfyyKhQjdTh7Jc8",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1421,
+   "cr": 6489,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL8FqbZqPYKW4oUupM3",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1405,
+   "cr": 6466,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL8N3QeeqQXLj5uZDzm",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 739,
+   "cr": 18213,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL8frj1gjHPuhoEEENh",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3718,
+   "cr": 18952,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL8unNjFGvE8Stod2hT",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 367,
+   "cr": 22670,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLCtGxH24ys3roeoDRg",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1287,
+   "cr": 23037,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLD9itkn8J762KEoB97",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 2126,
+   "cr": 24324,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLDQuC5PEN1qKtZEZse",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 613,
+   "cr": 26450,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLDeKqoeazJ8FWWVnYC",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 428,
+   "cr": 27063,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found two likely duplicates of #52463, but the comment was not posted. The script only did a dry run and printed \"DRY RUN: would post on #52463: Found 2 possible duplicate issues: 48664 47469\".\n\n- **#48664** (open): \"CLI: allow disabling mouse capture independently of alternate-screen mode\". It as"
+}

@@ -1,0 +1,116 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41200837935",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 7,
+ "duration_ms": 46188,
+ "duration_api_ms": 17781,
+ "total_cost_usd": 0.0324003,
+ "input_tokens": 519,
+ "output_tokens": 1395,
+ "cache_read_input_tokens": 66598,
+ "cache_creation_input_tokens": 4301,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 519,
+   "outputTokens": 1395,
+   "cacheReadInputTokens": 66598,
+   "cacheCreationInputTokens": 4301,
+   "webSearchRequests": 0,
+   "costUSD": 0.0324003,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 201,
+   "cacheCreationEphemeral5mInputTokens": 4301,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found one likely duplicate of #36967: #23420, \"Matchers under `expect().resolves` and `expect().rejects` should return a promise but return `undefined` instead\". It's open and covers the same problem, that the `.rejects` and `.resolves` matchers return `void` instead of a promise.\n\nThe comment script ran in dry-run mode, so no comment was posted on #36967. It printed \"DRY RUN: would post on #369",
+ "task": "bun-36967",
+ "tag": "c1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 36967,
+ "original": 23420,
+ "picked": [
+  23420
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 6,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaJwGXLyu449JQuoY3nb",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1126,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJwWHLpr6ZzFfTogvJN",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 779,
+   "cr": 10056,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJwikgQzm91YDy6EKX8",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 953,
+   "cr": 10835,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJwwSAvGVGgWp9HWypA",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 277,
+   "cr": 11788,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaJzAYX1r4EgSsx3J8yq",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 859,
+   "cr": 12065,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaJzNaa4MhL6xYPhMZK8",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 307,
+   "cr": 12924,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found one likely duplicate of #36967: #23420, \"Matchers under `expect().resolves` and `expect().rejects` should return a promise but return `undefined` instead\". It's open and covers the same problem, that the `.rejects` and `.resolves` matchers return `void` instead of a promise.\n\nThe comment scr"
+}

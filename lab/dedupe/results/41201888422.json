@@ -1,0 +1,287 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41201888422",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 3,
+ "duration_ms": 10218,
+ "duration_api_ms": 61777,
+ "total_cost_usd": 0.20707060000000002,
+ "input_tokens": 6,
+ "output_tokens": 865,
+ "cache_read_input_tokens": 78910,
+ "cache_creation_input_tokens": 4363,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 44,
+   "outputTokens": 6785,
+   "cacheReadInputTokens": 281026,
+   "cacheCreationInputTokens": 44412,
+   "webSearchRequests": 0,
+   "costUSD": 0.20707060000000002,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 476,
+   "cacheCreationEphemeral5mInputTokens": 44412,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found two likely duplicates of #50880, but no comment was posted. The comment script ran in dry-run mode and only printed what it would post:\n\n> DRY RUN: would post on #50880: Found 2 possible duplicate issues: 31097 35781\n\nThe two issues:\n- **#31097**, \"GPT-5.5 forces MultiAgentV2 despite disable and hides documented custom-agent controls\": the closest match, with the same symptom. The model fo",
+ "task": "codex-50880",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "openai/codex",
+ "target": 50880,
+ "original": 35177,
+ "picked": [
+  31097,
+  35781
+ ],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 22,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaL5oifnPKp7LB1czTUz",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4381,
+   "cr": 12265,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL65LmbVmcT8WNuGfa9",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 808,
+   "cr": 16646,
+   "out": 33,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL65GJfsvc1zjknUQtD",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3314,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL6FxVHiEtqhJY2Yvh7",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 705,
+   "cr": 9391,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL6PtEmbuBAgVY2BNPq",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 422,
+   "cr": 10096,
+   "out": 38,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL6YEmzgdky63HFeioe",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 921,
+   "cr": 10518,
+   "out": 824,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL6xuLmbdDq4oqVp326",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1408,
+   "cr": 17454,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7CokasKmncRaCQg3d",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3321,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL7MBY9xBAKMJ3KwCF7",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3338,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL7Tx68Mm7VZ64vp9SN",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3329,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL7UPNZeTWZhjfR9vEH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 950,
+   "cr": 9415,
+   "out": 295,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7abwKAyAjsW1aq1zE",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3309,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL7gNhchs6NNfkpnen5",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3343,
+   "cr": 6077,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7az1H1EPyNAeECmeh",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 964,
+   "cr": 9406,
+   "out": 10,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7gQS72znKTRBzd5qH",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4535,
+   "cr": 18862,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7Vhm2uvgYixy19wzU",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2027,
+   "cr": 9398,
+   "out": 540,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7ktoacSrTd13Y2qQJ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 981,
+   "cr": 9386,
+   "out": 185,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7o7ztKtWvkptWyFSm",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 973,
+   "cr": 23397,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7pgmAu5pHtFcEppmy",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1020,
+   "cr": 9420,
+   "out": 252,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL7w7xyufchoAZLmh9r",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1834,
+   "cr": 24370,
+   "out": 21,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL88NtH84v26Dr1buT9",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 2132,
+   "cr": 26204,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL8RXGJCh4DucpH1RnL",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 397,
+   "cr": 28336,
+   "out": 415,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found two likely duplicates of #50880, but no comment was posted. The comment script ran in dry-run mode and only printed what it would post:\n\n> DRY RUN: would post on #50880: Found 2 possible duplicate issues: 31097 35781\n\nThe two issues:\n- **#31097**, \"GPT-5.5 forces MultiAgentV2 despite disable"
+}

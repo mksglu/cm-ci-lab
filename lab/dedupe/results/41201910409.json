@@ -1,0 +1,506 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41201910409",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 1,
+ "duration_ms": 3402,
+ "duration_api_ms": 134061,
+ "total_cost_usd": 0.28996639999999996,
+ "input_tokens": 4,
+ "output_tokens": 287,
+ "cache_read_input_tokens": 26269,
+ "cache_creation_input_tokens": 1252,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 3628,
+   "outputTokens": 12139,
+   "cacheReadInputTokens": 469929,
+   "cacheCreationInputTokens": 45731,
+   "webSearchRequests": 0,
+   "costUSD": 0.28996639999999996,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 1040,
+   "cacheCreationEphemeral5mInputTokens": 45731,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "The last search agent has reported. Its candidates are #18927, #25447, #23848, #23567 and #21768, and the filter agent had already seen all but #21768. It rejected each of the four it viewed (#18927, #25447, #23848 and #20412-style non-hang reports). I didn't open #23567 or #21768, so they were screened out on title alone. Nothing new came up.\n\nAll five searches are now in. They surfaced one likel",
+ "task": "gemini-cli-25559",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "google-gemini/gemini-cli",
+ "target": 25559,
+ "original": 21622,
+ "picked": [
+  21622
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 43,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaLFgeoDxx7oM22egzsF",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1134,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLG1X7KyhqQRwuB3Mk5",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1360,
+   "cr": 10064,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLG1Pfe9Mf3MbvVwC7R",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 733,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLGCBZ6AT3xjMASmtnx",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1170,
+   "cr": 6501,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLGPnZ5FxUSNLdPZvxT",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 367,
+   "cr": 7671,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLGYvjbE6u7Wn9QvHJ6",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 710,
+   "cr": 8038,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLGwiBj5HNkz8R7Bt4w",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1171,
+   "cr": 11424,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLHgh5Dav8qz4TKSRkX",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3797,
+   "cr": 12595,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLHgYQS3o3JWTGtubpM",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 708,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLHgVv3obDKextATdvy",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 706,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLHgXu2NpAze4D9by7u",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 719,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLHgUw4PgRXGzTzNV9R",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 705,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLHiZCYib1vNjKEjoMS",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 721,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLHvK8gyEGTwSFbiFpK",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1484,
+   "cr": 6489,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLJ91rmF7hqoxWqH5ov",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 948,
+   "cr": 16392,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLSknPn6sZkCuMugdnu",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1421,
+   "cr": 6473,
+   "out": 0,
+   "tools": [
+    "Read"
+   ]
+  },
+  {
+   "id": "msg_011CgaLSgPEEP4vSNqnTYaTc",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1824,
+   "cr": 6476,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLSsfNoRpngzXYDsubX",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 217,
+   "cr": 7894,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLSkjQrvebaRAmhQKvg",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1475,
+   "cr": 6487,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLSkeDDAoDhrwcocDyX",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1926,
+   "cr": 6474,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLT22RqcSgKr8PPq1WU",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1113,
+   "cr": 17340,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLT8EVHAo3pQN5YHMbt",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 533,
+   "cr": 7962,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLT9f3qBVMD6qTwMLax",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1014,
+   "cr": 18453,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLTH1KindWBzKfsZQJD",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 237,
+   "cr": 8495,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLTgxE5Dz2YUmPKiJSh",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1049,
+   "cr": 19467,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLU8bbLSeFMM7D4D7aE",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1127,
+   "cr": 20516,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLU8LU1qko7C5Vbxmz3",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 951,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLUJSBLssHG8ZvF8FVb",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1870,
+   "cr": 6719,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLUShkqy35sqFP7e6gN",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 253,
+   "cr": 8589,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaLUbijQbadfXQP9E26C",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1332,
+   "cr": 8842,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLUp7Nt7z6AxaUTuUf4",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 834,
+   "cr": 10174,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLUyMVJfQRfz5cG5f8U",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 523,
+   "cr": 11008,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLVGaLpncf1xjmjG7uf",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 907,
+   "cr": 21643,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLVSDWvT3QzCNorjUVm",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 206,
+   "cr": 22550,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLWSZsyw5TmWaLMNnTb",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1104,
+   "cr": 8400,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLWQQQpCUuMJDHFNqkY",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1066,
+   "cr": 8300,
+   "out": 0,
+   "tools": [
+    "Read"
+   ]
+  },
+  {
+   "id": "msg_011CgaLWPybpWAcJyBM65W4f",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1081,
+   "cr": 8732,
+   "out": 0,
+   "tools": [
+    "Read"
+   ]
+  },
+  {
+   "id": "msg_011CgaLWZdnWQo8gK1mVrtAV",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 292,
+   "cr": 9813,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLWZtAv9WYvnwsa61ns",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 782,
+   "cr": 9366,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLWj6oXSNr38yQMew92",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1384,
+   "cr": 22756,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLWh8ER9k8pW1NNq5d3",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1396,
+   "cr": 8111,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLX2cm3u5jbqDgE7PMM",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 2129,
+   "cr": 24140,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaLXHCrCtZaBd99B61rT",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1252,
+   "cr": 26269,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "The last search agent has reported. Its candidates are #18927, #25447, #23848, #23567 and #21768, and the filter agent had already seen all but #21768. It rejected each of the four it viewed (#18927, #25447, #23848 and #20412-style non-hang reports). I didn't open #23567 or #21768, so they were scre"
+}

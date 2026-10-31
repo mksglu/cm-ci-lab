@@ -1,0 +1,322 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41201875697",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 2,
+ "duration_ms": 6529,
+ "duration_api_ms": 95023,
+ "total_cost_usd": 0.2690999,
+ "input_tokens": 8,
+ "output_tokens": 555,
+ "cache_read_input_tokens": 47052,
+ "cache_creation_input_tokens": 1655,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 3556,
+   "outputTokens": 9369,
+   "cacheReadInputTokens": 258704,
+   "cacheCreationInputTokens": 56971,
+   "webSearchRequests": 0,
+   "costUSD": 0.2690999,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 164,
+   "cacheCreationEphemeral5mInputTokens": 56971,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "The comment script ran in dry-run mode, so it did not post anything to #103645. It printed what it would have posted: \"Found 3 possible duplicate issues: 99395 103030 100948\".\n\nI didn't try to bypass the dry run.\n\nThe three likely duplicates, best match first:\n1. **#99395** (closed): first click on an unfocused pane button raises only `ui.focus`, with no `ui.press`. The second click works. A comme",
+ "task": "claude-code-103645",
+ "tag": "c1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "anthropics/claude-code",
+ "target": 103645,
+ "original": 99395,
+ "picked": [
+  99395,
+  103030,
+  100948
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 25,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaKyCZtmRYY6L7i3uNF4",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 499,
+   "cw": 1128,
+   "cr": 8930,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKyYbAtSyGVw3ERiKEJ",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1323,
+   "cr": 10058,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKyYZfrxjkv87nEdv4Q",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 670,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKyn2JhZsiSASgsL7G3",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 1153,
+   "cr": 6438,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaKyuzH26suPXdmfj1yW",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 872,
+   "cr": 7591,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaKzKW8jBZ548UVqTaPP",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1371,
+   "cr": 11381,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL1Bm6CWzNTqSM5KJic",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3849,
+   "cr": 12752,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL1BCbQqeWT1LKdW4Mz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 715,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL1BtmUiQZUiufkdfEV",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 711,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL1BaR7b5yrJfQsVDAu",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 712,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL1BQkpvrpKhyXtyrCt",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 729,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL1Du5LAwRuVr4vVMgB",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 701,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL2BzWE2FPQwAPpcVhw",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 3134,
+   "cr": 6469,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL2WDNxGzGuBNcXDXoY",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1182,
+   "cr": 16601,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL3LgfarR6Ue3eygpmn",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 3160,
+   "cr": 6483,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL3MH8L4xRtzAiEeTvg",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 2982,
+   "cr": 6480,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL3Kht2hp7YX3P6oJAr",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 2379,
+   "cr": 6479,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL3LzmWiF7CBt4dEYVL",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 2565,
+   "cr": 6497,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL3gv5KfDAuCdW9bAhg",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1062,
+   "cr": 17783,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL3qXkLhUsf579LrhjC",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 3079,
+   "cr": 18845,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL4AfgpbNQGUuxVhpwA",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 872,
+   "cr": 21924,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL4A8SedCUt2qaJHrB5",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 427,
+   "cw": 797,
+   "cr": 5768,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL4ym8kTetSydeUaTMb",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 4,
+   "cw": 20170,
+   "cr": 6565,
+   "out": 0,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaL5gcYAAShhTUujor1i",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 1460,
+   "cr": 22796,
+   "out": 0,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaL5qUq9F4Vf6gcjtSgi",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 4,
+   "cw": 195,
+   "cr": 24256,
+   "out": 0,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "The comment script ran in dry-run mode, so it did not post anything to #103645. It printed what it would have posted: \"Found 3 possible duplicate issues: 99395 103030 100948\".\n\nI didn't try to bypass the dry run.\n\nThe three likely duplicates, best match first:\n1. **#99395** (closed): first click on "
+}
