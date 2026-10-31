@@ -101,7 +101,7 @@ gateway run 41193933042 cost 0.2294 requests 14
 
 Where the gateway saves and where it does not:
 
-- Request 1 (the fixed prefix: system and tools) is the same size on both arms: mean 24,943 tokens direct-ts vs 24,809 gateway across all 48 runs, a gap of 134 tokens. Both arms already run with ENABLE_TOOL_SEARCH, which removes most of the tool bytes before the gateway sees them. In the triage area the gateway cut the tools block by about 44 KB; here that lever is almost gone, so the prefix saving that drove the triage result is not present.
+- Request 1 (the fixed prefix: system and tools) is the same size on both arms: mean 24,943 tokens direct-ts vs 24,809 gateway across all 48 runs, a gap of 134 tokens. Both arms already run with ENABLE_TOOL_SEARCH, which removes most of the tool bytes before the gateway sees them. The prefix gap is only 134 tokens, so the prefix saving that the earlier areas relied on is not present here. I did not test why; ENABLE_TOOL_SEARCH on both arms is my hypothesis, not a measured cause.
 - Per-turn cache writes (new tool results: git log, diffs, PR bodies) are about the same on both arms (4,168 on request 1 on both; later writes differ by task, not by arm).
 - rg-152: the gateway run was cheaper ($0.0966 vs $0.1486) because it needed 8 requests instead of 10 and its history stayed smaller (last request reads 28.6k vs 37.3k). That is fewer turns, and the turn counts do not differ systematically across the 12 tasks (CI -1.75 to +1.67). I did not trace why this agent took fewer turns.
 - mcp-21: the gateway run was dearer ($0.2294 vs $0.1668) because it took 14 requests instead of 7. Same cause in the other direction.
@@ -143,4 +143,3 @@ Cells are cost / turns / coverage.
 - This area does not clear the bar and should not be sold as a saving. The honest statement is: no measurable saving in release notes on Sonnet, net negative after the fee.
 - Release-notes runs are short (9 turns) and dominated by one big first read of git log and diff. The prefix is the only lever the gateway has and it has little left here.
 - One model (Sonnet 5.5), 12 tasks, 2 rounds. A larger run could move the CI, but the point estimate is below the $0.0082 fee per run.
-- The census template for the largest repos (openai/codex, gemini-cli, uv) uses codex / gemini agents, not Claude, so a gateway on ANTHROPIC_BASE_URL does not reach them.
