@@ -1,0 +1,266 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41194261867",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 1,
+ "duration_ms": 5466,
+ "duration_api_ms": 60671,
+ "total_cost_usd": 0.18913240000000006,
+ "input_tokens": 2,
+ "output_tokens": 558,
+ "cache_read_input_tokens": 24665,
+ "cache_creation_input_tokens": 1662,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 40,
+   "outputTokens": 6344,
+   "cacheReadInputTokens": 226274,
+   "cacheCreationInputTokens": 41194,
+   "webSearchRequests": 0,
+   "costUSD": 0.18913240000000006,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 388,
+   "cacheCreationEphemeral5mInputTokens": 41194,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I didn't post anything. The duplicate search never ran because Bash permission was denied in all five search agents, so I have no candidates.\n\n- **Eligibility check:** Issue #25559 is open and is a specific bug report. It has no earlier duplicates comment, so it qualifies for deduping.\n- **Summary:** In headless or remote environments, the CLI stalls silently at startup, apparently while trying to",
+ "task": "gemini-cli-25559",
+ "tag": "a1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "google-gemini/gemini-cli",
+ "target": 25559,
+ "original": 21622,
+ "picked": [],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 20,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaBeKkHGTKtt4yG78rNm",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4395,
+   "cr": 12265,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBedkzp5jvkLZTyFw7s",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 865,
+   "cr": 16660,
+   "out": 20,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBedbaFXb7dAbUpexKb",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3285,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBekzKzQkRJ37H43hxM",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 715,
+   "cr": 9362,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBerHKPsBeEPqh4mntL",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 313,
+   "cr": 10077,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBezonUtHYX1aeQFuvu",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 733,
+   "cr": 10390,
+   "out": 575,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBfKdNf6CkTUKGyfoKv",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1148,
+   "cr": 17525,
+   "out": 17,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaBfb1L6WuVgQnUSe2Uc",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3364,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBfgQnGGwUJLPgiX6VJ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3336,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBfmcKWg87tTGa9nET3",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1046,
+   "cr": 9441,
+   "out": 235,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBfoHXHduoqc2yTYyr4",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3335,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBfsdxNrtqutj3V22gJ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1080,
+   "cr": 9413,
+   "out": 218,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBfvniVWbn7LSJwFwzS",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3352,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBfz69kf8MN1UHSkoRz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1038,
+   "cr": 9412,
+   "out": 320,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBg3hT3GWN4Mxk7XUM8",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3359,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBg4jSqrtubiuGgQjAw",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4391,
+   "cr": 18673,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBg9m4tDZJ6usBZF3Qa",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1096,
+   "cr": 9429,
+   "out": 257,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBgEVq1PgWAGLemr68U",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1080,
+   "cr": 9436,
+   "out": 216,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBgGbavMWD4SFPcLAsf",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1601,
+   "cr": 23064,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBgRtg8woodY3z8eJtc",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1662,
+   "cr": 24665,
+   "out": 7,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I didn't post anything. The duplicate search never ran because Bash permission was denied in all five search agents, so I have no candidates.\n\n- **Eligibility check:** Issue #25559 is open and is a specific bug report. It has no earlier duplicates comment, so it qualifies for deduping.\n- **Summary:*"
+}

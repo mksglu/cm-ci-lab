@@ -1,0 +1,238 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41193660428",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 10,
+ "duration_ms": 119443,
+ "duration_api_ms": 57209,
+ "total_cost_usd": 0.1926877,
+ "input_tokens": 12,
+ "output_tokens": 3267,
+ "cache_read_input_tokens": 122188,
+ "cache_creation_input_tokens": 16879,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 36,
+   "outputTokens": 6306,
+   "cacheReadInputTokens": 217482,
+   "cacheCreationInputTokens": 43123,
+   "webSearchRequests": 0,
+   "costUSD": 0.1926877,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 397,
+   "cacheCreationEphemeral5mInputTokens": 43123,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I ran the comment script, but it only did a dry run, so nothing was posted to #104074. It printed: \"DRY RUN: would post on #104074: Found 3 possible duplicate issues: 101684 93201 92698\". I didn't try to force a real post.\n\nThe three likely duplicates:\n- **#101684** (closed): \"Browser 'Allowed sites' allowlist ignored \u2014 allowlisted site still prompts on every action\". It has the same symptom and t",
+ "task": "claude-code-104074",
+ "tag": "a1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "anthropics/claude-code",
+ "target": 104074,
+ "original": 93201,
+ "picked": [
+  101684,
+  93201,
+  92698
+ ],
+ "hit_top3": true,
+ "rank": 2,
+ "api_calls": 17,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaB1FbicECtPYbeajCw3",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4389,
+   "cr": 12265,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB1WvU4FaSBRpXx6Moa",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3343,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaB2BEpHzkBaUWCt6oeC",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1467,
+   "cr": 16654,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaB2REBPaxe7dtcSpck1",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3343,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaB2YYEE87xiwXRfKPpn",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3312,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaB2aeUUqr9u637qgAXr",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 996,
+   "cr": 9420,
+   "out": 245,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB2eD32QTYtHT3a1tKp",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3301,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaB2ht46qFnw9JUYrLTq",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 988,
+   "cr": 9389,
+   "out": 268,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB2krPk9xSbUuQWLK9Z",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3300,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaB2sPni3zMHNN3i69tN",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4245,
+   "cr": 18121,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB2oSvBg2gxAqmmU495",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 991,
+   "cr": 9378,
+   "out": 268,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB2sM4jdtmNtBcVNuUx",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3319,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaB2uczM8R5Xd7uPg8Yp",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 987,
+   "cr": 9377,
+   "out": 227,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB32yWdXC33JrvyD2vV",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1710,
+   "cr": 22366,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB32tJAmpWgQYfu5H9Q",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1000,
+   "cr": 9396,
+   "out": 297,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB9SaVg2yFHqcsJuLkJ",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4630,
+   "cr": 24076,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB9mVY7s4MhfGd93D9v",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 438,
+   "cr": 28706,
+   "out": 412,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I ran the comment script, but it only did a dry run, so nothing was posted to #104074. It printed: \"DRY RUN: would post on #104074: Found 3 possible duplicate issues: 101684 93201 92698\". I didn't try to force a real post.\n\nThe three likely duplicates:\n- **#101684** (closed): \"Browser 'Allowed sites"
+}

@@ -1,0 +1,234 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41193623213",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 8,
+ "duration_ms": 48513,
+ "duration_api_ms": 55401,
+ "total_cost_usd": 0.17576120000000003,
+ "input_tokens": 8,
+ "output_tokens": 2610,
+ "cache_read_input_tokens": 69059,
+ "cache_creation_input_tokens": 13183,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 36,
+   "outputTokens": 5747,
+   "cacheReadInputTokens": 186292,
+   "cacheCreationInputTokens": 39836,
+   "webSearchRequests": 0,
+   "costUSD": 0.17576120000000003,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 244,
+   "cacheCreationEphemeral5mInputTokens": 39836,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I didn't post a duplicates comment on oven-sh/bun#37028. Four of the five search agents had their `./scripts/gh.sh` calls denied by the permission system. The fifth was denied on its second call. I didn't try another route.\n\n- **Eligibility:** The issue is open and is a specific feature request. It has no earlier duplicates comment. Its title is \"unable to target specific version with overrides / ",
+ "task": "bun-37028",
+ "tag": "a1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 37028,
+ "original": 19059,
+ "picked": [],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 17,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaAvtAGZV4peFCbaWwWd",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4387,
+   "cr": 12265,
+   "out": 10,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAwCX4pfbvshggQBDyA",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3385,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaAwLmABLSU775eRADFU",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 711,
+   "cr": 10688,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaAwrPPJvMso5riH42SS",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1342,
+   "cr": 16652,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaAx4kXCco2vn3hn3Qxv",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3322,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaAxB4Xv32BFJJVR3RJZ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3319,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaAxBnhL7TiSFpXzgJEf",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 941,
+   "cr": 9399,
+   "out": 165,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAxHbSWkTj7HqGeb1nZ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3320,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaAxKrcw25TiATryNY9u",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 945,
+   "cr": 9396,
+   "out": 196,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAxS3wDfnnMaoVzfjwJ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3291,
+   "cr": 6077,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAxViwywiw9m9mLPMP8",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4154,
+   "cr": 17994,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAxS7eafev8srThA1Aq",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 961,
+   "cr": 9397,
+   "out": 289,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAxVaksedPGnKMqmMBM",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3319,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaAxfek826czCT9Vogm8",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1106,
+   "cr": 9396,
+   "out": 38,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAxbNmNdWNHGh79peL1",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 991,
+   "cr": 9368,
+   "out": 208,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAxpKPZ6sz28tikp1Xd",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 440,
+   "cr": 10502,
+   "out": 581,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAz6ncJiSoqVkvRk4wo",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3300,
+   "cr": 22148,
+   "out": 3,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I didn't post a duplicates comment on oven-sh/bun#37028. Four of the five search agents had their `./scripts/gh.sh` calls denied by the permission system. The fifth was denied on its second call. I didn't try another route.\n\n- **Eligibility:** The issue is open and is a specific feature request. It "
+}

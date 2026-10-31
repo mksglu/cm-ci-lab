@@ -1,0 +1,31 @@
+runs 48 pairs 24 errors 0
+cost change +0.8%  task-resampled 95% CI -14.0..+17.4  cheaper 12/24
+direct-ts {'cost': 0.2302, 'api_calls': 23.5, 'turns': 5.8333, 'uncached': 47.0833, 'cache_write': 51758.0, 'cache_read': 315965.5417, 'output': 2345.8333, 'hit': 17, 'n': 24}
+gateway {'cost': 0.2327, 'api_calls': 26.125, 'turns': 5.7083, 'uncached': 52.25, 'cache_write': 54324.7917, 'cache_read': 364921.5417, 'output': 1821.7083, 'hit': 19, 'n': 24}
+net per run = 0.2302 - 0.2327 - 0.0009 x 26.1 api calls = -0.0260  (turns-based: -0.0076)
+quality top3 direct-ts 17/24 gateway 19/24  direct-only 3 gateway-only 5 McNemar exact p=0.727
+PER PAIR task tag | direct cost/calls/hit | gateway cost/calls/hit
+bun-36967 r1 | $0.1580/36/True 41193641690 | $0.2548/24/True 41193650982
+bun-36967 r2 | $0.2150/25/True 41194627318 | $0.1774/20/False 41194638177
+bun-37028 r1 | $0.1758/17/False 41193623213 | $0.1877/18/True 41193632566
+bun-37028 r2 | $0.2267/22/True 41194605993 | $0.2100/21/True 41194616541
+bun-37251 r1 | $0.1748/40/True 41193603122 | $0.2858/30/True 41193613533
+bun-37251 r2 | $0.2208/24/True 41194586473 | $0.3824/29/True 41194596088
+claude-code-103645 r1 | $0.2164/20/True 41193945937 | $0.2229/21/True 41193956013
+claude-code-103645 r2 | $0.2260/24/False 41194889324 | $0.1869/20/False 41194899984
+claude-code-103661 r1 | $0.1944/17/True 41193927311 | $0.1405/33/True 41193936712
+claude-code-103661 r2 | $0.1985/20/True 41194866378 | $0.2974/22/True 41194879706
+claude-code-104074 r1 | $0.1927/17/True 41193660428 | $0.2627/28/True 41193670538
+claude-code-104074 r2 | $0.2219/19/True 41194647609 | $0.1737/30/True 41194657703
+codex-50880 r1 | $0.3071/25/True 41193986045 | $0.2181/22/False 41193995330
+codex-50880 r2 | $0.3352/24/True 41194930453 | $0.1894/31/False 41194939719
+codex-52463 r1 | $0.3387/29/True 41193966027 | $0.2360/25/True 41193975850
+codex-52463 r2 | $0.2316/23/True 41194909949 | $0.2915/34/True 41194921062
+codex-53191 r1 | $0.1887/18/False 41194240720 | $0.2203/20/True 41194251074
+codex-53191 r2 | $0.2515/27/True 41195153822 | $0.2500/23/True 41195165247
+gemini-cli-25559 r1 | $0.1891/20/False 41194261867 | $0.1860/39/True 41194271739
+gemini-cli-25559 r2 | $0.2169/21/True 41195175614 | $0.2830/17/True 41195185859
+gemini-cli-25618 r1 | $0.3754/27/False 41194281142 | $0.1436/42/True 41194290887
+gemini-cli-25618 r2 | $0.2783/30/False 41195196602 | $0.2526/25/False 41195207001
+uptime-kuma-6474 r1 | $0.1895/19/False 41194300701 | $0.2289/28/True 41194310722
+uptime-kuma-6474 r2 | $0.2024/20/True 41195217434 | $0.3040/25/True 41195228816

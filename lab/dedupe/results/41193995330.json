@@ -1,0 +1,293 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41193995330",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 4,
+ "duration_ms": 62492,
+ "duration_api_ms": 69617,
+ "total_cost_usd": 0.21813710000000003,
+ "input_tokens": 8,
+ "output_tokens": 999,
+ "cache_read_input_tokens": 111831,
+ "cache_creation_input_tokens": 7029,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 46,
+   "outputTokens": 6502,
+   "cacheReadInputTokens": 331926,
+   "cacheCreationInputTokens": 47933,
+   "webSearchRequests": 0,
+   "costUSD": 0.21813710000000003,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 366,
+   "cacheCreationEphemeral5mInputTokens": 47933,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found two likely duplicates of openai/codex#50880, but the comment was not posted. `./scripts/comment-on-duplicates.sh` ran in dry-run mode and only printed `DRY RUN: would post on #50880: Found 2 possible duplicate issues: 31097 35781`.\n\n- **#31097** (\"GPT-5.5 forces MultiAgentV2 despite disable\") is the strongest match. It has the same root cause: a model catalog entry with `multi_agent_versio",
+ "task": "codex-50880",
+ "tag": "a1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "openai/codex",
+ "target": 50880,
+ "original": 35177,
+ "picked": [
+  31097,
+  35781
+ ],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 22,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaBNpge2brfmCB4qg3na",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4381,
+   "cr": 12266,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBP322w5Dh2X65Csy4B",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1245,
+   "cr": 16647,
+   "out": 24,
+   "tools": [
+    "TaskCreate"
+   ]
+  },
+  {
+   "id": "msg_011CgaBPKZxMtKvBLppYWMgy",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3347,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBPSzh3aNVQfhKqX97R",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 705,
+   "cr": 10650,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBQBY3HWMErJWusCZth",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1758,
+   "cr": 17892,
+   "out": 17,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaBQRQTycTJF2xRrPxCe",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3320,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBQXxrfEcYW74FNsoZR",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3304,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBQePKCAGCqTu4pRonv",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3307,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBQjRS7DcuHsviX2ARv",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3295,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBQg9UwoRk3q9V7KB2U",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 952,
+   "cr": 9381,
+   "out": 225,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBQqkvix84BUQmex2a1",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3490,
+   "cr": 19650,
+   "out": 26,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBQqSq6jRMQDqnPmn64",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3287,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBQoobpVgzYzPgSz6i4",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 970,
+   "cr": 9384,
+   "out": 240,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBQtJjEUCz4Bc3eUEq8",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 961,
+   "cr": 9372,
+   "out": 233,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBQxp68GPiHZx7rcTux",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 769,
+   "cr": 23140,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBR1FgTgaYhGUq9hJnx",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 990,
+   "cr": 9364,
+   "out": 244,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBR7YTYebAjfVsmVSBr",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1504,
+   "cr": 23909,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBRGbR1PrWuMi2uC8Tr",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 791,
+   "cr": 25413,
+   "out": 21,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBUKT9VD1CspeX6VbvH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2418,
+   "cr": 9397,
+   "out": 495,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBV43iP569di7RzL8Dt",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1903,
+   "cr": 26204,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBVLPj4UZ77nv9AFqH9",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4000,
+   "cr": 28107,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBVab1XZS5LXmpFzmG9",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 335,
+   "cr": 32107,
+   "out": 414,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found two likely duplicates of openai/codex#50880, but the comment was not posted. `./scripts/comment-on-duplicates.sh` ran in dry-run mode and only printed `DRY RUN: would post on #50880: Found 2 possible duplicate issues: 31097 35781`.\n\n- **#31097** (\"GPT-5.5 forces MultiAgentV2 despite disable\""
+}

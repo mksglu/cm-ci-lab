@@ -1,0 +1,79 @@
+
+== gemini-cli-25618 r1 direct-ts run 41194281142 cost $0.3754 requests 27 (sub 19)
+  # who    uncached  cache_write  cache_read  output  tools
+   1 main        2        4395       12265       8  
+   2 sub         2        3465        7303      16  Bash
+   3 sub         2         712       10768      16  Bash
+   4 main        2        2782       16660      17  Agent
+   5 sub         2        3384        6077      17  Bash
+   6 sub         2        3341        6077      16  Bash
+   7 sub         2         989        9461     243  
+   8 sub         2        3396        6077      16  Bash
+   9 sub         2         975        9418     350  
+  10 sub         2        1168        9473       7  
+  11 sub         2        3390        6077      16  Bash
+  12 sub         2        3369        6077      17  Bash
+  13 sub         2         986        9467     292  
+  14 sub         2        1094       10641       2  
+  15 main        2        5517       19442       3  
+  16 sub         2        1003        9446     240  
+  17 main        2        1180       24959       8  
+  18 main        2         954       26139       9  
+  19 sub         2        3101       11735      16  Bash
+  20 sub         2        5119       14836       3  
+  21 sub         2        2705       19955       9  
+  22 sub         2        7364       22660     783  
+  23 main        2        2258       27093       4  
+  24 sub         2        3383        7303      16  Bash
+  25 sub         2         735       10686      35  Bash
+  26 main        2        1480       29351      16  Bash
+  27 main        2         179       30831     421  
+  main totals {'in': 16, 'cw': 18745, 'cr': 186740, 'out': 486}  list-price $ uncached=0.0000 write=0.0703 read=0.0560 output=0.0073
+  sub  totals {'in': 38, 'cw': 49679, 'cr': 193537, 'out': 2110}  list-price $ uncached=0.0001 write=0.1863 read=0.0581 output=0.0316
+
+== gemini-cli-25618 r1 gateway run 41194290887 cost $0.1436 requests 42 (sub 30)
+  # who    uncached  cache_write  cache_read  output  tools
+   1 main        2        4395       12266       8  
+   2 sub         2        3364        7303       6  Bash
+   3 sub         2         882       10667       3  Bash
+   4 sub         2         492       11549       8  Bash
+   5 main        2        1456       16661       3  
+   6 main        2        2917       18117      41  
+   7 sub         2        3351        6077       8  
+   8 sub         2        3298        6077       2  
+   9 sub         2        3291        6077       2  
+  10 sub         2        3346        6077       6  
+  11 sub         2        3324        6077       8  
+  12 main        2        3741       21034      22  
+  13 sub         2        1210        9428      17  Bash
+  14 sub         2         366       10638      16  Read
+  15 sub         2        2318        9375       8  
+  16 sub         2        2393        9368      17  Bash
+  17 sub         2         886       11004       8  
+  18 sub         2         225       11693       3  
+  19 sub         2        3238       11918       8  
+  20 sub         2        3099        9423       5  
+  21 sub         2         967       15156      16  Read
+  22 sub         2        3796       11890       4  
+  23 sub         2         790       12522      21  Bash
+  24 sub         2        1930       11761       3  
+  25 sub         2        2044       16123       2  
+  26 sub         2        1544       13312       5  
+  27 sub         2         555       13691       8  
+  28 main        2        1319       24775       6  
+  29 sub         2         591       14856       8  
+  30 sub         2        6693       14246      10  
+  31 main        2        1174       26094      16  Bash
+  32 main        2         255       27268      19  
+  33 main        2        1111       27523       4  
+  34 main        2        1185       28634       3  
+  35 sub         2        3474        7303       8  Bash
+  36 sub         2        1845       10777       7  Bash
+  37 main        2        1366       29819      16  Bash
+  38 main        2         182       31185     387  
+  39 sub         2        3822        9401       3  
+  40 sub         2        2402       13223       3  
+  41 sub         2         551       15625       8  
+  42 main        2        1486       31367       8  
+  main totals {'in': 24, 'cw': 20587, 'cr': 294743, 'out': 533}  list-price $ uncached=0.0001 write=0.0772 read=0.0884 output=0.0080
+  sub  totals {'in': 60, 'cw': 66087, 'cr': 322637, 'out': 231}  list-price $ uncached=0.0002 write=0.2478 read=0.0968 output=0.0035

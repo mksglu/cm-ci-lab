@@ -1,0 +1,434 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41193641690",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 3,
+ "duration_ms": 9096,
+ "duration_api_ms": 99762,
+ "total_cost_usd": 0.15795619500000005,
+ "input_tokens": 6,
+ "output_tokens": 760,
+ "cache_read_input_tokens": 95972,
+ "cache_creation_input_tokens": 3092,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 30,
+   "outputTokens": 4483,
+   "cacheReadInputTokens": 333952,
+   "cacheCreationInputTokens": 26057,
+   "webSearchRequests": 0,
+   "costUSD": 0.14342770000000005,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 307,
+   "cacheCreationEphemeral5mInputTokens": 26057,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  },
+  "claude-haiku-5-5": {
+   "inputTokens": 42,
+   "outputTokens": 12813,
+   "cacheReadInputTokens": 200542,
+   "cacheCreationInputTokens": 48899,
+   "webSearchRequests": 0,
+   "costUSD": 0.014528494999999999,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 3217,
+   "cacheCreationEphemeral5mInputTokens": 48899,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-haiku-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found three likely duplicates of #36967, but the comment script ran in dry-run mode, so nothing was posted. It printed \"DRY RUN: would post on #36967: Found 3 possible duplicate issues: 23420 4909 15457\".\n\nThe three candidates:\n- **#23420** (open): `expect().resolves` and `expect().rejects` matchers return `undefined` instead of a promise, unlike Jest. It has the same root cause as #36967.\n- **#",
+ "task": "bun-36967",
+ "tag": "a1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "oven-sh/bun",
+ "target": 36967,
+ "original": 23420,
+ "picked": [
+  23420,
+  4909,
+  15457
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 36,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaAyBFDm3J4gr8gfYjp7",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4387,
+   "cr": 12265,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAyWPunkpsdwFZVWMtJ",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3311,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaAyWVbzEQ8p1zsYZZ11",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 916,
+   "cr": 16652,
+   "out": 17,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAybfA9wnHW7VvsnCxy",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 761,
+   "cr": 9388,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAyiTC9aaUN217qF8Bk",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 716,
+   "cr": 10149,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAyxwps1xpw2TQUosFh",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1113,
+   "cr": 17568,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAzGkuB1KkhUF5nMTNC",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3366,
+   "cr": 6077,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAzR7BaTLSY589J5My8",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3354,
+   "cr": 6077,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAzVmEqqqY2r2bAAjZC",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2478,
+   "cr": 9443,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAzXmXi4Fhpz9LUUAeH",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3311,
+   "cr": 6077,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAzeMfGQWKA5sgUV8mD",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 905,
+   "cr": 9388,
+   "out": 10,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAzeR8ofQ1hjkUVyDi8",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3305,
+   "cr": 6077,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAzi69AXhQSNecd9uoN",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2763,
+   "cr": 9431,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAzhLFgM6pjJ6a9aXMH",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1272,
+   "cr": 11921,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAzmM6hWwhNL7ZL9G3F",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 909,
+   "cr": 9382,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAzmhgA1La3mYBwYdGH",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3318,
+   "cr": 6077,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAzmkQyiC36MqWCG4tk",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3953,
+   "cr": 18681,
+   "out": 22,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaAzt6u8A3AC88pghZMp",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 877,
+   "cr": 9395,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB131ggeAGpHB8Ctrdw",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1523,
+   "cr": 22634,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB4W5Sz8pNfXhFBsGJY",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1960,
+   "cr": 12194,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB4bmkgkZKQTL4eCbFz",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1410,
+   "cr": 10291,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB4ZWp1ceEAzkEr64W2",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2514,
+   "cr": 10293,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB4sdVMZmzMyKDdrGsJ",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3212,
+   "cr": 10272,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB4uuAd8nv638pmVjEP",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1281,
+   "cr": 24157,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB52vqUJ6dEGWPxNeoW",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1491,
+   "cr": 25438,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB4zsJkJhscgkrPUtfm",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 555,
+   "cr": 13484,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaB5RLDpkEsmRpJLJGMt",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1303,
+   "cr": 26929,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBAuCf8mqtE7Xbjpiyi",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 5647,
+   "cr": 11701,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBBB3QjuAvp2UhXn7d5",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2955,
+   "cr": 17348,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBBZmeMAwpCzYEvgYMR",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1517,
+   "cr": 28232,
+   "out": 9,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBBvSrTwr9YTiwf7fhF",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1040,
+   "cr": 29749,
+   "out": 33,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBBvULBfyXp3DDd9s7g",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3521,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBC4XWxb1DeUiT9toV9",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 920,
+   "cr": 9598,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBCL6QHx53855L4Gty2",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 881,
+   "cr": 30789,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBCbmiopR2A7X4bxTGD",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1843,
+   "cr": 31670,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBCjxbZRZqQSJhhfSuV",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 368,
+   "cr": 33513,
+   "out": 360,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found three likely duplicates of #36967, but the comment script ran in dry-run mode, so nothing was posted. It printed \"DRY RUN: would post on #36967: Found 3 possible duplicate issues: 23420 4909 15457\".\n\nThe three candidates:\n- **#23420** (open): `expect().resolves` and `expect().rejects` matche"
+}

@@ -1,0 +1,267 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41194251074",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 16,
+ "duration_ms": 49194,
+ "duration_api_ms": 68477,
+ "total_cost_usd": 0.22029940000000003,
+ "input_tokens": 16,
+ "output_tokens": 4089,
+ "cache_read_input_tokens": 181700,
+ "cache_creation_input_tokens": 20121,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 42,
+   "outputTokens": 7121,
+   "cacheReadInputTokens": 288729,
+   "cacheCreationInputTokens": 48053,
+   "webSearchRequests": 0,
+   "costUSD": 0.22029940000000003,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 391,
+   "cacheCreationEphemeral5mInputTokens": 48053,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found two likely duplicates of #53191, but the comment script ran in dry-run mode, so nothing was posted to the issue. Its output was: \"DRY RUN: would post on #53191: Found 2 possible duplicate issues: 33240 49337\".\n\n- **#33240** (open): \"Codex CLI install.sh: verify_archive_digest overwrites global archive_path\". It describes the same root cause and the same effect: the package tarball overwrit",
+ "task": "codex-53191",
+ "tag": "a1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "openai/codex",
+ "target": 53191,
+ "original": 33240,
+ "picked": [
+  33240,
+  49337
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 20,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaBdXmKNa6md4hh6Wuah",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4381,
+   "cr": 12266,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBduCf8WB2VxgZwjkaC",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3429,
+   "cr": 7303,
+   "out": 20,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBe5znzXpd9iUJu7ZTs",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 705,
+   "cr": 10732,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBemw8MXCgvYkuhgN4H",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1625,
+   "cr": 16647,
+   "out": 39,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBf41Wsdj2F6p9MUeWF",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3342,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBfAeNPn9VqrtnvUuad",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3356,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBfEfyLWcMHUnW3qV9o",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 984,
+   "cr": 9419,
+   "out": 247,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBfHZbSqu9RtuYATLRY",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3358,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBfLTEBNkJo12wuWX8c",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 997,
+   "cr": 9433,
+   "out": 269,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBfQL8rdDvGX3tGfVUo",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3373,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBfSoy3MbPw6bTvU511",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 987,
+   "cr": 9435,
+   "out": 209,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBfXKqJnbmm7KexvMys",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3358,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBfXDPBL8nw7xwczwE5",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4489,
+   "cr": 18272,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBfaZJ8ovNCX2LPnCMP",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1012,
+   "cr": 9450,
+   "out": 251,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBfgm7KkZBrDZMyTr2p",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 981,
+   "cr": 9435,
+   "out": 235,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBfjHfqUDz12rBJFRzA",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1792,
+   "cr": 22761,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBfysWVYxnxatgKvmck",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1755,
+   "cr": 24553,
+   "out": 37,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBgLAPsXpS49zSSMmve",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 2525,
+   "cr": 26308,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBgZZZAiQPDZp2tjKDG",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3227,
+   "cr": 28833,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBgqJ6P5EhXCG6B1ymu",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 327,
+   "cr": 32060,
+   "out": 438,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found two likely duplicates of #53191, but the comment script ran in dry-run mode, so nothing was posted to the issue. Its output was: \"DRY RUN: would post on #53191: Found 2 possible duplicate issues: 33240 49337\".\n\n- **#33240** (open): \"Codex CLI install.sh: verify_archive_digest overwrites glob"
+}

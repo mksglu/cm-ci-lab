@@ -1,0 +1,399 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41194939719",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 3,
+ "duration_ms": 23845,
+ "duration_api_ms": 114991,
+ "total_cost_usd": 0.18939878,
+ "input_tokens": 6,
+ "output_tokens": 1046,
+ "cache_read_input_tokens": 85209,
+ "cache_creation_input_tokens": 2720,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 26,
+   "outputTokens": 4802,
+   "cacheReadInputTokens": 258057,
+   "cacheCreationInputTokens": 39670,
+   "webSearchRequests": 0,
+   "costUSD": 0.1730527,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 338,
+   "cacheCreationEphemeral5mInputTokens": 39670,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  },
+  "claude-haiku-5-5": {
+   "inputTokens": 40,
+   "outputTokens": 13914,
+   "cacheReadInputTokens": 186933,
+   "cacheCreationInputTokens": 60126,
+   "webSearchRequests": 0,
+   "costUSD": 0.01634608,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 4598,
+   "cacheCreationEphemeral5mInputTokens": 60126,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-haiku-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found two likely duplicates of openai/codex #50880, but I didn't post a comment. The comment script ran as a dry run and printed what it would post:\n\n> Found 2 possible duplicate issues: 31097 35781\n\n- **#31097** is \"GPT-5.5 forces MultiAgentV2 despite disable\". It has the same symptom: the disable flag is ignored for models whose catalog entry sets `multi_agent_version` to v2.\n- **#35781** is \"",
+ "task": "codex-50880",
+ "tag": "a1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "openai/codex",
+ "target": 50880,
+ "original": 35177,
+ "picked": [
+  31097,
+  35781
+ ],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 31,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaCRokHC4f47J7aWgnA9",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4381,
+   "cr": 12266,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCSBis681cijG11WRg6",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 10684,
+   "cr": 0,
+   "out": 2,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCSKxDfSzJRYEsbNCk3",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 805,
+   "cr": 10684,
+   "out": 4,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCSTCJ4pcWPNZmaeN4N",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 431,
+   "cr": 11489,
+   "out": 8,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCSbQQRX2TRfUQrdYwU",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1066,
+   "cr": 11920,
+   "out": 4,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCTAG66CKh56Y7LV8cp",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1673,
+   "cr": 16647,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaCTT86c5YUWtKNj4Bhv",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3435,
+   "cr": 6077,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCTckJJ9hkXPMKhD6aT",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3357,
+   "cr": 6077,
+   "out": 20,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCTjrgDFVueUpNMinDM",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3363,
+   "cr": 6077,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCThpPvMar6gqjyausZ",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3391,
+   "cr": 9512,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCTs9yGyPK7wPv41wqv",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3333,
+   "cr": 6077,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCTzBPyPwnbCi5TziZZ",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3331,
+   "cr": 6077,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCTzM52EgWiJ3pva2dq",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 4139,
+   "cr": 9440,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCTzR2XcHjZEzEWR7Eg",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3974,
+   "cr": 18320,
+   "out": 26,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCZtUkykkUxkb8x3DB7",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3871,
+   "cr": 9434,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCa34wc9EfGKWTyxVfy",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1896,
+   "cr": 9410,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCa3aCbkX3y36opVq84",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2916,
+   "cr": 12903,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCaBsGjuNSzNeb7kJoe",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 644,
+   "cr": 11306,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCaCVEcKg3vDZnW4wdi",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1083,
+   "cr": 22294,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCaPtagShufjEXsVkaS",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 577,
+   "cr": 11950,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCaTfHq4t6uSJcsXxYN",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1169,
+   "cr": 23377,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCaHYqWajUMnSeLqEkv",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3093,
+   "cr": 13579,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCaPKbZTxpUATUaV4dm",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 6405,
+   "cr": 9408,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCadKTx1ydGUD5vScHZ",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2185,
+   "cr": 12527,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCarAdVXhmp6aDK6eso",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1146,
+   "cr": 24546,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCazbPoE5uBQqyjiovq",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1468,
+   "cr": 25692,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCb9r1akTxjxYD6zBp8",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1185,
+   "cr": 27160,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCbWHaXTKhMSo6XiFqB",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3531,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCbep3Ymdpt7oHKJNNp",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 735,
+   "cr": 10834,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCcUF5QKoi2NYhGRWez",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1359,
+   "cr": 28345,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCcdWBRszujJgrHoqqR",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 176,
+   "cr": 29704,
+   "out": 383,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found two likely duplicates of openai/codex #50880, but I didn't post a comment. The comment script ran as a dry run and printed what it would post:\n\n> Found 2 possible duplicate issues: 31097 35781\n\n- **#31097** is \"GPT-5.5 forces MultiAgentV2 despite disable\". It has the same symptom: the disabl"
+}

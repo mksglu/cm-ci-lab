@@ -1,0 +1,306 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41194889324",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 1,
+ "duration_ms": 7099,
+ "duration_api_ms": 66503,
+ "total_cost_usd": 0.2259823,
+ "input_tokens": 2,
+ "output_tokens": 811,
+ "cache_read_input_tokens": 27685,
+ "cache_creation_input_tokens": 747,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 48,
+   "outputTokens": 7326,
+   "cacheReadInputTokens": 311813,
+   "cacheCreationInputTokens": 48578,
+   "webSearchRequests": 0,
+   "costUSD": 0.2259823,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 502,
+   "cacheCreationEphemeral5mInputTokens": 48578,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I haven't posted a duplicates comment on #103645. The filtering step didn't run, and I didn't want to post unverified candidates publicly.\n\n- **Eligibility:** #103645 is open and reports a specific bug, and it has no earlier duplicates comment, so it qualifies for dedupe.\n- **Searches:** Only one of the five search agents could run `./scripts/gh.sh`. The other four were denied Bash permission and ",
+ "task": "claude-code-103645",
+ "tag": "a1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "anthropics/claude-code",
+ "target": 103645,
+ "original": 99395,
+ "picked": [],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 24,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaCNJGQxPdaE2nySVtf5",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4389,
+   "cr": 12265,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCNdTZdAn7uvZhMy7dP",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 927,
+   "cr": 16654,
+   "out": 29,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCNdQb6y66CKryx7tkT",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3302,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCNoVZZArNpiF5zpojd",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1417,
+   "cr": 9379,
+   "out": 718,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCPAgmaDeUfSXrdr1Cu",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1299,
+   "cr": 17581,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaCPRBA6tKnBqxMaoQYZ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3337,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCPaS2poU3NDrhM9Kx4",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 918,
+   "cr": 9414,
+   "out": 42,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCPY2fXe2dNS24hsy5H",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3313,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCPcuriDifnHcHNy986",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3310,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCPhD531GxXPTKSnCef",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 969,
+   "cr": 9390,
+   "out": 200,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCPmJNqqqGZoC79ukXc",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3316,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCPmjBh215v2X3M6enW",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 965,
+   "cr": 9387,
+   "out": 235,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCPsLmrcocTvqEKz5GX",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4370,
+   "cr": 18880,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCPsDaRD2g9551vUHqx",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3314,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCPuZyGEpee6aQGT2SE",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 993,
+   "cr": 9393,
+   "out": 250,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCPqpym5cnDeDK8sUS5",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1987,
+   "cr": 10332,
+   "out": 481,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCQ13Ns84A8jTL4RA5v",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 806,
+   "cr": 23250,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCQ1EXtmg3fjocrED1M",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 980,
+   "cr": 9391,
+   "out": 259,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCQ8JBMkhbDfjZJZiz3",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1896,
+   "cr": 24056,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCQFtqb2Sj9pXZ8zC1n",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 862,
+   "cr": 25952,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCQXiqfPYeAkZdsoU9S",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 871,
+   "cr": 26814,
+   "out": 30,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCQXi6qYmPUDju34TQq",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3374,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCQeFFb4VWqc2EXvP5e",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 916,
+   "cr": 9451,
+   "out": 193,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCQp37qgx2fXU9qrtfV",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 747,
+   "cr": 27685,
+   "out": 5,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I haven't posted a duplicates comment on #103645. The filtering step didn't run, and I didn't want to post unverified candidates publicly.\n\n- **Eligibility:** #103645 is open and reports a specific bug, and it has no earlier duplicates comment, so it qualifies for dedupe.\n- **Searches:** Only one of"
+}

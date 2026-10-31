@@ -1,0 +1,236 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41193927311",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 10,
+ "duration_ms": 36667,
+ "duration_api_ms": 55646,
+ "total_cost_usd": 0.1943626,
+ "input_tokens": 12,
+ "output_tokens": 3680,
+ "cache_read_input_tokens": 122423,
+ "cache_creation_input_tokens": 16224,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 36,
+   "outputTokens": 6510,
+   "cacheReadInputTokens": 218056,
+   "cacheCreationInputTokens": 42954,
+   "webSearchRequests": 0,
+   "costUSD": 0.1943626,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 675,
+   "cacheCreationEphemeral5mInputTokens": 42954,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found three likely duplicates of #103661, but the comment was not posted. The script ran in dry-run mode and only printed `Would post on #103661: Found 3 possible duplicate issues: 89673 92774 90878`.\n\n- **#89673:** asks for a Desktop option where Enter inserts a newline and Ctrl+Enter submits. It is nearly the same request.\n- **#92774:** asks to swap Enter and Cmd+Enter in the composer. It is t",
+ "task": "claude-code-103661",
+ "tag": "a1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "anthropics/claude-code",
+ "target": 103661,
+ "original": 89673,
+ "picked": [
+  89673,
+  92774,
+  90878
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 17,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaBHSprEbdFnAhhkoKyU",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4389,
+   "cr": 12265,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBHnbyrPfn8HNTAi2BP",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3390,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBJGMLGptHypS3PsP69",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1421,
+   "cr": 16654,
+   "out": 40,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBJXrk5NBPgZrTwPgKr",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3358,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBJeP9eSj1E9EzdeDa7",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3365,
+   "cr": 6077,
+   "out": 20,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBJfY6tsRKm44hUmEyt",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 965,
+   "cr": 9435,
+   "out": 193,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBJmCfaSkr95Mr2gDRD",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3375,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBJoowBAHoVFyLadHSH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 993,
+   "cr": 9442,
+   "out": 194,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBJsuVdExvy9b3eWq6u",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3368,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBJvPa4bg4ueiywXZsb",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 987,
+   "cr": 9452,
+   "out": 257,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBK2J2aKBWwo2jhYxHf",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 5162,
+   "cr": 18075,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBK2E4SHR2m7tddhPxK",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3401,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBK2Ca248ULahk9J22G",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 989,
+   "cr": 9445,
+   "out": 290,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBKB297AnttF811ggVA",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1108,
+   "cr": 23237,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBKBxSnM7tLkv5Wy2pz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1026,
+   "cr": 9478,
+   "out": 287,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBKTycRZCMmeYZBcwyz",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3502,
+   "cr": 24345,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBKtVzfnkPPQyF63AGs",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 642,
+   "cr": 27847,
+   "out": 308,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found three likely duplicates of #103661, but the comment was not posted. The script ran in dry-run mode and only printed `Would post on #103661: Found 3 possible duplicate issues: 89673 92774 90878`.\n\n- **#89673:** asks for a Desktop option where Enter inserts a newline and Ctrl+Enter submits. It"
+}

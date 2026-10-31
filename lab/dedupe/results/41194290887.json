@@ -1,0 +1,514 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41194290887",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 1,
+ "duration_ms": 4084,
+ "duration_api_ms": 130988,
+ "total_cost_usd": 0.1436497,
+ "input_tokens": 2,
+ "output_tokens": 192,
+ "cache_read_input_tokens": 31367,
+ "cache_creation_input_tokens": 1486,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 24,
+   "outputTokens": 4022,
+   "cacheReadInputTokens": 294743,
+   "cacheCreationInputTokens": 20587,
+   "webSearchRequests": 0,
+   "costUSD": 0.12120979999999999,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 362,
+   "cacheCreationEphemeral5mInputTokens": 20587,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  },
+  "claude-haiku-5-5": {
+   "inputTokens": 64,
+   "outputTokens": 16702,
+   "cacheReadInputTokens": 347300,
+   "cacheCreationInputTokens": 84876,
+   "webSearchRequests": 0,
+   "costUSD": 0.022439899999999995,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 6026,
+   "cacheCreationEphemeral5mInputTokens": 84876,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-haiku-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "The fifth search agent has now finished. Its candidates match the filtered list, so the result stays the same.\n\n- **#22129**, **#22502** and **#22029** were its top candidates, and all three are already in the list.\n- **#22926** and **#25321** also appeared, and the filter pass had marked both as true duplicates just outside the top 3.\n- Like some of the other searches, it could not open the candi",
+ "task": "gemini-cli-25618",
+ "tag": "a1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "google-gemini/gemini-cli",
+ "target": 25618,
+ "original": 22029,
+ "picked": [
+  22029,
+  22129,
+  22502
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 42,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaBgQWLBz46f5pMM1o4F",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4395,
+   "cr": 12266,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBgkV84HisbgP8eZKuE",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3364,
+   "cr": 7303,
+   "out": 6,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBgv9oRvW9QrfqoBzQ3",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 882,
+   "cr": 10667,
+   "out": 3,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBh2Dv9mRqwm63RYLHK",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 492,
+   "cr": 11549,
+   "out": 8,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBhYRNbZHDBcSofYang",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1456,
+   "cr": 16661,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBhjtwK4tiH1C8Ki29x",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 2917,
+   "cr": 18117,
+   "out": 41,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBi3PeF3YkkNinenn6e",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3351,
+   "cr": 6077,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBi8FbJ4YxPZq8rLv3w",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3298,
+   "cr": 6077,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBiFe625rp2Sj3URvxb",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3291,
+   "cr": 6077,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBiNkDhCMsPvgV74knT",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3346,
+   "cr": 6077,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBiUV1eMdxFEuAHFwth",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3324,
+   "cr": 6077,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBiV8TV9hJrFqDum5rS",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 3741,
+   "cr": 21034,
+   "out": 22,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBs31L4ZCkXMd61ymdj",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1210,
+   "cr": 9428,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBs9msga7v31u5ynBb2",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 366,
+   "cr": 10638,
+   "out": 16,
+   "tools": [
+    "Read"
+   ]
+  },
+  {
+   "id": "msg_011CgaBsBRqbd4y2Qhrg6jd4",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2318,
+   "cr": 9375,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBsFfaYC97yrqvMc78F",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2393,
+   "cr": 9368,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBsEa6KGCtAdnxpPCDG",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 886,
+   "cr": 11004,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBsH1CZC4t5HbyCctCw",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 225,
+   "cr": 11693,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBsQqV8p5gQUQdwQLbe",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3238,
+   "cr": 11918,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBsafLXdH5WrGdcN4jd",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3099,
+   "cr": 9423,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBscqYsyKNxYaSrbdsm",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 967,
+   "cr": 15156,
+   "out": 16,
+   "tools": [
+    "Read"
+   ]
+  },
+  {
+   "id": "msg_011CgaBsUffiJLEkSoGMEtdU",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3796,
+   "cr": 11890,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBsiCWRFB2EFyJq7kce",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 790,
+   "cr": 12522,
+   "out": 21,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBsj5b9Ac8zThGeyKKd",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1930,
+   "cr": 11761,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBshNf1Gf5zyKhDKpRP",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2044,
+   "cr": 16123,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBsom8eedngyJ9NAJis",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1544,
+   "cr": 13312,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBsrvsj4KxYjMvsggtM",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 555,
+   "cr": 13691,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBswpKCYbw91oyxp78C",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1319,
+   "cr": 24775,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBsycTt7a7voeVcgd3Z",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 591,
+   "cr": 14856,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBt3ze9PX38E1skscTG",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 6693,
+   "cr": 14246,
+   "out": 10,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBtC359VY98qJtrXNnC",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1174,
+   "cr": 26094,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBtLgjPAn3vHTK5oB2Y",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 255,
+   "cr": 27268,
+   "out": 19,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBtTHrFCeMn5xZFqcJ2",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1111,
+   "cr": 27523,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBteW3UiDu4wE7s38Zv",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1185,
+   "cr": 28634,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBu3AZR3D4MWSMauPUh",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3474,
+   "cr": 7303,
+   "out": 8,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBuEaeJQS9xtawLiLzT",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1845,
+   "cr": 10777,
+   "out": 7,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBvB4Lusgbtt3kw4x9a",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1366,
+   "cr": 29819,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBvKijsUYEcsK475Jxm",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 182,
+   "cr": 31185,
+   "out": 387,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBwJoiB6bSi8VXTsrLk",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3822,
+   "cr": 9401,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBwccH99K1SBhBcZUAi",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2402,
+   "cr": 13223,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBwmqedviVZXTEwpYnY",
+   "model": "claude-haiku-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 551,
+   "cr": 15625,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBx75HzeN2ALYhQeRXJ",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1486,
+   "cr": 31367,
+   "out": 8,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "The fifth search agent has now finished. Its candidates match the filtered list, so the result stays the same.\n\n- **#22129**, **#22502** and **#22029** were its top candidates, and all three are already in the list.\n- **#22926** and **#25321** also appeared, and the filter pass had marked both as tr"
+}

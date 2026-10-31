@@ -1,0 +1,298 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41194909949",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 16,
+ "duration_ms": 33548,
+ "duration_api_ms": 66892,
+ "total_cost_usd": 0.2316185,
+ "input_tokens": 16,
+ "output_tokens": 4088,
+ "cache_read_input_tokens": 210252,
+ "cache_creation_input_tokens": 16183,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 46,
+   "outputTokens": 7629,
+   "cacheReadInputTokens": 342490,
+   "cacheCreationInputTokens": 48395,
+   "webSearchRequests": 0,
+   "costUSD": 0.2316185,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 434,
+   "cacheCreationEphemeral5mInputTokens": 48395,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found three likely duplicates of #52463, but the comment wasn't posted. `./scripts/comment-on-duplicates.sh` ran in dry-run mode and only printed: `DRY RUN: would post on #52463: Found 3 possible duplicate issues: 48664 47469 49162`. I haven't looked at how the script decides to dry-run, so I don't know what would make it post for real.\n\nThe three candidates:\n- **#48664** (open): \"CLI: allow dis",
+ "task": "codex-52463",
+ "tag": "a1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "openai/codex",
+ "target": 52463,
+ "original": 48664,
+ "picked": [
+  48664,
+  47469,
+  49162
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 23,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaCPhB5fbeDXH7DpT1xS",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4381,
+   "cr": 12265,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCQ2tFJwfcKwcKCy2Xr",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 889,
+   "cr": 16646,
+   "out": 22,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCQ2mJJAzhSNACqDM5s",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3358,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCQBVfjkWuWGUHeBL2u",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 705,
+   "cr": 9435,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCQKGVeF1yxYJYrjgV4",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1167,
+   "cr": 10140,
+   "out": 722,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCQiLZTLGRC5K4jtb3A",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1299,
+   "cr": 17535,
+   "out": 10,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCR4THfmv3WHiHBCbye",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3400,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCRANyarC1YbF7MReiC",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3370,
+   "cr": 6077,
+   "out": 20,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCRBWhRTaJpa1zwbSGs",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 939,
+   "cr": 9477,
+   "out": 247,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCRJPSXK6LdjYfSbsAi",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3359,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCRJVPN3ex23U4ou7C4",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 948,
+   "cr": 9447,
+   "out": 345,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCRR3Hn344HyiV78XbH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3368,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCRRPNLZdmF8DxNdoTe",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 955,
+   "cr": 9436,
+   "out": 284,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCRZToSdABhViQBRFpj",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3408,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCRaK94fmBBFwGFJt4t",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 970,
+   "cr": 9445,
+   "out": 236,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCRZXGeJe1gSHJijPHo",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 5550,
+   "cr": 18834,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCRhkNQAYc2QEc7jh2E",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 995,
+   "cr": 9485,
+   "out": 280,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCRo7pXSPSWucZfLrQB",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 2345,
+   "cr": 24384,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCRzCpWXHXdX13bod97",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1044,
+   "cr": 26729,
+   "out": 41,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCSHinS1Wgn3AzHxfJe",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1707,
+   "cr": 27773,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCSZDCCVx1oKUtDEkEH",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 2569,
+   "cr": 29480,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCSjGvuJTV95ZQXyq7k",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1419,
+   "cr": 32049,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCSs9wjdb31879EmNKb",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 250,
+   "cr": 33468,
+   "out": 518,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found three likely duplicates of #52463, but the comment wasn't posted. `./scripts/comment-on-duplicates.sh` ran in dry-run mode and only printed: `DRY RUN: would post on #52463: Found 3 possible duplicate issues: 48664 47469 49162`. I haven't looked at how the script decides to dry-run, so I don'"
+}

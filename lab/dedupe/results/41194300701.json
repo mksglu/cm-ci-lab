@@ -1,0 +1,260 @@
+{
+ "arm": "direct-ts",
+ "client": "cli",
+ "run_id": "41194300701",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 10,
+ "duration_ms": 35997,
+ "duration_api_ms": 57140,
+ "total_cost_usd": 0.18952520000000003,
+ "input_tokens": 12,
+ "output_tokens": 2939,
+ "cache_read_input_tokens": 119956,
+ "cache_creation_input_tokens": 14640,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 40,
+   "outputTokens": 6175,
+   "cacheReadInputTokens": 238602,
+   "cacheCreationInputTokens": 41534,
+   "webSearchRequests": 0,
+   "costUSD": 0.18952520000000003,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 505,
+   "cacheCreationEphemeral5mInputTokens": 41534,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I didn't post a duplicates comment on #6474, because the duplicate search never ran.\n\nAll five search agents were denied permission to run `./scripts/gh.sh`, so none of them searched GitHub. They didn't try workarounds, and I didn't either. I also didn't run the searches myself, since the denials looked deliberate. Only the first agent, which fetched the issue, was allowed to run it.\n\nWhat the fir",
+ "task": "uptime-kuma-6474",
+ "tag": "a1031-dedupe-sonnet-r1",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "louislam/uptime-kuma",
+ "target": 6474,
+ "original": 1888,
+ "picked": [],
+ "hit_top3": false,
+ "rank": null,
+ "api_calls": 19,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaBgusg8rhxLXGoY5ZSX",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4393,
+   "cr": 12265,
+   "out": 7,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBhH2QFNKBe5mwz64PQ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3381,
+   "cr": 7303,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBhRg4VEk3BCY26GEs7",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 711,
+   "cr": 10684,
+   "out": 8,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBhZBztyBy89QVfTqKK",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 351,
+   "cr": 11395,
+   "out": 7,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBiAAwMQKPKC2au6dSb",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1611,
+   "cr": 16658,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaBiQoFKQeh6jBiyirep",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3350,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBiXYKKEfTfeCHEkbKn",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3337,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBiYLgxqGuH2oSZvy7u",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 969,
+   "cr": 9427,
+   "out": 256,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBicfNvTdXcTb3GaRFX",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3348,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBigLu2myd1sWTNRLMW",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 984,
+   "cr": 9414,
+   "out": 288,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBijAZHm7f2J7gXGhdg",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3353,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBikrkf8RNyiyQGNTkA",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 997,
+   "cr": 9425,
+   "out": 177,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBiqmBjbNFMvBYfFmdV",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4422,
+   "cr": 18269,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBiqfy4ynQ8YWoUC1Kn",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3360,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaBitm1v9NasdpTabY45",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 989,
+   "cr": 9430,
+   "out": 256,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBiyzXyyjCf3kqfRy4p",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1771,
+   "cr": 22691,
+   "out": 20,
+   "tools": [
+    "ListAgents"
+   ]
+  },
+  {
+   "id": "msg_011CgaBiyx3yHWqSxFNXk2pz",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1009,
+   "cr": 9437,
+   "out": 303,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBj5a8pcaP1mGHGMLYJ",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1149,
+   "cr": 24462,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaBjJcTUTUEnMSqZmG7M",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1294,
+   "cr": 25611,
+   "out": 295,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I didn't post a duplicates comment on #6474, because the duplicate search never ran.\n\nAll five search agents were denied permission to run `./scripts/gh.sh`, so none of them searched GitHub. They didn't try workarounds, and I didn't either. I also didn't run the searches myself, since the denials lo"
+}

@@ -1,0 +1,415 @@
+{
+ "arm": "gateway",
+ "client": "cli",
+ "run_id": "41194921062",
+ "attempt": "1",
+ "is_error": false,
+ "subtype": "success",
+ "num_turns": 8,
+ "duration_ms": 67039,
+ "duration_api_ms": 99862,
+ "total_cost_usd": 0.2915164,
+ "input_tokens": 10,
+ "output_tokens": 1455,
+ "cache_read_input_tokens": 156592,
+ "cache_creation_input_tokens": 5514,
+ "model_usage": {
+  "claude-sonnet-5-5": {
+   "inputTokens": 68,
+   "outputTokens": 8686,
+   "cacheReadInputTokens": 537729,
+   "cacheCreationInputTokens": 60299,
+   "webSearchRequests": 0,
+   "costUSD": 0.2915164,
+   "contextWindow": 1000000,
+   "maxOutputTokens": 128000,
+   "thinkingTokens": 588,
+   "cacheCreationEphemeral5mInputTokens": 60299,
+   "cacheCreationEphemeral1hInputTokens": 0,
+   "canonicalModel": "claude-sonnet-5-5",
+   "provider": "firstParty",
+   "costBasis": "list"
+  }
+ },
+ "result_markers": [],
+ "result_head": "I found two likely duplicates of #52463, but the comment wasn't posted. The comment script ran in dry-run mode and only printed `DRY RUN: would post on #52463: Found 2 possible duplicate issues: 48664 47469`. I haven't tried to force a real post.\n\n- **#48664** (open) asks for a way to disable Codex's mouse capture independently of fullscreen mode. That is the same opt-out #52463 asks for.\n- **#474",
+ "task": "codex-52463",
+ "tag": "a1031-dedupe-sonnet-r2",
+ "model_input": "claude-sonnet-5-5",
+ "repo": "openai/codex",
+ "target": 52463,
+ "original": 48664,
+ "picked": [
+  48664,
+  47469
+ ],
+ "hit_top3": true,
+ "rank": 1,
+ "api_calls": 34,
+ "per_message_usage": [
+  {
+   "id": "msg_011CgaCQZiQ93Q1hhUa49JCY",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4381,
+   "cr": 12266,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCQw62eEs2m5Fr1dqvH",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3353,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCQwJfqTziPk1c1ANNg",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 913,
+   "cr": 16647,
+   "out": 29,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCR5HtfYvNSvg86TuoS",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 708,
+   "cr": 9430,
+   "out": 38,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCRChPAbPM47awjfkD2",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 316,
+   "cr": 10138,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCRMVTpDm9Jmc7EEZzZ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1196,
+   "cr": 10454,
+   "out": 361,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCRe6bkoaojDhSHA6e8",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 940,
+   "cr": 17560,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaCRpeMRxoZyPvmhsLqV",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 601,
+   "cr": 18500,
+   "out": 47,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCRpo2gnivjFegHbGRJ",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3211,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCS16QBFrsrLxiEgqKN",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 1733,
+   "cr": 9288,
+   "out": 657,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCSNYF4JSmThtRoJPLU",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1207,
+   "cr": 19101,
+   "out": 16,
+   "tools": [
+    "Agent"
+   ]
+  },
+  {
+   "id": "msg_011CgaCSeNF1M12kGmZxzDaX",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3349,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCSjiDuDVRDMsZ9YFeo",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3321,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCSkhFFW1kwY2DJnWqt",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 947,
+   "cr": 9426,
+   "out": 239,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCSquHgvGn6A546mC8X",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3332,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCSss7CkUKUjjKAafMy",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 951,
+   "cr": 9398,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCSxk3FY39Q7qiJDsaw",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3337,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCT6GiyN6ZAa7uufiQf",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 4474,
+   "cr": 20308,
+   "out": 8,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCT65pedJL1xYkEtnDc",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3346,
+   "cr": 6077,
+   "out": 17,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCT8UwGuzQrhED1Mj8r",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 951,
+   "cr": 9414,
+   "out": 243,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCTEgkTe8HrWHYXn7TV",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 831,
+   "cr": 24782,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCTGAnygNKcogZxz3ZW",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 968,
+   "cr": 9423,
+   "out": 253,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCTQPesi8kRfX38HmZj",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 792,
+   "cr": 25613,
+   "out": 5,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCTZHwEQEVff1jfDC2q",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 801,
+   "cr": 26405,
+   "out": 4,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCTr9wa5RsfjKoEc3dT",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 2502,
+   "cr": 9409,
+   "out": 461,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCU91DMQUxSAnNzJHpr",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1004,
+   "cr": 27206,
+   "out": 3,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCUThrvHa5wZNEXNTdq",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 3466,
+   "cr": 6077,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCUV9vN2xy8gPAiSK3F",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 873,
+   "cr": 28210,
+   "out": 75,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCUdN2xX2KF88HX2jPa",
+   "model": "claude-sonnet-5-5",
+   "sub": true,
+   "in": 2,
+   "cw": 981,
+   "cr": 9543,
+   "out": 10,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCUtJwjBC5Ep38XN1C1",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 847,
+   "cr": 29083,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCV75eebeKEiGcQ3oYS",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 305,
+   "cr": 29930,
+   "out": 16,
+   "tools": [
+    "Bash"
+   ]
+  },
+  {
+   "id": "msg_011CgaCYzTQSwGdxZRAwkJgM",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 2736,
+   "cr": 30235,
+   "out": 6,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCZCwjYArmuu9Ff3p2b",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 1402,
+   "cr": 32971,
+   "out": 2,
+   "tools": []
+  },
+  {
+   "id": "msg_011CgaCZWUgRB8xqVdvnpjW1",
+   "model": "claude-sonnet-5-5",
+   "sub": false,
+   "in": 2,
+   "cw": 224,
+   "cr": 34373,
+   "out": 434,
+   "tools": []
+  }
+ ],
+ "credit_low": false,
+ "final_text_head": "I found two likely duplicates of #52463, but the comment wasn't posted. The comment script ran in dry-run mode and only printed `DRY RUN: would post on #52463: Found 2 possible duplicate issues: 48664 47469`. I haven't tried to force a real post.\n\n- **#48664** (open) asks for a way to disable Codex'"
+}
