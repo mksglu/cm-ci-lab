@@ -1,0 +1,254 @@
+{
+ "j00": {
+  "model": "opus",
+  "pr": "astral-sh/uv#23009",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j01": {
+  "model": "opus",
+  "pr": "astral-sh/uv#23017",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j02": {
+  "model": "opus",
+  "pr": "denoland/deno#36944",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j03": {
+  "model": "opus",
+  "pr": "denoland/deno#37046",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j04": {
+  "model": "opus",
+  "pr": "facebook/react#38025",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j05": {
+  "model": "opus",
+  "pr": "facebook/react#38034",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j06": {
+  "model": "opus",
+  "pr": "langchain-ai/langchain#41512",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j07": {
+  "model": "opus",
+  "pr": "langchain-ai/langchain#41520",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j08": {
+  "model": "opus",
+  "pr": "microsoft/vscode#345283",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j09": {
+  "model": "opus",
+  "pr": "microsoft/vscode#345293",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j10": {
+  "model": "opus",
+  "pr": "vercel/next.js#100935",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j11": {
+  "model": "opus",
+  "pr": "vercel/next.js#100956",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j12": {
+  "model": "sonnet",
+  "pr": "astral-sh/uv#23009",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j13": {
+  "model": "sonnet",
+  "pr": "astral-sh/uv#23009",
+  "round": "r2",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j14": {
+  "model": "sonnet",
+  "pr": "astral-sh/uv#23017",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j15": {
+  "model": "sonnet",
+  "pr": "astral-sh/uv#23017",
+  "round": "r2",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j16": {
+  "model": "sonnet",
+  "pr": "denoland/deno#36944",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j17": {
+  "model": "sonnet",
+  "pr": "denoland/deno#36944",
+  "round": "r2",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j18": {
+  "model": "sonnet",
+  "pr": "denoland/deno#37046",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j19": {
+  "model": "sonnet",
+  "pr": "denoland/deno#37046",
+  "round": "r2",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j20": {
+  "model": "sonnet",
+  "pr": "facebook/react#38025",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j21": {
+  "model": "sonnet",
+  "pr": "facebook/react#38025",
+  "round": "r2",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j22": {
+  "model": "sonnet",
+  "pr": "facebook/react#38034",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j23": {
+  "model": "sonnet",
+  "pr": "facebook/react#38034",
+  "round": "r2",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j24": {
+  "model": "sonnet",
+  "pr": "langchain-ai/langchain#41512",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j25": {
+  "model": "sonnet",
+  "pr": "langchain-ai/langchain#41512",
+  "round": "r2",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j26": {
+  "model": "sonnet",
+  "pr": "langchain-ai/langchain#41520",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j27": {
+  "model": "sonnet",
+  "pr": "langchain-ai/langchain#41520",
+  "round": "r2",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j28": {
+  "model": "sonnet",
+  "pr": "microsoft/vscode#345283",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j29": {
+  "model": "sonnet",
+  "pr": "microsoft/vscode#345283",
+  "round": "r2",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j30": {
+  "model": "sonnet",
+  "pr": "microsoft/vscode#345293",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j31": {
+  "model": "sonnet",
+  "pr": "microsoft/vscode#345293",
+  "round": "r2",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j32": {
+  "model": "sonnet",
+  "pr": "vercel/next.js#100935",
+  "round": "r1",
+  "A": "direct-ts",
+  "B": "gateway"
+ },
+ "j33": {
+  "model": "sonnet",
+  "pr": "vercel/next.js#100935",
+  "round": "r2",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j34": {
+  "model": "sonnet",
+  "pr": "vercel/next.js#100956",
+  "round": "r1",
+  "A": "gateway",
+  "B": "direct-ts"
+ },
+ "j35": {
+  "model": "sonnet",
+  "pr": "vercel/next.js#100956",
+  "round": "r2",
+  "A": "gateway",
+  "B": "direct-ts"
+ }
+}
