@@ -1,0 +1,59 @@
+name: dedupe
+run-name: dedupe ${{ inputs.arm }} ${{ inputs.task }} ${{ inputs.tag }}
+
+# Issue dedupe, mirroring anthropics/claude-code claude-dedupe-issues.yml with headless claude -p (native installer).
+# A real issue that maintainers closed as a duplicate is replayed: the agent sees only issues created before it
+# (lab/dedupe/scripts/gh.sh) and must name the original. Posting is stubbed: the action is printed, nothing is written.
+# Arms (lab/path-env.sh): direct-ts (fair baseline), gateway.
+on:
+  workflow_dispatch:
+    inputs:
+      task: { type: choice, options: [bun-37251, bun-37028, bun-36967, claude-code-104074, claude-code-103661, claude-code-103645, codex-52463, codex-50880, codex-53191, gemini-cli-25559, gemini-cli-25618, uptime-kuma-6474], default: bun-37251 }
+      arm: { type: choice, options: [direct-ts, gateway], default: direct-ts }
+      model: { type: string, default: claude-sonnet-5-5 }
+      tag: { type: string, default: "" }
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Arm env
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: bash lab/path-env.sh "${{ inputs.arm }}"
+      - name: Install Claude Code (native installer)
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Dedupe
+        env:
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY_B }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          [ -z "${ANTHROPIC_API_KEY:-}" ] && export ANTHROPIC_API_KEY="$LIVE_API_KEY"
+          bash lab/dedupe/run.sh "${{ inputs.task }}" "${{ inputs.model }}"
+      - name: Metrics
+        if: always()
+        run: |
+          mkdir -p out
+          [ -f out/claude-stream.jsonl ] && python3 lab/dedupe/metrics.py out/claude-stream.jsonl "${{ inputs.arm }}" "${{ inputs.task }}" "${{ inputs.tag }}" "${{ inputs.model }}" || echo '{"no_output":true}' > out/lab-metrics.json
+      - name: Secret check before upload
+        if: always()
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY_B }}
+        run: |
+          for k in "$CONTEXT_MODE_KEY" "$LIVE_API_KEY"; do
+            if [ -n "$k" ] && grep -rlF "$k" out/ ; then echo "::error::key found"; rm -rf out; exit 1; fi
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dedupe-${{ inputs.arm }}-${{ inputs.task }}-${{ github.run_id }}
+          path: out/
+          if-no-files-found: ignore
