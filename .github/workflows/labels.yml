@@ -1,0 +1,89 @@
+name: labels
+run-name: labels ${{ inputs.arm }} ${{ inputs.task }} ${{ inputs.tag }}
+
+# Issue triage and labels, the job anthropics/claude-code (claude-issue-triage.yml, Opus), openai/codex (issue-labeler)
+# and gemini-cli run. The prompt and tools mirror anthropics/claude-code .claude/commands/triage-issue.md. Label writes are
+# replaced by a printed JSON answer {"labels":[...]}; gh is a read-only wrapper (lab/labels/scripts/gh.py) time-boxed to
+# before the target issue. Quality = label F1 against the labels the maintainers set (lab/labels/extract.py).
+# claude-code-action cannot use this key, so the action's prompt and tools are mirrored with `claude -p`.
+on:
+  workflow_dispatch:
+    inputs:
+      task: { type: choice, options: [godot-124950, godot-124937, zed-66189, zed-66163, tauri-16340, tauri-16323, bun-47090, bun-47006, rust-165173, rust-165127, vscode-345117, vscode-345099], default: bun-47090 }
+      arm: { type: choice, options: [direct-ts, gateway], default: gateway }
+      model: { type: string, default: claude-sonnet-5-5 }
+      tag: { type: string, default: "" }
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Task
+        run: |
+          python3 - <<'PY' >> "$GITHUB_ENV"
+          import json
+          t = next(x for x in json.load(open("lab/labels/tasks.json")) if x["id"] == "${{ inputs.task }}")
+          print("TASK_REPO=" + t["repo"]); print("TASK_NUMBER=" + str(t["number"])); print("TASK_CREATED=" + t["created"])
+          PY
+          mkdir -p "$RUNNER_TEMP/work/scripts" out
+          cp lab/labels/scripts/* "$RUNNER_TEMP/work/scripts/"
+          python3 - <<'PY'
+          import json, os
+          t = next(x for x in json.load(open("lab/labels/tasks.json")) if x["id"] == "${{ inputs.task }}")
+          p = open("lab/labels/prompt.md").read().replace("__REPO__", t["repo"]).replace("__NUMBER__", str(t["number"]))
+          open(os.environ["RUNNER_TEMP"] + "/work/prompt.txt", "w").write(p)
+          PY
+      - name: Arm env
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: bash lab/path-env.sh "${{ inputs.arm }}"
+      - name: Install Claude Code (native installer)
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Triage
+        continue-on-error: true
+        env:
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY_B }}
+          GH_TOKEN: ${{ github.token }}
+          LABEL_ACTIONS: ${{ runner.temp }}/label-actions.txt
+        run: |
+          [ -z "${ANTHROPIC_API_KEY:-}" ] && export ANTHROPIC_API_KEY="$LIVE_API_KEY"
+          cd "$RUNNER_TEMP/work"
+          claude -p "$(cat prompt.txt)" \
+            --output-format stream-json --verbose --model "${{ inputs.model }}" --max-turns 30 --max-budget-usd 1.5 \
+            --allowedTools "Bash(./scripts/gh.sh:*),Bash(./scripts/edit-issue-labels.sh:*)" \
+            --disallowedTools "WebFetch,WebSearch,Write,Edit,MultiEdit,NotebookEdit" > "$RUNNER_TEMP/out.json"
+      - name: Metrics and score
+        if: always()
+        run: |
+          mkdir -p out
+          [ -f "$RUNNER_TEMP/out.json" ] && cp "$RUNNER_TEMP/out.json" out/claude-output.json
+          [ -f "$RUNNER_TEMP/label-actions.txt" ] && cp "$RUNNER_TEMP/label-actions.txt" out/label-actions.txt || true
+          [ -f out/claude-output.json ] && python3 lab/opus/usage.py out/claude-output.json out/per-message-usage.json || true
+          [ -f out/claude-output.json ] && python3 lab/metrics.py out/claude-output.json "${{ inputs.arm }}" cli && mv lab-metrics.json out/ || echo '{"no_output":true}' > out/lab-metrics.json
+          [ -f out/claude-output.json ] && python3 lab/labels/extract.py out/claude-output.json lab/labels/tasks.json "${{ inputs.task }}" out/answer.json || echo '{"parsed":false,"f1":0}' > out/answer.json
+          python3 - <<'PY'
+          import json
+          m = json.load(open("out/lab-metrics.json")); a = json.load(open("out/answer.json"))
+          m.update(task="${{ inputs.task }}", tag="${{ inputs.tag }}", model_input="${{ inputs.model }}", answer=a, f1=a.get("f1"), parsed=a.get("parsed"))
+          json.dump(m, open("out/lab-metrics.json", "w"), indent=1)
+          print(json.dumps({k: m.get(k) for k in ("arm", "task", "is_error", "num_turns", "total_cost_usd", "f1", "parsed")}))
+          PY
+      - name: Secret check before upload
+        if: always()
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: |
+          if [ -n "$CONTEXT_MODE_KEY" ] && grep -rlF "$CONTEXT_MODE_KEY" out/ ; then echo "::error::CI key found"; rm -rf out; exit 1; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: labels-${{ inputs.arm }}-${{ inputs.task }}-${{ github.run_id }}
+          path: out/
+          if-no-files-found: ignore

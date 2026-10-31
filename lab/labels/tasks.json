@@ -1,0 +1,167 @@
+[
+ {
+  "repo": "godotengine/godot",
+  "stars": 119320,
+  "number": 124950,
+  "created": "2026-10-29T14:47:35Z",
+  "title": "`Text Server: Fallback`  in `Engine Compilation Configuration Editor`is always false after relaunch of Godot Editor",
+  "body_len": 705,
+  "truth": [
+   "bug",
+   "topic:editor"
+  ],
+  "id": "godot-124950"
+ },
+ {
+  "repo": "godotengine/godot",
+  "stars": 119320,
+  "number": 124937,
+  "created": "2026-10-28T20:51:23Z",
+  "title": "Editor Settings > Text Editor > External > Exec Path and Exec Flags are hidden, even when Use External Editor is checked (need Advanced Settings)",
+  "body_len": 2463,
+  "truth": [
+   "enhancement",
+   "discussion",
+   "topic:editor",
+   "usability"
+  ],
+  "id": "godot-124937"
+ },
+ {
+  "repo": "zed-industries/zed",
+  "stars": 92453,
+  "number": 66189,
+  "created": "2026-10-27T06:09:27Z",
+  "title": "Ghost hints in workspace search multibuffer",
+  "body_len": 1254,
+  "truth": [
+   "area:multi-buffer",
+   "area:search"
+  ],
+  "id": "zed-66189"
+ },
+ {
+  "repo": "zed-industries/zed",
+  "stars": 92453,
+  "number": 66163,
+  "created": "2026-10-26T12:44:29Z",
+  "title": "Cold boot takes 15 seconds",
+  "body_len": 4167,
+  "truth": [
+   "area:performance",
+   "platform:windows"
+  ],
+  "id": "zed-66163"
+ },
+ {
+  "repo": "tauri-apps/tauri",
+  "stars": 112358,
+  "number": 16340,
+  "created": "2026-10-20T10:05:43Z",
+  "title": "[feat] Support building macOS .app and .dmg bundles from a Linux host",
+  "body_len": 4214,
+  "truth": [
+   "type: feature request",
+   "platform: macOS"
+  ],
+  "id": "tauri-16340"
+ },
+ {
+  "repo": "tauri-apps/tauri",
+  "stars": 112358,
+  "number": 16323,
+  "created": "2026-10-18T18:54:01Z",
+  "title": "[bug][nsis] \"Delete the application data\" follows junctions/symlinks out of %APPDATA% and %LOCALAPPDATA%\\<identifier>",
+  "body_len": 2911,
+  "truth": [
+   "type: bug",
+   "platform: Windows",
+   "scope: bundler"
+  ],
+  "id": "tauri-16323"
+ },
+ {
+  "repo": "oven-sh/bun",
+  "stars": 96484,
+  "number": 47090,
+  "created": "2026-10-27T16:15:52Z",
+  "title": "`execFileSync` / `spawnSync` with `timeout` sometimes never kills the child under gVisor: returns `ETIMEDOUT` with `signal: null` after the child exits on its own",
+  "body_len": 3774,
+  "truth": [
+   "bug",
+   "linux",
+   "node:child_process"
+  ],
+  "id": "bun-47090"
+ },
+ {
+  "repo": "oven-sh/bun",
+  "stars": 96484,
+  "number": 47006,
+  "created": "2026-10-26T18:01:47Z",
+  "title": "bun install prints a [0.02ms] \".env\" trace line whenever a .env exists, and no flag or env var silences it",
+  "body_len": 1708,
+  "truth": [
+   "bug",
+   "bun install"
+  ],
+  "id": "bun-47006"
+ },
+ {
+  "repo": "rust-lang/rust",
+  "stars": 120881,
+  "number": 165173,
+  "created": "2026-10-30T06:15:30Z",
+  "title": "next solver: borrowck accepts an ambiguous type-op result and drops its region constraints (use-after-free)",
+  "body_len": 591,
+  "truth": [
+   "T-types",
+   "WG-trait-system-refactor",
+   "A-lifetimes",
+   "I-unsound",
+   "A-dyn-trait"
+  ],
+  "id": "rust-165173"
+ },
+ {
+  "repo": "rust-lang/rust",
+  "stars": 120881,
+  "number": 165127,
+  "created": "2026-10-29T11:37:01Z",
+  "title": "[ICE]: `error: internal compiler error: query cycle when printing cycle detected / when getting HIR crate items`",
+  "body_len": 3171,
+  "truth": [
+   "F-fn_delegation",
+   "I-cycle"
+  ],
+  "id": "rust-165127"
+ },
+ {
+  "repo": "microsoft/vscode",
+  "stars": 194401,
+  "number": 345117,
+  "created": "2026-10-30T02:41:41Z",
+  "title": "Chat view \"New Chat\" always opens a read-only Claude session when the Claude agent is disabled by org policy",
+  "body_len": 967,
+  "truth": [
+   "bug",
+   "chat",
+   "on-testplan"
+  ],
+  "id": "vscode-345117"
+ },
+ {
+  "repo": "microsoft/vscode",
+  "stars": 194401,
+  "number": 345099,
+  "created": "2026-10-29T23:46:22Z",
+  "title": "MCP gallery install fails: \"The selected GitHub account changed\"",
+  "body_len": 825,
+  "truth": [
+   "chat-mcp",
+   "chat-mcp-management",
+   "mcp"
+  ],
+  "id": "vscode-345099"
+ }
+]
