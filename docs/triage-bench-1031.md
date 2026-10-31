@@ -118,11 +118,11 @@ Findings:
 
 ## Blind patch check (24 patches, arm labels hidden)
 
-Each pair was shuffled to X/Y with seed 7 and read before the arm was known. `package-lock.json` noise from `npm install` was ignored; the 3 test-file edits check was done by file path.
+Each pair was shuffled to X/Y with seed 7 and read before the arm was known. `package-lock.json` noise from `npm install` was ignored. Test-file edits were checked by file path across all 24 patches.
 
 - axios n1, n2: real fix of the regex (`/\/?\/$/` to `/\/+$/`); one n2 patch uses a charCode loop, also real.
 - black n1, n2: both add an early return when no lines are left and flip `is_changed_block`; n2 also ignores indentation in the diff (real). Black n1 failed on BOTH arms with the same test.
-- chalk n1, n2: six patches treat a numeric FORCE_COLOR as exact level; all real, with different guards.
+- chalk n1, n2: four patches treat a numeric FORCE_COLOR as exact level; all real, with different guards.
 - fd n1, n2: the upstream design (`bool` options plus `rg_alias_hidden`), real. One n2 patch uses a helper `ignore_hidden()`, real.
 - gin n1, n2: all four replace the reslice by `append`, identical to upstream; real.
 - rich n1, n2: all four remove the `reversed()` in `chop_cells`; real, minimal.
