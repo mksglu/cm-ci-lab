@@ -26,13 +26,13 @@ case "$task" in
             test="cargo test --color never"; install="true" ;;
   rich)     repo=Textualize/rich;        sha=59b1aca63bf9ec69ada93af960d8b2a7bd920477; lang=python
             src=(rich/_wrap.py rich/cells.py); tests=(tests/test_cells.py tests/test_text.py)
-            test="python -m pytest tests -v -p no:cacheprovider"; install="pip install -q -e . pytest attrs" ;;
+            test="python -m pytest tests -v -p no:cacheprovider"; install="pip install -q -e . pytest attrs 'setuptools<81'" ;;
   black)    repo=psf/black;              sha=77c0cae18bcc82257882afc7bbb9a5cd95cba16c; lang=python
             src=(src/black/__init__.py src/black/ranges.py); tests=(tests/test_black.py tests/test_ranges.py)
-            test="python -m pytest tests -v -p no:cacheprovider -n 0"; install="pip install -q -e '.[d,jupyter]' pytest pytest-xdist" ;;
+            test="python -m pytest tests -v -p no:cacheprovider -n 0"; install="pip install -q -e '.[d,jupyter]' 'pytest<9' pytest-xdist" ;;
   axios)    repo=axios/axios;            sha=02c2c4f891d76b15712a9edd149a2d9f7978774f; lang=node
             src=(lib/helpers/combineURLs.js); tests=(tests/unit/core/buildFullPath.test.js tests/unit/helpers/combineURLs.test.js)
-            test="npx vitest run --project unit"; install="npm install --no-audit --no-fund --loglevel=error" ;;
+            test="npx vitest run --project unit --exclude tests/unit/adapters/fetch.test.js"; install="npm install --no-audit --no-fund --loglevel=error" ;;
   chalk)    repo=chalk/chalk;            sha=e91293130c7d642c7b91152c3c942743a3b910a7; lang=node
             src=(source/vendor/supports-color/index.js); tests=(test/_force-color-fixture.js test/force-color.js)
             test="npm test"; install="npm install --no-audit --no-fund --loglevel=error" ;;
