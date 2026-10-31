@@ -6,7 +6,8 @@
 import base64, json, os, sys, urllib.request
 log = open(sys.argv[1], errors="replace").read()
 cmd = os.environ.get("TASK_TEST", "pytest")
-hdrs = {"content-type": "application/json", "anthropic-version": "2023-06-01", "x-api-key": "sk-ant-lab-dry-not-a-key"}
+hdrs = {"content-type": "application/json", "anthropic-version": "2023-06-01", "x-api-key": "sk-ant-lab-dry-not-a-key",
+        "user-agent": "claude-cli/2.1.0 (external, sdk-cli)", "x-app": "cli"}
 for line in os.environ["ANTHROPIC_CUSTOM_HEADERS"].splitlines():
     k, _, v = line.partition(":"); hdrs[k.strip()] = v.strip()
 def tu(i, name, inp): return {"role": "assistant", "content": [{"type": "tool_use", "id": f"toolu_{i:02d}", "name": name, "input": inp}]}
