@@ -1,0 +1,123 @@
+name: opus-triage
+run-name: opus-triage ${{ inputs.arm }} ${{ inputs.task }} ${{ inputs.tag }}
+
+# CI failure triage with a big log. One real merged bug-fix PR of a high-star repo is reverted (lab/triage-task.sh),
+# so the real test suite fails again and prints a large log. Claude Code (headless, native installer) must find the
+# root cause and fix it with the smallest change. Pass = the real test command passes afterwards, with the test files
+# restored to the snapshot. Arms (lab/path-env.sh): direct-ts (fair baseline), gateway. Arm baseline = no model, log only.
+on:
+  workflow_dispatch:
+    inputs:
+      task: { type: choice, options: [requests, flask, express, koa, cobra, ripgrep, rich, black, axios, chalk, gin, fd], default: requests }
+      arm: { type: choice, options: [direct-ts, gateway], default: direct-ts }
+      model: { type: string, default: claude-opus-5-5 }
+      tag: { type: string, default: "" }
+      control: { type: boolean, default: false, description: "keep the fix in place; the suite must pass (task validity check, baseline arm only)" }
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare the failing repo
+        env:
+          CONTROL: ${{ inputs.control && '1' || '0' }}
+        run: bash lab/triage-task.sh "${{ inputs.task }}"
+      - uses: actions/setup-python@v5
+        if: env.TASK_LANG == 'python'
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v4
+        if: env.TASK_LANG == 'node'
+        with: { node-version: "22" }
+      - uses: actions/setup-go@v5
+        if: env.TASK_LANG == 'go'
+        with: { go-version: "stable", cache: false }
+      - name: Install the project
+        run: cd "$RUNNER_TEMP/repo" && bash -c "$TASK_INSTALL" 2>&1 | tail -3
+      - name: Baseline test run (must fail)
+        run: |
+          mkdir -p out; cd "$RUNNER_TEMP/repo"
+          set +e; bash -c "$TASK_TEST" > "$GITHUB_WORKSPACE/out/baseline.log" 2>&1; rc=$?; set -e
+          echo "BASE_RC=$rc" >> "$GITHUB_ENV"
+          echo "baseline rc=$rc bytes=$(wc -c < "$GITHUB_WORKSPACE/out/baseline.log") lines=$(wc -l < "$GITHUB_WORKSPACE/out/baseline.log")"
+          tail -5 "$GITHUB_WORKSPACE/out/baseline.log"
+      - name: Arm env
+        if: inputs.arm != 'baseline'
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: bash lab/path-env.sh "${{ inputs.arm }}"
+      - name: Install Claude Code (native installer)
+        if: (inputs.arm == 'direct-ts' || inputs.arm == 'gateway' || inputs.arm == 'cause')
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Dry probe (no model call)
+        if: inputs.arm == 'gateway-dry'
+        run: python3 lab/dry-probe.py out/baseline.log | tee out/dry-probe.txt
+      - name: Cause check (no model call)
+        if: inputs.arm == 'cause'
+        run: |
+          mkdir -p cap out
+          python3 lab/capture.py 8099 cap &
+          sleep 2
+          cd "$RUNNER_TEMP/repo"
+          env -u ANTHROPIC_CUSTOM_HEADERS ANTHROPIC_BASE_URL=http://127.0.0.1:8099 ANTHROPIC_API_KEY=sk-ant-lab-dry-not-a-key \
+            timeout 90 claude -p "CI failed. Run \`$TASK_TEST\`, find the root cause, fix it with the smallest change." \
+            --model "${{ inputs.model }}" --max-turns 3 --allowedTools "Bash,Read,Edit,Write,Glob,Grep" > /dev/null 2>&1 || true
+          cd "$GITHUB_WORKSPACE"; ls cap | wc -l
+          python3 lab/cause-check.py out/baseline.log cap | tee out/cause-check.txt
+      - name: Triage
+        if: (inputs.arm == 'direct-ts' || inputs.arm == 'gateway')
+        continue-on-error: true
+        env:
+          LIVE_API_KEY: ${{ secrets.ANTHROPIC_API_KEY_B }}
+        run: |
+          [ -z "${ANTHROPIC_API_KEY:-}" ] && export ANTHROPIC_API_KEY="$LIVE_API_KEY"
+          cd "$RUNNER_TEMP/repo"
+          claude -p "CI failed. Run \`$TASK_TEST\`, find the root cause, fix it with the smallest change." \
+            --output-format stream-json --verbose --model "${{ inputs.model }}" --max-turns 30 --max-budget-usd 1.5 \
+            --allowedTools "Bash,Read,Edit,Write,Glob,Grep" > "$RUNNER_TEMP/out.json"
+      - name: Verify (test files restored to the snapshot)
+        if: (inputs.arm == 'direct-ts' || inputs.arm == 'gateway')
+        run: |
+          cd "$RUNNER_TEMP/repo"
+          git diff --stat HEAD > "$GITHUB_WORKSPACE/out/fix.diffstat" || true
+          git diff HEAD > "$GITHUB_WORKSPACE/out/fix.diff" || true
+          git checkout -q HEAD -- $TASK_TESTFILES
+          set +e; bash -c "$TASK_TEST" > "$GITHUB_WORKSPACE/out/after.log" 2>&1; rc=$?; set -e
+          echo "AFTER_RC=$rc" >> "$GITHUB_ENV"; tail -3 "$GITHUB_WORKSPACE/out/after.log"
+      - name: Metrics
+        if: always()
+        run: |
+          mkdir -p out
+          if [ "${{ inputs.arm }}" = direct-ts ] || [ "${{ inputs.arm }}" = gateway ]; then
+            [ -f "$RUNNER_TEMP/out.json" ] && cp "$RUNNER_TEMP/out.json" out/claude-output.json
+            [ -f out/claude-output.json ] && python3 lab/opus/usage.py out/claude-output.json out/per-message-usage.json || true
+            [ -f out/claude-output.json ] && python3 lab/metrics.py out/claude-output.json "${{ inputs.arm }}" cli && mv lab-metrics.json out/ || echo '{"no_output":true}' > out/lab-metrics.json
+          else echo '{"arm":"${{ inputs.arm }}"}' > out/lab-metrics.json; fi
+          python3 - <<'PY'
+          import json, os
+          m = json.load(open("out/lab-metrics.json"))
+          m.update(task="${{ inputs.task }}", tag="${{ inputs.tag }}", model_input="${{ inputs.model }}",
+                   baseline_rc=os.environ.get("BASE_RC"), after_rc=os.environ.get("AFTER_RC"),
+                   baseline_log_bytes=os.path.getsize("out/baseline.log") if os.path.exists("out/baseline.log") else None,
+                   passed=(os.environ.get("AFTER_RC") == "0"))
+          json.dump(m, open("out/lab-metrics.json", "w"), indent=1)
+          print(json.dumps({k: m.get(k) for k in ("arm","task","is_error","num_turns","total_cost_usd","baseline_rc","after_rc","baseline_log_bytes")}))
+          PY
+      - name: Secret check before upload
+        if: always()
+        env:
+          CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
+        run: |
+          if [ -n "$CONTEXT_MODE_KEY" ] && grep -rlF "$CONTEXT_MODE_KEY" out/ ; then echo "::error::CI key found"; rm -rf out; exit 1; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: opus-triage-${{ inputs.arm }}-${{ inputs.task }}-${{ github.run_id }}
+          path: out/
+          if-no-files-found: ignore
