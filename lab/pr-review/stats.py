@@ -36,6 +36,7 @@ for model in ("sonnet", "opus"):
     for rp, rnd in keys:
         d, g = rows.get((model, rp, rnd, "direct-ts")), rows.get((model, rp, rnd, "gateway"))
         if d and g: pr.append((rp, rnd, d, g))
+    if not pr: continue
     lr = [(rp, math.log(g["total_cost_usd"] / d["total_cost_usd"])) for rp, rnd, d, g in pr]
     mean = sum(x for _, x in lr) / len(lr)
     lo, hi = boot(lr)
