@@ -9,7 +9,7 @@ History: the first run of this benchmark (tags a1031-*) was invalid. The lab ten
 | bar | Sonnet (24 pairs, 12 tasks) | Opus (12 pairs, 12 tasks) |
 |---|---|---|
 | task-resampled CI upper bound < 0 | YES: -22.7%, CI -28.3 to -16.1 | YES: -20.3%, CI -30.2 to -8.5 |
-| quality not lower than direct-ts | yes, 16/24 vs 16/24 | yes, 7/12 vs 8/12 (1 discordant pair, McNemar p=1.000) |
+| quality not lower than direct-ts | yes, 16/24 vs 16/24 (direct-ts vs gateway) | not significantly lower: direct-ts 8/12 vs gateway 7/12 (1 discordant pair, McNemar p=1.000); the gateway count is 1 lower |
 | 0 errors | yes | yes |
 | every round valid | yes (used_paused 1518 before and after each round) | yes |
 | net per run > 0 | yes, +$0.0125 | yes, +$0.0375 |
