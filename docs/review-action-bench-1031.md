@@ -55,7 +55,7 @@ Mean cost, mean API requests, tokens per run (uncached input, cache write, cache
 
 Sonnet by round (direct-ts baseline): round 1 -10.2%, round 2 -13.0%. The sign is the same in both rounds. The Sonnet saving here is stable, unlike the pr-review lane with `claude -p` (round 1 -5.8%, round 2 +31.3%).
 
-Where the saving comes from: the gateway request 1 is about 8.1k tokens (34%) smaller, so the first cache write is about 3k tokens smaller (7.8k vs 10.8k) and cache reads fall by 31% (Sonnet) to 30% (Opus). Output tokens are equal within noise. Turn counts are equal: the saving is the smaller prefix, not fewer turns. The gateway arm shows about 540 uncached input tokens per run against about 5 on direct; we did not check why. Cost still falls, as the table shows.
+Where the saving comes from: the gateway request 1 is about 8.1k tokens (34%) smaller, so the first cache write is about 3k tokens smaller (7.8k vs 10.8k) and cache reads fall by 32% (Sonnet) and 30% (Opus). Output tokens are equal within noise. Turn counts are equal: the saving is the smaller prefix, not fewer turns. The gateway arm shows about 540 uncached input tokens per run against about 5 on direct; we did not check why. Cost still falls, as the table shows.
 
 ## Quality (blind judge, arm labels hidden)
 
