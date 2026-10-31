@@ -1,69 +1,51 @@
-> **INVALID: do not use the numbers below.** The lab tenant `t_ci_lab_1` used up its 1,000 free requests and was paused at 2026-10-31 10:29:57 UTC. A paused tenant gets plain pass-through: the gateway forwards the request unchanged, with no savings. 37 of the 37 gateway-arm runs behind this doc started after that time, so this doc compares direct with a paused pass-through, not with the gateway. The tenant is back in full mode and a clean re-run is in progress. Note added 2026-10-31.
-
-# Issue triage and labels benchmark (2026-10-31)
+# Issue triage and labels benchmark (2026-10-31, clean re-run)
 
 Area: issue triage and labels. Real templates: anthropics/claude-code `claude-issue-triage.yml` (Opus), openai/codex `issue-labeler.yml`, gemini-cli automated triage. Headless `claude -p` (native installer). Arms `direct-ts` (direct API + ENABLE_TOOL_SEARCH) and `gateway`. Workflow `.github/workflows/labels.yml`. Nothing here is published.
 
+History: the first run of this doc (tags a1031-labels-*) was invalid because the lab tenant `t_ci_lab_1` was paused at 2026-10-31 10:29:57 UTC, so the gateway arm was plain pass-through. This is the clean re-run in full mode (tags c1031-labels-sonnet-r1, c1031-labels-sonnet-r2, c1031-labels-opus-r1).
+
+## Round validity
+
+| round | used_paused before | used_paused after | request 1 input tokens direct-ts / gateway | valid |
+|---|---|---|---|---|
+| sonnet-r1 | 1,518 | 1,518 | 16,771 / 10,671 | yes |
+| sonnet-r2 | 1,518 | 1,518 | 16,771 / 10,671 | yes |
+| opus-r1 | 1,518 | 1,518 | 16,818 / 10,718 | yes |
+
+The gateway request 1 is about 36% smaller than direct-ts, so the gateway was in full mode (in the invalid run the two were equal).
+
 ## Result vs the pass bar (fixed in advance)
 
-**The bar is NOT met. The gateway gives no saving in this area.**
+**The cost bar is met on both models. The quality bar is met within noise, but not on the point estimate.**
 
-| model | pairs (tasks) | cost change gateway vs direct-ts | task-resampled 95% CI | cheaper pairs | mean cost direct-ts / gateway | turns | F1 direct-ts / gateway | net per run at $0.0009 per request | errors |
+| model | pairs (tasks) | cost change gateway vs direct-ts | task-resampled 95% CI | cheaper pairs | mean cost direct-ts / gateway | requests | F1 direct-ts / gateway | net per run at $0.0009 per request | errors |
 |---|---|---|---|---|---|---|---|---|---|
-| Sonnet 5.5 (2 rounds) | 24 (12) | +3.4% | -5.3% to +11.1% | 9 of 24 | $0.0196 / $0.0204 | 2.04 / 2.21 | 0.577 / 0.562 | -$0.0028 | 0 |
-| Opus 5.5 (1 round) | 12 (12) | -0.7% | -5.5% to +3.8% | 4 of 12 | $0.0759 / $0.0753 | 3.42 / 3.25 | 0.741 / 0.707 | -$0.0024 | 0 |
+| Sonnet 5.5 (2 rounds) | 24 (12) | -14.4% | -20.5% to -8.6% | 18 of 24 | $0.0245 / $0.0209 | 2.17 / 2.17 | 0.588 / 0.579 | +$0.0016 | 0 |
+| Opus 5.5 (1 round) | 12 (12) | -14.4% | -23.4% to -3.4% | 9 of 12 | $0.0765 / $0.0658 | 3.42 / 3.58 | 0.670 / 0.662 | +$0.0075 | 0 |
 
-- CI upper bound < 0: no (Sonnet +11.1%, Opus +3.8%).
-- Quality not lower: F1 is numerically lower on the gateway (Sonnet -0.015, CI -0.056 to +0.029; Opus -0.034, CI -0.112 to +0.047). Not significant, but the bar says "not lower", so this also fails on the point estimate.
-- Net saving > 0: no. The fee ($0.0009 per request) costs more than any gain, on both models.
-- 0 errors: yes.
+Per Sonnet round: r1 -14.0% (CI -21.5% to -4.3%, 10 of 12 cheaper), r2 -14.7% (CI -23.3% to -5.2%, 8 of 12 cheaper).
 
-Method: pairs by (task, round); cost = mean paired log-ratio gateway/direct-ts, shown as exp(mean)-1; bootstrap resamples the 12 TASKS (all rounds of a task together), 10,000 resamples, seed 1. Net per run = (mean direct-ts - mean gateway) - 0.0009 x mean gateway turns. Spend: Sonnet $0.958, Opus $1.814, smoke pair about $0.09 (excluded from stats). Total about $2.9, far under the $15 cap.
+- CI upper bound < 0: yes (Sonnet -8.6%, Opus -3.4%).
+- Net saving > 0 at the $0.0009 fee: yes (Sonnet +$0.0016, Opus +$0.0075 per run). Sonnet's margin is small.
+- 0 errors: yes. Every round valid: yes.
+- Quality not lower: F1 differences are small and not significant (Sonnet -0.010, CI -0.040 to +0.029; Opus -0.008, CI -0.085 to +0.071), but both point estimates are below direct-ts. Read strictly, the bar says "not lower", so this item is not proven. Per round, Sonnet r1 is -0.027 and r2 is +0.008.
+
+Method: pairs by (task, round); cost = mean paired log-ratio gateway/direct-ts, shown as exp(mean)-1; bootstrap resamples the 12 TASKS (all rounds of a task together), 10,000 resamples, seed 1. Net per run = (mean direct-ts - mean gateway) - 0.0009 x mean gateway requests (requests = assistant messages). Spend: Sonnet $1.09 (both arms, 48 runs), Opus $1.71 (24 runs), total about $2.80, under the $15 cap per lane.
 
 Tokens per run (mean; uncached / cache_write / cache_read / output):
 
 | arm | Sonnet | Opus |
 |---|---|---|
-| direct-ts | 4 / 5,392 / 32,864 / 192 | 7 / 9,829 / 57,358 / 760 |
-| gateway | 4 / 5,877 / 34,082 / 224 | 7 / 9,757 / 53,419 / 792 |
+| direct-ts | 4 / 7,682 / 33,154 / 197 | 6 / 9,021 / 52,944 / 717 |
+| gateway | 482 / 5,980 / 21,621 / 284 | 403 / 6,838 / 36,755 / 684 |
 
-## Why there is no saving here (anatomy)
+## Where the saving comes from (anatomy)
 
-Request 1, mean over all 36 runs per arm: direct-ts uncached 2.0, cache_write 3,218, cache_read 13,567 (total input 16,787 tokens); gateway uncached 2.0, cache_write 3,218, cache_read 13,568 (total 16,788 tokens). **The first request is byte-for-byte the same size on both arms.** With ENABLE_TOOL_SEARCH=true the client already defers its tool list, so the fixed prefix is small (about 16.8k tokens) and the gateway has nothing left to shrink. In the CI-fix lane the saving came from the tools block (71.6 KB to 27.5 KB in the cause check); here that block is already deferred on both arms.
+Request 1, mean per arm: Sonnet direct-ts 16,771 tokens (cache_write 3,941, cache_read 12,828 over both rounds), gateway 10,671 (cache_write 1,303, cache_read 8,892). Opus direct-ts 16,818, gateway 10,718. The gateway cuts about 6,100 tokens from the fixed prefix of request 1, which also lowers the first cache write and every later cache read. Tool results (an issue body, a label list) are the same bytes on both arms and are not shrunk.
 
-Requests 2 and later (cache_write is the new tool result, cache_read is the prefix plus history):
+Requests 2 and later, mean per request: Sonnet direct-ts cache_write 3,206, cache_read 17,422 (28 requests); gateway cache_write 4,009, cache_read 10,911 (28 requests). Opus direct-ts cache_write 1,814, cache_read 19,016 (29 requests); gateway cache_write 2,270, cache_read 13,244 (31 requests). Cache reads fall by about 6,000 to 6,500 tokens per request; cache writes rise a little on the gateway. The gateway arm also shows a few hundred uncached tokens per run (482 Sonnet, 403 Opus) where direct-ts shows 4 to 6. Per-request output counts for requests 2 and later are 0 in the gateway usage lists, so this table does not compare output; the run totals above come from the result message and are used for cost.
 
-| arm | n requests | cache_write | cache_read | output |
-|---|---|---|---|---|
-| direct-ts | 57 | 2,395 | 18,308 | 59 |
-| gateway | 54 | 2,635 | 17,973 | 50 |
-
-Tool results here are small (an issue body, a label list, a search list), so the gateway has no large result to fold. A triage run is 2 to 4 requests: one to run `label list` and `issue view`, then the answer. The per-request fee is a larger part of the bill than in long agent loops.
-
-Two tasks, per request (usage list is in each artifact, `per-message-usage.json`):
-
-bun-47090, Sonnet r1 (direct-ts run 41193524094, gateway run 41193528536):
-
-| arm | req | uncached | cache_write | cache_read | output | note |
-|---|---|---|---|---|---|---|
-| direct-ts | 1 | 2 | 0 | 16,769 | 16 | prefix already cached, Bash call |
-| direct-ts | 2 | 2 | 3,872 | 16,769 | 17 | writes the new tool result (issue + labels) |
-| direct-ts | 3 | 2 | 128 | 20,641 | 109 | answer |
-| gateway | 1 | 2 | 0 | 16,770 | 20 | same prefix |
-| gateway | 2 | 2 | 3,788 | 16,857 | 60 | same new tool result, answer in one turn |
-
-Here the gateway took 2 turns, direct-ts 3, and was cheaper ($0.0143 vs $0.0182). This is turn-count noise, not byte saving: the cache_write (3,788 vs 3,872) is the same content.
-
-rust-165173, Sonnet r1 (direct-ts run 41193544178, gateway run 41193548448):
-
-| arm | req | uncached | cache_write | cache_read | output |
-|---|---|---|---|---|---|
-| direct-ts | 1 | 2 | 4,504 | 12,265 | 16 |
-| direct-ts | 2 | 2 | 3,253 | 16,769 | 116 |
-| gateway | 1 | 2 | 4,504 | 12,266 | 20 |
-| gateway | 2 | 2 | 3,648 | 16,770 | 123 |
-
-Identical shape; the gateway wrote slightly more in request 2 and cost more ($0.0256 vs $0.0243). Where the gateway saves: nowhere measurable in this area. Where it does not: prefix (already deferred), tool results (small, same bytes).
+A triage run is 2 to 4 requests, so the per-request fee is a large part of the bill: Sonnet's net gain after the fee is only +$0.0016 per run.
 
 ## Setup
 
@@ -71,62 +53,53 @@ Identical shape; the gateway wrote slightly more in request 2 and cost more ($0.
 - `lab/labels/scripts/gh.py`: read-only `gh` wrapper (label list, issue view N [--comments], issue list, search issues). The target issue shows title, body and author only (no labels, no comments, state open). Other issues and their comments are visible only if created before the target. Any other command is refused. The edit-label script prints a DRY-RUN line and writes nothing to any repo.
 - Tasks (`lab/labels/tasks.json`): 12 closed issues, 2 per repo, from godotengine/godot (119k stars), zed-industries/zed (92k), tauri-apps/tauri (112k), oven-sh/bun (96k), rust-lang/rust (121k), microsoft/vscode (194k). Ground truth: labels a human (not the issue author, not a bot) added through a label event and that are still on the issue. Status, bot, priority and team labels are dropped from both truth and prediction (`DROP` list in `lab/labels/extract.py`). Filter: body 300 to 5,000 characters, issue author is a user, at least 2 truth labels.
 - Quality: label F1 against the truth, computed by script from the final JSON line, so it needs no hidden arm labels. All 72 answers parsed.
-- Smoke pair (bun-47090, tag a1031-labels-smoke): runs 41193268600 and 41193270986, excluded.
 
 ## Caveats
 
-- F1 is low on both arms (0.58 Sonnet, 0.74 Opus). Maintainer labels are subjective, so F1 mostly measures label-set taste, and the arms differ little. 12 tasks is small.
-- Triage is a short job (2 to 4 requests). Any saving must come from the first request; the gateway did not change it.
-- One download of an artifact failed once and was retried; the run itself was fine (godot-124937 gateway r1, run 41193471940).
-- Tags: a1031-labels-sonnet-r1, a1031-labels-sonnet-r2, a1031-labels-opus-r1.
+- F1 is low on both arms (about 0.58 Sonnet, 0.67 Opus). Maintainer labels are subjective, so F1 mostly measures label-set taste. 12 tasks is small; the F1 CIs are wide.
+- Opus has one round, so its CI is the widest (-23.4% to -3.4%).
+- Request counts are assistant messages in `per-message-usage.json`; `num_turns` can differ from them.
+- The first run is kept only as history; none of its numbers are used here.
 
 ## Per pair
 
+Cost / turns / F1 per arm.
+
 | task | tag | direct-ts cost / turns / F1 | gateway cost / turns / F1 | direct-ts run | gateway run |
 |---|---|---|---|---|---|
-| bun-47006 | opus-r1 | $0.0610 / 3 / 1.00 | $0.0641 / 3 / 1.00 | [41193954571](https://github.com/mksglu/cm-ci-lab/actions/runs/41193954571) | [41193959125](https://github.com/mksglu/cm-ci-lab/actions/runs/41193959125) |
-| bun-47090 | opus-r1 | $0.0752 / 3 / 0.86 | $0.0741 / 3 / 0.86 | [41193926479](https://github.com/mksglu/cm-ci-lab/actions/runs/41193926479) | [41193930934](https://github.com/mksglu/cm-ci-lab/actions/runs/41193930934) |
-| godot-124937 | opus-r1 | $0.0624 / 3 / 0.57 | $0.0650 / 3 / 0.86 | [41193796672](https://github.com/mksglu/cm-ci-lab/actions/runs/41193796672) | [41193801141](https://github.com/mksglu/cm-ci-lab/actions/runs/41193801141) |
-| godot-124950 | opus-r1 | $0.1137 / 3 / 1.00 | $0.1157 / 3 / 0.80 | [41193769456](https://github.com/mksglu/cm-ci-lab/actions/runs/41193769456) | [41193774010](https://github.com/mksglu/cm-ci-lab/actions/runs/41193774010) |
-| rust-165127 | opus-r1 | $0.0704 / 4 / 0.50 | $0.0704 / 4 / 0.44 | [41193977284](https://github.com/mksglu/cm-ci-lab/actions/runs/41193977284) | [41193981833](https://github.com/mksglu/cm-ci-lab/actions/runs/41193981833) |
-| rust-165173 | opus-r1 | $0.0669 / 4 / 0.62 | $0.0719 / 4 / 0.57 | [41193966430](https://github.com/mksglu/cm-ci-lab/actions/runs/41193966430) | [41193970719](https://github.com/mksglu/cm-ci-lab/actions/runs/41193970719) |
-| tauri-16323 | opus-r1 | $0.0612 / 3 / 1.00 | $0.0673 / 3 / 1.00 | [41193897228](https://github.com/mksglu/cm-ci-lab/actions/runs/41193897228) | [41193901896](https://github.com/mksglu/cm-ci-lab/actions/runs/41193901896) |
-| tauri-16340 | opus-r1 | $0.0712 / 3 / 0.67 | $0.0715 / 3 / 0.67 | [41193867826](https://github.com/mksglu/cm-ci-lab/actions/runs/41193867826) | [41193872250](https://github.com/mksglu/cm-ci-lab/actions/runs/41193872250) |
-| vscode-345099 | opus-r1 | $0.0700 / 3 / 0.33 | $0.0598 / 3 / 0.29 | [41194016408](https://github.com/mksglu/cm-ci-lab/actions/runs/41194016408) | [41194021659](https://github.com/mksglu/cm-ci-lab/actions/runs/41194021659) |
-| vscode-345117 | opus-r1 | $0.0753 / 4 / 0.67 | $0.0650 / 4 / 0.40 | [41193987422](https://github.com/mksglu/cm-ci-lab/actions/runs/41193987422) | [41193991578](https://github.com/mksglu/cm-ci-lab/actions/runs/41193991578) |
-| zed-66163 | opus-r1 | $0.0888 / 4 / 1.00 | $0.0956 / 3 / 0.80 | [41193857690](https://github.com/mksglu/cm-ci-lab/actions/runs/41193857690) | [41193862401](https://github.com/mksglu/cm-ci-lab/actions/runs/41193862401) |
-| zed-66189 | opus-r1 | $0.0941 / 4 / 0.67 | $0.0838 / 3 / 0.80 | [41193827353](https://github.com/mksglu/cm-ci-lab/actions/runs/41193827353) | [41193832459](https://github.com/mksglu/cm-ci-lab/actions/runs/41193832459) |
-| bun-47006 | sonnet-r1 | $0.0225 / 2 / 0.67 | $0.0247 / 2 / 0.67 | [41193534244](https://github.com/mksglu/cm-ci-lab/actions/runs/41193534244) | [41193538770](https://github.com/mksglu/cm-ci-lab/actions/runs/41193538770) |
-| bun-47090 | sonnet-r1 | $0.0182 / 3 / 0.86 | $0.0143 / 2 / 0.75 | [41193524094](https://github.com/mksglu/cm-ci-lab/actions/runs/41193524094) | [41193528536](https://github.com/mksglu/cm-ci-lab/actions/runs/41193528536) |
-| godot-124937 | sonnet-r1 | $0.0210 / 2 / 0.57 | $0.0207 / 2 / 0.50 | [41193466715](https://github.com/mksglu/cm-ci-lab/actions/runs/41193466715) | [41193471940](https://github.com/mksglu/cm-ci-lab/actions/runs/41193471940) |
-| godot-124950 | sonnet-r1 | $0.0191 / 2 / 0.80 | $0.0192 / 2 / 0.67 | [41193454901](https://github.com/mksglu/cm-ci-lab/actions/runs/41193454901) | [41193459700](https://github.com/mksglu/cm-ci-lab/actions/runs/41193459700) |
-| rust-165127 | sonnet-r1 | $0.0273 / 2 / 0.00 | $0.0379 / 2 / 0.00 | [41193554689](https://github.com/mksglu/cm-ci-lab/actions/runs/41193554689) | [41193559295](https://github.com/mksglu/cm-ci-lab/actions/runs/41193559295) |
-| rust-165173 | sonnet-r1 | $0.0243 / 2 / 0.40 | $0.0256 / 2 / 0.22 | [41193544178](https://github.com/mksglu/cm-ci-lab/actions/runs/41193544178) | [41193548448](https://github.com/mksglu/cm-ci-lab/actions/runs/41193548448) |
-| tauri-16323 | sonnet-r1 | $0.0217 / 2 / 1.00 | $0.0286 / 3 / 1.00 | [41193514128](https://github.com/mksglu/cm-ci-lab/actions/runs/41193514128) | [41193518589](https://github.com/mksglu/cm-ci-lab/actions/runs/41193518589) |
-| tauri-16340 | sonnet-r1 | $0.0229 / 2 / 0.67 | $0.0228 / 2 / 0.67 | [41193503301](https://github.com/mksglu/cm-ci-lab/actions/runs/41193503301) | [41193508011](https://github.com/mksglu/cm-ci-lab/actions/runs/41193508011) |
-| vscode-345099 | sonnet-r1 | $0.0250 / 2 / 0.00 | $0.0254 / 2 / 0.00 | [41193574905](https://github.com/mksglu/cm-ci-lab/actions/runs/41193574905) | [41193579148](https://github.com/mksglu/cm-ci-lab/actions/runs/41193579148) |
-| vscode-345117 | sonnet-r1 | $0.0251 / 2 / 0.40 | $0.0250 / 2 / 0.40 | [41193564827](https://github.com/mksglu/cm-ci-lab/actions/runs/41193564827) | [41193569169](https://github.com/mksglu/cm-ci-lab/actions/runs/41193569169) |
-| zed-66163 | sonnet-r1 | $0.0327 / 2 / 0.80 | $0.0344 / 2 / 1.00 | [41193491418](https://github.com/mksglu/cm-ci-lab/actions/runs/41193491418) | [41193496880](https://github.com/mksglu/cm-ci-lab/actions/runs/41193496880) |
-| zed-66189 | sonnet-r1 | $0.0293 / 2 / 0.80 | $0.0261 / 2 / 0.67 | [41193479222](https://github.com/mksglu/cm-ci-lab/actions/runs/41193479222) | [41193484418](https://github.com/mksglu/cm-ci-lab/actions/runs/41193484418) |
-| bun-47006 | sonnet-r2 | $0.0119 / 2 / 0.67 | $0.0156 / 3 / 0.67 | [41193662144](https://github.com/mksglu/cm-ci-lab/actions/runs/41193662144) | [41193657572](https://github.com/mksglu/cm-ci-lab/actions/runs/41193657572) |
-| bun-47090 | sonnet-r2 | $0.0101 / 3 / 0.86 | $0.0135 / 2 / 0.86 | [41193651687](https://github.com/mksglu/cm-ci-lab/actions/runs/41193651687) | [41193647436](https://github.com/mksglu/cm-ci-lab/actions/runs/41193647436) |
-| godot-124937 | sonnet-r2 | $0.0096 / 2 / 0.50 | $0.0100 / 2 / 0.86 | [41193600663](https://github.com/mksglu/cm-ci-lab/actions/runs/41193600663) | [41193595921](https://github.com/mksglu/cm-ci-lab/actions/runs/41193595921) |
-| godot-124950 | sonnet-r2 | $0.0084 / 2 / 0.80 | $0.0083 / 2 / 0.80 | [41193589833](https://github.com/mksglu/cm-ci-lab/actions/runs/41193589833) | [41193584819](https://github.com/mksglu/cm-ci-lab/actions/runs/41193584819) |
-| rust-165127 | sonnet-r2 | $0.0209 / 2 / 0.00 | $0.0232 / 3 / 0.00 | [41193722628](https://github.com/mksglu/cm-ci-lab/actions/runs/41193722628) | [41193718327](https://github.com/mksglu/cm-ci-lab/actions/runs/41193718327) |
-| rust-165173 | sonnet-r2 | $0.0140 / 2 / 0.40 | $0.0162 / 2 / 0.40 | [41193693154](https://github.com/mksglu/cm-ci-lab/actions/runs/41193693154) | [41193688288](https://github.com/mksglu/cm-ci-lab/actions/runs/41193688288) |
-| tauri-16323 | sonnet-r2 | $0.0106 / 2 / 1.00 | $0.0112 / 3 / 1.00 | [41193641776](https://github.com/mksglu/cm-ci-lab/actions/runs/41193641776) | [41193637596](https://github.com/mksglu/cm-ci-lab/actions/runs/41193637596) |
-| tauri-16340 | sonnet-r2 | $0.0252 / 1 / 0.67 | $0.0120 / 2 / 0.50 | [41193631797](https://github.com/mksglu/cm-ci-lab/actions/runs/41193631797) | [41193627712](https://github.com/mksglu/cm-ci-lab/actions/runs/41193627712) |
-| vscode-345099 | sonnet-r2 | $0.0144 / 2 / 0.00 | $0.0154 / 2 / 0.00 | [41193763436](https://github.com/mksglu/cm-ci-lab/actions/runs/41193763436) | [41193759079](https://github.com/mksglu/cm-ci-lab/actions/runs/41193759079) |
-| vscode-345117 | sonnet-r2 | $0.0142 / 2 / 0.40 | $0.0141 / 2 / 0.40 | [41193752513](https://github.com/mksglu/cm-ci-lab/actions/runs/41193752513) | [41193747217](https://github.com/mksglu/cm-ci-lab/actions/runs/41193747217) |
-| zed-66163 | sonnet-r2 | $0.0227 / 2 / 0.80 | $0.0217 / 2 / 0.80 | [41193622237](https://github.com/mksglu/cm-ci-lab/actions/runs/41193622237) | [41193617668](https://github.com/mksglu/cm-ci-lab/actions/runs/41193617668) |
-| zed-66189 | sonnet-r2 | $0.0185 / 2 / 0.80 | $0.0226 / 3 / 0.67 | [41193612005](https://github.com/mksglu/cm-ci-lab/actions/runs/41193612005) | [41193607381](https://github.com/mksglu/cm-ci-lab/actions/runs/41193607381) |
-
-F1 difference gateway minus direct-ts (sonnet), task-resampled: -0.015 (95% CI -0.056 to +0.029)
-
-F1 difference gateway minus direct-ts (opus), task-resampled: -0.034 (95% CI -0.112 to +0.047)
-
-Request 1, mean over all 36 direct-ts runs: uncached 2.0, cache_write 3218, cache_read 13567, total input 16787 tokens
-
-Request 1, mean over all 36 gateway runs: uncached 2.0, cache_write 3218, cache_read 13568, total input 16788 tokens
-Requests 2+ , direct-ts: n=57, mean cache_write 2395, cache_read 18308, output 59
-Requests 2+ , gateway: n=54, mean cache_write 2635, cache_read 17973, output 50
+| bun-47006 | opus-r1 | $0.0628 / 3 / 1.00 | $0.0471 / 3 / 0.80 | [41202031449](https://github.com/mksglu/cm-ci-lab/actions/runs/41202031449) | [41202034770](https://github.com/mksglu/cm-ci-lab/actions/runs/41202034770) |
+| bun-47090 | opus-r1 | $0.0970 / 2 / 0.86 | $0.0591 / 3 / 0.86 | [41202023353](https://github.com/mksglu/cm-ci-lab/actions/runs/41202023353) | [41202027286](https://github.com/mksglu/cm-ci-lab/actions/runs/41202027286) |
+| godot-124937 | opus-r1 | $0.0622 / 3 / 0.57 | $0.0476 / 3 / 0.57 | [41201985414](https://github.com/mksglu/cm-ci-lab/actions/runs/41201985414) | [41201989350](https://github.com/mksglu/cm-ci-lab/actions/runs/41201989350) |
+| godot-124950 | opus-r1 | $0.1127 / 3 / 0.80 | $0.0839 / 3 / 1.00 | [41201977510](https://github.com/mksglu/cm-ci-lab/actions/runs/41201977510) | [41201981396](https://github.com/mksglu/cm-ci-lab/actions/runs/41201981396) |
+| rust-165127 | opus-r1 | $0.0709 / 4 / 0.22 | $0.0536 / 4 / 0.25 | [41202045264](https://github.com/mksglu/cm-ci-lab/actions/runs/41202045264) | [41202049137](https://github.com/mksglu/cm-ci-lab/actions/runs/41202049137) |
+| rust-165173 | opus-r1 | $0.0713 / 4 / 0.59 | $0.0519 / 4 / 0.43 | [41202038193](https://github.com/mksglu/cm-ci-lab/actions/runs/41202038193) | [41202041611](https://github.com/mksglu/cm-ci-lab/actions/runs/41202041611) |
+| tauri-16323 | opus-r1 | $0.0642 / 3 / 1.00 | $0.0689 / 2 / 1.00 | [41202015696](https://github.com/mksglu/cm-ci-lab/actions/runs/41202015696) | [41202019468](https://github.com/mksglu/cm-ci-lab/actions/runs/41202019468) |
+| tauri-16340 | opus-r1 | $0.0715 / 3 / 0.67 | $0.0667 / 1 / 0.67 | [41202008764](https://github.com/mksglu/cm-ci-lab/actions/runs/41202008764) | [41202012238](https://github.com/mksglu/cm-ci-lab/actions/runs/41202012238) |
+| vscode-345099 | opus-r1 | $0.0614 / 4 / 0.33 | $0.0593 / 4 / 0.33 | [41202059645](https://github.com/mksglu/cm-ci-lab/actions/runs/41202059645) | [41202063274](https://github.com/mksglu/cm-ci-lab/actions/runs/41202063274) |
+| vscode-345117 | opus-r1 | $0.0643 / 3 / 0.40 | $0.0855 / 3 / 0.67 | [41202052560](https://github.com/mksglu/cm-ci-lab/actions/runs/41202052560) | [41202056265](https://github.com/mksglu/cm-ci-lab/actions/runs/41202056265) |
+| zed-66163 | opus-r1 | $0.0946 / 3 / 0.80 | $0.0947 / 4 / 0.80 | [41202001097](https://github.com/mksglu/cm-ci-lab/actions/runs/41202001097) | [41202004937](https://github.com/mksglu/cm-ci-lab/actions/runs/41202004937) |
+| zed-66189 | opus-r1 | $0.0855 / 3 / 0.80 | $0.0715 / 3 / 0.57 | [41201993702](https://github.com/mksglu/cm-ci-lab/actions/runs/41201993702) | [41201997507](https://github.com/mksglu/cm-ci-lab/actions/runs/41201997507) |
+| bun-47006 | sonnet-r1 | $0.0226 / 2 / 0.80 | $0.0217 / 3 / 0.67 | [41200886893](https://github.com/mksglu/cm-ci-lab/actions/runs/41200886893) | [41200890867](https://github.com/mksglu/cm-ci-lab/actions/runs/41200890867) |
+| bun-47090 | sonnet-r1 | $0.0292 / 3 / 0.86 | $0.0242 / 2 / 0.75 | [41200878787](https://github.com/mksglu/cm-ci-lab/actions/runs/41200878787) | [41200882912](https://github.com/mksglu/cm-ci-lab/actions/runs/41200882912) |
+| godot-124937 | sonnet-r1 | $0.0206 / 2 / 0.50 | $0.0138 / 2 / 0.75 | [41200838744](https://github.com/mksglu/cm-ci-lab/actions/runs/41200838744) | [41200842504](https://github.com/mksglu/cm-ci-lab/actions/runs/41200842504) |
+| godot-124950 | sonnet-r1 | $0.0189 / 2 / 0.80 | $0.0259 / 2 / 0.80 | [41200831451](https://github.com/mksglu/cm-ci-lab/actions/runs/41200831451) | [41200835045](https://github.com/mksglu/cm-ci-lab/actions/runs/41200835045) |
+| rust-165127 | sonnet-r1 | $0.0317 / 2 / 0.00 | $0.0257 / 2 / 0.00 | [41200902415](https://github.com/mksglu/cm-ci-lab/actions/runs/41200902415) | [41200906332](https://github.com/mksglu/cm-ci-lab/actions/runs/41200906332) |
+| rust-165173 | sonnet-r1 | $0.0247 / 2 / 0.40 | $0.0194 / 2 / 0.40 | [41200894856](https://github.com/mksglu/cm-ci-lab/actions/runs/41200894856) | [41200898672](https://github.com/mksglu/cm-ci-lab/actions/runs/41200898672) |
+| tauri-16323 | sonnet-r1 | $0.0214 / 2 / 1.00 | $0.0185 / 2 / 1.00 | [41200871257](https://github.com/mksglu/cm-ci-lab/actions/runs/41200871257) | [41200875144](https://github.com/mksglu/cm-ci-lab/actions/runs/41200875144) |
+| tauri-16340 | sonnet-r1 | $0.0228 / 2 / 0.67 | $0.0243 / 3 / 0.67 | [41200863042](https://github.com/mksglu/cm-ci-lab/actions/runs/41200863042) | [41200867042](https://github.com/mksglu/cm-ci-lab/actions/runs/41200867042) |
+| vscode-345099 | sonnet-r1 | $0.0254 / 2 / 0.00 | $0.0198 / 2 / 0.00 | [41200918038](https://github.com/mksglu/cm-ci-lab/actions/runs/41200918038) | [41200922501](https://github.com/mksglu/cm-ci-lab/actions/runs/41200922501) |
+| vscode-345117 | sonnet-r1 | $0.0250 / 2 / 0.40 | $0.0193 / 2 / 0.40 | [41200910242](https://github.com/mksglu/cm-ci-lab/actions/runs/41200910242) | [41200913986](https://github.com/mksglu/cm-ci-lab/actions/runs/41200913986) |
+| zed-66163 | sonnet-r1 | $0.0327 / 2 / 1.00 | $0.0259 / 2 / 0.80 | [41200854400](https://github.com/mksglu/cm-ci-lab/actions/runs/41200854400) | [41200858432](https://github.com/mksglu/cm-ci-lab/actions/runs/41200858432) |
+| zed-66189 | sonnet-r1 | $0.0328 / 3 / 0.80 | $0.0260 / 2 / 0.67 | [41200846398](https://github.com/mksglu/cm-ci-lab/actions/runs/41200846398) | [41200850378](https://github.com/mksglu/cm-ci-lab/actions/runs/41200850378) |
+| bun-47006 | sonnet-r2 | $0.0250 / 2 / 0.80 | $0.0216 / 3 / 0.80 | [41201795386](https://github.com/mksglu/cm-ci-lab/actions/runs/41201795386) | [41201799773](https://github.com/mksglu/cm-ci-lab/actions/runs/41201799773) |
+| bun-47090 | sonnet-r2 | $0.0295 / 3 / 0.86 | $0.0248 / 2 / 0.86 | [41201787610](https://github.com/mksglu/cm-ci-lab/actions/runs/41201787610) | [41201791434](https://github.com/mksglu/cm-ci-lab/actions/runs/41201791434) |
+| godot-124937 | sonnet-r2 | $0.0232 / 2 / 0.50 | $0.0147 / 2 / 0.57 | [41201742674](https://github.com/mksglu/cm-ci-lab/actions/runs/41201742674) | [41201746909](https://github.com/mksglu/cm-ci-lab/actions/runs/41201746909) |
+| godot-124950 | sonnet-r2 | $0.0192 / 2 / 0.80 | $0.0124 / 2 / 0.80 | [41201734365](https://github.com/mksglu/cm-ci-lab/actions/runs/41201734365) | [41201738086](https://github.com/mksglu/cm-ci-lab/actions/runs/41201738086) |
+| rust-165127 | sonnet-r2 | $0.0201 / 2 / 0.00 | $0.0224 / 2 / 0.00 | [41201812283](https://github.com/mksglu/cm-ci-lab/actions/runs/41201812283) | [41201816563](https://github.com/mksglu/cm-ci-lab/actions/runs/41201816563) |
+| rust-165173 | sonnet-r2 | $0.0244 / 2 / 0.40 | $0.0174 / 2 / 0.22 | [41201803989](https://github.com/mksglu/cm-ci-lab/actions/runs/41201803989) | [41201808376](https://github.com/mksglu/cm-ci-lab/actions/runs/41201808376) |
+| tauri-16323 | sonnet-r2 | $0.0214 / 2 / 1.00 | $0.0183 / 2 / 1.00 | [41201778758](https://github.com/mksglu/cm-ci-lab/actions/runs/41201778758) | [41201782976](https://github.com/mksglu/cm-ci-lab/actions/runs/41201782976) |
+| tauri-16340 | sonnet-r2 | $0.0228 / 2 / 0.67 | $0.0235 / 3 / 0.67 | [41201769876](https://github.com/mksglu/cm-ci-lab/actions/runs/41201769876) | [41201774322](https://github.com/mksglu/cm-ci-lab/actions/runs/41201774322) |
+| vscode-345099 | sonnet-r2 | $0.0143 / 2 / 0.00 | $0.0153 / 2 / 0.00 | [41201829204](https://github.com/mksglu/cm-ci-lab/actions/runs/41201829204) | [41201833117](https://github.com/mksglu/cm-ci-lab/actions/runs/41201833117) |
+| vscode-345117 | sonnet-r2 | $0.0139 / 2 / 0.40 | $0.0151 / 2 / 0.40 | [41201820790](https://github.com/mksglu/cm-ci-lab/actions/runs/41201820790) | [41201824819](https://github.com/mksglu/cm-ci-lab/actions/runs/41201824819) |
+| zed-66163 | sonnet-r2 | $0.0334 / 2 / 0.80 | $0.0259 / 2 / 1.00 | [41201760796](https://github.com/mksglu/cm-ci-lab/actions/runs/41201760796) | [41201764959](https://github.com/mksglu/cm-ci-lab/actions/runs/41201764959) |
+| zed-66189 | sonnet-r2 | $0.0332 / 3 / 0.67 | $0.0262 / 2 / 0.67 | [41201750949](https://github.com/mksglu/cm-ci-lab/actions/runs/41201750949) | [41201756238](https://github.com/mksglu/cm-ci-lab/actions/runs/41201756238) |
