@@ -1,0 +1,46 @@
+## anatomy rg-152 round 1
+direct-ts run 41201260722 cost 0.1193 requests 9
+ req | uncached | cache_write | cache_read | tools
+ 1 | 2 | 4168 | 14547 | Bash
+ 2 | 2 | 3539 | 18715 | Bash
+ 3 | 2 | 1856 | 22254 | Bash
+ 4 | 2 | 3799 | 24110 | Bash
+ 5 | 2 | 2868 | 27909 | Bash
+ 6 | 2 | 362 | 30777 | Bash
+ 7 | 2 | 1536 | 31139 | Bash
+ 8 | 2 | 759 | 32675 | Write
+ 9 | 2 | 1943 | 33434 | 
+gateway run 41201268625 cost 0.1017 requests 11
+ req | uncached | cache_write | cache_read | tools
+ 1 | 498 | 927 | 9495 | Bash
+ 2 | 4 | 4050 | 10422 | Bash
+ 3 | 4 | 4142 | 14472 | Bash
+ 4 | 4 | 428 | 18614 | Bash
+ 5 | 4 | 620 | 19042 | Bash
+ 6 | 4 | 337 | 19662 | Bash
+ 7 | 4 | 533 | 19999 | Bash
+ 8 | 4 | 682 | 20532 | Bash
+ 9 | 4 | 1156 | 21214 | Bash
+ 10 | 4 | 372 | 22370 | Write
+ 11 | 4 | 1723 | 22742 | 
+## anatomy mcp-21 round 1
+direct-ts run 41200984345 cost 0.1682 requests 8
+ req | uncached | cache_write | cache_read | tools
+ 1 | 2 | 23935 | 14547 | Bash
+ 2 | 2 | 2960 | 38482 | Bash
+ 3 | 2 | 243 | 41442 | Bash
+ 4 | 2 | 471 | 41685 | Bash
+ 5 | 2 | 8748 | 42156 | Bash
+ 6 | 2 | 340 | 50904 | Bash
+ 7 | 2 | 571 | 51244 | Write
+ 8 | 2 | 1976 | 51815 | 
+gateway run 41201073748 cost 0.1717 requests 8
+ req | uncached | cache_write | cache_read | tools
+ 1 | 1252 | 25535 | 3914 | Bash
+ 2 | 4 | 2690 | 29449 | Bash
+ 3 | 4 | 1577 | 32139 | Bash
+ 4 | 4 | 5413 | 33716 | Bash
+ 5 | 4 | 391 | 39129 | Bash
+ 6 | 4 | 1105 | 39520 | Bash
+ 7 | 4 | 4969 | 40625 | Write
+ 8 | 4 | 1807 | 45594 | 

@@ -1,0 +1,482 @@
+[
+ {
+  "task": "ruff-171",
+  "round": "2",
+  "arm": "gateway",
+  "pub_refs": 7,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 27,
+  "bytes": 3027
+ },
+ {
+  "task": "ruff-171",
+  "round": "2",
+  "arm": "direct-ts",
+  "pub_refs": 7,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 17,
+  "bytes": 2641
+ },
+ {
+  "task": "ruff-173",
+  "round": "2",
+  "arm": "gateway",
+  "pub_refs": 6,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 55,
+  "bytes": 5197
+ },
+ {
+  "task": "ruff-173",
+  "round": "2",
+  "arm": "direct-ts",
+  "pub_refs": 6,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 60,
+  "bytes": 5417
+ },
+ {
+  "task": "zod-465",
+  "round": "2",
+  "arm": "gateway",
+  "pub_refs": 3,
+  "cov": 0.6666666666666666,
+  "bad_refs": 0,
+  "gen_refs": 2,
+  "bytes": 772
+ },
+ {
+  "task": "zod-465",
+  "round": "2",
+  "arm": "direct-ts",
+  "pub_refs": 3,
+  "cov": 0.6666666666666666,
+  "bad_refs": 0,
+  "gen_refs": 2,
+  "bytes": 692
+ },
+ {
+  "task": "zod-466",
+  "round": "2",
+  "arm": "gateway",
+  "pub_refs": 5,
+  "cov": 0.8,
+  "bad_refs": 1,
+  "gen_refs": 5,
+  "bytes": 1021
+ },
+ {
+  "task": "zod-466",
+  "round": "2",
+  "arm": "direct-ts",
+  "pub_refs": 5,
+  "cov": 0.8,
+  "bad_refs": 1,
+  "gen_refs": 5,
+  "bytes": 960
+ },
+ {
+  "task": "rg-141",
+  "round": "2",
+  "arm": "gateway",
+  "pub_refs": 2,
+  "cov": 1.0,
+  "bad_refs": 18,
+  "gen_refs": 20,
+  "bytes": 2881
+ },
+ {
+  "task": "rg-141",
+  "round": "2",
+  "arm": "direct-ts",
+  "pub_refs": 2,
+  "cov": 1.0,
+  "bad_refs": 14,
+  "gen_refs": 16,
+  "bytes": 2475
+ },
+ {
+  "task": "rg-152",
+  "round": "2",
+  "arm": "gateway",
+  "pub_refs": 6,
+  "cov": 1.0,
+  "bad_refs": 23,
+  "gen_refs": 30,
+  "bytes": 4232
+ },
+ {
+  "task": "rg-152",
+  "round": "2",
+  "arm": "direct-ts",
+  "pub_refs": 6,
+  "cov": 0.3333333333333333,
+  "bad_refs": 17,
+  "gen_refs": 20,
+  "bytes": 3722
+ },
+ {
+  "task": "mcp-22",
+  "round": "2",
+  "arm": "gateway",
+  "pub_refs": 77,
+  "cov": 0.5844155844155844,
+  "bad_refs": 1,
+  "gen_refs": 46,
+  "bytes": 8215
+ },
+ {
+  "task": "mcp-22",
+  "round": "2",
+  "arm": "direct-ts",
+  "pub_refs": 77,
+  "cov": 0.5844155844155844,
+  "bad_refs": 0,
+  "gen_refs": 45,
+  "bytes": 7535
+ },
+ {
+  "task": "mcp-21",
+  "round": "2",
+  "arm": "gateway",
+  "pub_refs": 21,
+  "cov": 0.2857142857142857,
+  "bad_refs": 0,
+  "gen_refs": 6,
+  "bytes": 3586
+ },
+ {
+  "task": "mcp-21",
+  "round": "2",
+  "arm": "direct-ts",
+  "pub_refs": 21,
+  "cov": 0.9523809523809523,
+  "bad_refs": 0,
+  "gen_refs": 20,
+  "bytes": 4172
+ },
+ {
+  "task": "uv-1222",
+  "round": "2",
+  "arm": "gateway",
+  "pub_refs": 17,
+  "cov": 0.9411764705882353,
+  "bad_refs": 0,
+  "gen_refs": 28,
+  "bytes": 3098
+ },
+ {
+  "task": "uv-1222",
+  "round": "2",
+  "arm": "direct-ts",
+  "pub_refs": 17,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 30,
+  "bytes": 3567
+ },
+ {
+  "task": "uv-135",
+  "round": "2",
+  "arm": "gateway",
+  "pub_refs": 15,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 33,
+  "bytes": 3212
+ },
+ {
+  "task": "uv-135",
+  "round": "2",
+  "arm": "direct-ts",
+  "pub_refs": 15,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 40,
+  "bytes": 4018
+ },
+ {
+  "task": "gemini-65",
+  "round": "2",
+  "arm": "gateway",
+  "pub_refs": 30,
+  "cov": 0.9,
+  "bad_refs": 0,
+  "gen_refs": 27,
+  "bytes": 4717
+ },
+ {
+  "task": "gemini-65",
+  "round": "2",
+  "arm": "direct-ts",
+  "pub_refs": 30,
+  "cov": 0.8666666666666667,
+  "bad_refs": 0,
+  "gen_refs": 26,
+  "bytes": 4141
+ },
+ {
+  "task": "gemini-66",
+  "round": "2",
+  "arm": "gateway",
+  "pub_refs": 26,
+  "cov": 0.9615384615384616,
+  "bad_refs": 0,
+  "gen_refs": 25,
+  "bytes": 3797
+ },
+ {
+  "task": "gemini-66",
+  "round": "2",
+  "arm": "direct-ts",
+  "pub_refs": 26,
+  "cov": 0.8846153846153846,
+  "bad_refs": 0,
+  "gen_refs": 23,
+  "bytes": 3739
+ },
+ {
+  "task": "ruff-171",
+  "round": "1",
+  "arm": "gateway",
+  "pub_refs": 7,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 13,
+  "bytes": 2406
+ },
+ {
+  "task": "ruff-171",
+  "round": "1",
+  "arm": "direct-ts",
+  "pub_refs": 7,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 47,
+  "bytes": 5460
+ },
+ {
+  "task": "ruff-173",
+  "round": "1",
+  "arm": "gateway",
+  "pub_refs": 6,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 44,
+  "bytes": 4899
+ },
+ {
+  "task": "ruff-173",
+  "round": "1",
+  "arm": "direct-ts",
+  "pub_refs": 6,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 60,
+  "bytes": 5810
+ },
+ {
+  "task": "zod-465",
+  "round": "1",
+  "arm": "gateway",
+  "pub_refs": 3,
+  "cov": 0.6666666666666666,
+  "bad_refs": 0,
+  "gen_refs": 2,
+  "bytes": 715
+ },
+ {
+  "task": "zod-465",
+  "round": "1",
+  "arm": "direct-ts",
+  "pub_refs": 3,
+  "cov": 0.6666666666666666,
+  "bad_refs": 0,
+  "gen_refs": 2,
+  "bytes": 671
+ },
+ {
+  "task": "zod-466",
+  "round": "1",
+  "arm": "gateway",
+  "pub_refs": 5,
+  "cov": 0.8,
+  "bad_refs": 1,
+  "gen_refs": 5,
+  "bytes": 924
+ },
+ {
+  "task": "zod-466",
+  "round": "1",
+  "arm": "direct-ts",
+  "pub_refs": 5,
+  "cov": 0.8,
+  "bad_refs": 1,
+  "gen_refs": 5,
+  "bytes": 715
+ },
+ {
+  "task": "rg-141",
+  "round": "1",
+  "arm": "gateway",
+  "pub_refs": 2,
+  "cov": 1.0,
+  "bad_refs": 18,
+  "gen_refs": 20,
+  "bytes": 2983
+ },
+ {
+  "task": "rg-141",
+  "round": "1",
+  "arm": "direct-ts",
+  "pub_refs": 2,
+  "cov": 1.0,
+  "bad_refs": 18,
+  "gen_refs": 20,
+  "bytes": 2648
+ },
+ {
+  "task": "rg-152",
+  "round": "1",
+  "arm": "gateway",
+  "pub_refs": 6,
+  "cov": 0.3333333333333333,
+  "bad_refs": 15,
+  "gen_refs": 18,
+  "bytes": 3493
+ },
+ {
+  "task": "rg-152",
+  "round": "1",
+  "arm": "direct-ts",
+  "pub_refs": 6,
+  "cov": 0.6666666666666666,
+  "bad_refs": 14,
+  "gen_refs": 19,
+  "bytes": 3892
+ },
+ {
+  "task": "mcp-22",
+  "round": "1",
+  "arm": "gateway",
+  "pub_refs": 77,
+  "cov": 0.5454545454545454,
+  "bad_refs": 0,
+  "gen_refs": 42,
+  "bytes": 6587
+ },
+ {
+  "task": "mcp-22",
+  "round": "1",
+  "arm": "direct-ts",
+  "pub_refs": 77,
+  "cov": 0.5194805194805194,
+  "bad_refs": 0,
+  "gen_refs": 40,
+  "bytes": 9526
+ },
+ {
+  "task": "mcp-21",
+  "round": "1",
+  "arm": "gateway",
+  "pub_refs": 21,
+  "cov": 0.6666666666666666,
+  "bad_refs": 0,
+  "gen_refs": 14,
+  "bytes": 3850
+ },
+ {
+  "task": "mcp-21",
+  "round": "1",
+  "arm": "direct-ts",
+  "pub_refs": 21,
+  "cov": 0.9047619047619048,
+  "bad_refs": 0,
+  "gen_refs": 19,
+  "bytes": 4351
+ },
+ {
+  "task": "uv-1222",
+  "round": "1",
+  "arm": "gateway",
+  "pub_refs": 17,
+  "cov": 0.9411764705882353,
+  "bad_refs": 0,
+  "gen_refs": 28,
+  "bytes": 2844
+ },
+ {
+  "task": "uv-1222",
+  "round": "1",
+  "arm": "direct-ts",
+  "pub_refs": 17,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 29,
+  "bytes": 3410
+ },
+ {
+  "task": "uv-135",
+  "round": "1",
+  "arm": "gateway",
+  "pub_refs": 15,
+  "cov": 1.0,
+  "bad_refs": 0,
+  "gen_refs": 22,
+  "bytes": 2699
+ },
+ {
+  "task": "uv-135",
+  "round": "1",
+  "arm": "direct-ts",
+  "pub_refs": 15,
+  "cov": 0.9333333333333333,
+  "bad_refs": 0,
+  "gen_refs": 27,
+  "bytes": 2909
+ },
+ {
+  "task": "gemini-65",
+  "round": "1",
+  "arm": "gateway",
+  "pub_refs": 30,
+  "cov": 0.8666666666666667,
+  "bad_refs": 0,
+  "gen_refs": 26,
+  "bytes": 4218
+ },
+ {
+  "task": "gemini-65",
+  "round": "1",
+  "arm": "direct-ts",
+  "pub_refs": 30,
+  "cov": 0.8666666666666667,
+  "bad_refs": 0,
+  "gen_refs": 26,
+  "bytes": 4634
+ },
+ {
+  "task": "gemini-66",
+  "round": "1",
+  "arm": "gateway",
+  "pub_refs": 26,
+  "cov": 0.9615384615384616,
+  "bad_refs": 0,
+  "gen_refs": 25,
+  "bytes": 4168
+ },
+ {
+  "task": "gemini-66",
+  "round": "1",
+  "arm": "direct-ts",
+  "pub_refs": 26,
+  "cov": 0.9615384615384616,
+  "bad_refs": 0,
+  "gen_refs": 25,
+  "bytes": 4031
+ }
+]
