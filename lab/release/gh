@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Read-only gh shim for the release lab. The agent may read PRs, issues, commits and compare data.
+# It may not read releases, file contents, tags or refs (that would show the published answer), and it never writes.
+real="${GH_REAL:?GH_REAL not set}"
+low=" $(printf '%s ' "$@" | tr 'A-Z' 'a-z')"
+deny() { echo "gh: blocked by the lab (read-only; no release, contents, tag or ref endpoints)" >&2; exit 1; }
+case "${1:-}" in
+  api) ;;
+  pr|issue) case "${2:-}" in view|list|diff) ;; *) deny ;; esac ;;
+  *) deny ;;
+esac
+case "$low" in
+  *release*|*/contents*|*/tags*|*/git/*|*readme*|*/refs*|*search/code*|*graphql*|*/archive*|*/zipball*|*/tarball*) deny ;;
+esac
+for a in "$@"; do
+  case "$a" in -f|-F|--field|--raw-field|--input|-X|--method|--method=*|-X*) [ "$a" = "-X" ] || deny ;; esac
+done
+prev=""
+for a in "$@"; do
+  if [ "$prev" = "-X" ] && [ "$a" != "GET" ]; then deny; fi
+  prev="$a"
+done
+exec "$real" "$@"
