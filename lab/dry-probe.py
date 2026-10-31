@@ -21,9 +21,14 @@ def send(msgs):
             "tools": [{"name": n, "description": n, "input_schema": {"type": "object", "properties": {}}} for n in ("Bash", "Read")]}
     req = urllib.request.Request(os.environ["ANTHROPIC_BASE_URL"] + "/v1/messages", json.dumps(body).encode(), hdrs)
     raw = urllib.request.urlopen(req, timeout=120).read().decode()
-    i = raw.find("cm-dry-run:"); assert i >= 0, raw[:300]
-    b64 = raw[i + 11:].split('"')[0].split("\\")[0]
-    return json.loads(base64.b64decode(b64))
+    txt = ""
+    for ln in raw.splitlines():
+        if ln.startswith("data:"):
+            try: e = json.loads(ln[5:])
+            except Exception: continue
+            if e.get("type") == "content_block_delta": txt += e["delta"].get("text", "")
+    assert txt.startswith("cm-dry-run:"), raw[:300]
+    return json.loads(base64.b64decode(txt[11:]))
 os.makedirs("out", exist_ok=True)
 for name, msgs in (("A_last_message", base), ("B_older_turn", base + more)):
     p = send(msgs); fb = p["body"]["messages"]
