@@ -14,7 +14,7 @@ case "$arm" in
   direct) ;;
   direct-ts) put ENABLE_TOOL_SEARCH true ;;
   gateway) put ANTHROPIC_BASE_URL "$gw"; put ANTHROPIC_CUSTOM_HEADERS "$hdr"; put ENABLE_TOOL_SEARCH true ;;
-  gateway-dry)
+  gateway-dry|cause)
     put ANTHROPIC_BASE_URL "$gw"; put ANTHROPIC_CUSTOM_HEADERS "$hdr
 x-cm-dry-run: 1"; put ENABLE_TOOL_SEARCH true ;;
   *) echo "unknown arm $arm"; exit 2 ;;

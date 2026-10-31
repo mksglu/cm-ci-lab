@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       task: { type: choice, options: [requests, flask, express, koa, cobra, ripgrep, rich, black, axios, chalk, gin, fd], default: requests }
-      arm: { type: choice, options: [baseline, direct-ts, gateway, gateway-dry], default: baseline }
+      arm: { type: choice, options: [baseline, direct-ts, gateway, gateway-dry, cause], default: baseline }
       model: { type: string, default: claude-sonnet-5-5 }
       tag: { type: string, default: "" }
       control: { type: boolean, default: false, description: "keep the fix in place; the suite must pass (task validity check, baseline arm only)" }
@@ -51,13 +51,25 @@ jobs:
           CONTEXT_MODE_KEY: ${{ secrets.CONTEXT_MODE_KEY }}
         run: bash lab/path-env.sh "${{ inputs.arm }}"
       - name: Install Claude Code (native installer)
-        if: (inputs.arm == 'direct-ts' || inputs.arm == 'gateway')
+        if: (inputs.arm == 'direct-ts' || inputs.arm == 'gateway' || inputs.arm == 'cause')
         run: |
           curl -fsSL https://claude.ai/install.sh | bash
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Dry probe (no model call)
         if: inputs.arm == 'gateway-dry'
         run: python3 lab/dry-probe.py out/baseline.log | tee out/dry-probe.txt
+      - name: Cause check (no model call)
+        if: inputs.arm == 'cause'
+        run: |
+          mkdir -p cap out
+          python3 lab/capture.py 8099 cap &
+          sleep 2
+          cd "$RUNNER_TEMP/repo"
+          env -u ANTHROPIC_CUSTOM_HEADERS ANTHROPIC_BASE_URL=http://127.0.0.1:8099 ANTHROPIC_API_KEY=sk-ant-lab-dry-not-a-key \
+            timeout 90 claude -p "CI failed. Run \`$TASK_TEST\`, find the root cause, fix it with the smallest change." \
+            --model "${{ inputs.model }}" --max-turns 3 --allowedTools "Bash,Read,Edit,Write,Glob,Grep" > /dev/null 2>&1 || true
+          cd "$GITHUB_WORKSPACE"; ls cap | wc -l
+          python3 lab/cause-check.py out/baseline.log cap | tee out/cause-check.txt
       - name: Triage
         if: (inputs.arm == 'direct-ts' || inputs.arm == 'gateway')
         continue-on-error: true
